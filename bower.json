@@ -1,0 +1,24 @@
+{
+  "name": "urban-plantier-promo-site",
+  "version": "1.0.0",
+  "authors": [
+    "ips <ips@ips.re>"
+  ],
+  "main": "index.html",
+  "license": "ISC",
+  "homepage": "https://github.com/audioathlete/urban-plantier-promo-site",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.3.4",
+    "jquery": "~2.1.1",
+    "modernizr": "~2.8.3",
+    "lesshat": "~3.0.2"
+  }
+}
