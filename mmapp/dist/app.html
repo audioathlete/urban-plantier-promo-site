@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <!-- Google fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/styles.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+
+  <body>
+
+    <a href="http://www.mashmachines.it/" onclick="top.window.location.href='http://www.mashmachines.it/'">
+      <img class="mmlogo" src="images/mmlogo.png" />
+    </a>
+
+    <div id="svgContainer"></div>
+
+    <div id="confirmDeleteRecordingModal" class="overlay">
+      <div class="modal">
+
+        <div class="message">Are you sure you want to delete this mashup?</div>
+        <div class="buttons">
+          <button class="yes">Yes, delete</button>
+          <button class="no">Cancel</button>
+        </div>
+      
+      </div>
+    </div>
+
+    <div id="confirmSubmitMashupModal" class="overlay">
+      <div class="modal">
+
+        <div class="message">Be careful, you can submit only one mashup. Are you sure this is the one?</div>
+        <div class="buttons">
+          <button class="yes">Yes</button>
+          <button class="no">No</button>
+        </div>
+      
+      </div>
+    </div>
+
+    <div id="notSupportedModal" class="overlay">
+      <div class="modal">
+
+        <div class="message">Unfortunately your web browser does not support web audio. Try to download <a href="http://www.mozilla.org/en-US/products/download.html">firefox</a> or <a href="https://www.google.com/intl/en/chrome/browser/">google chrome</a>.</div>
+        <img src="images/error-cube.png" />
+      
+      </div>
+    </div>
+
+    <div id="tutorialModal" class="overlay">
+
+      <a class="mmlogo" href="http://www.mashmachines.it/" onclick="top.window.location.href='http://www.mashmachines.it/'">
+        <img src="images/mmlogo.png" />
+      </a>
+
+      <div class="animations">
+        <div class="slide">
+          <div class="caption">Trascina un cubetto sulla superficie per far partire il loop</div>
+          <iframe src="tutorial/animStart/animStart.html"></iframe>
+        </div>
+        <div class="slide">
+          <div class="caption">Muovi i cubetti sulla superficie per ottenere effetti</div>
+          <iframe src="tutorial/animEffect/animEffects.html"></iframe>
+        </div>
+        <div class="slide">
+          <div class="caption">Trascina via un cubetto o premi x per fermare il loop</div>
+          <iframe src="tutorial/animPosition/animPosition.html"></iframe>
+        </div>
+        <div class="slide">
+          <div class="caption">Posiziona un cubetto sul tavolo per iniziare a registrare</div>
+          <iframe src="tutorial/animRec/animRec.html"></iframe>
+        </div>
+        <div class="slide">
+          <div class="caption">Usa la tastiera</div>
+          <iframe src="tutorial/animKeyboard/animKeyboard.html"></iframe>
+        </div>
+      </div>
+    
+      <div class="modal">
+      
+        <div class="footer">
+          
+          <div id="soundbank1Loader" class="loader">
+            <div class="empty loading">Loading ...</div>
+            <div class="full loading"></div>
+            <div class="play">Play &gt;</div>
+          </div>
+
+          <div id="soundbank2Loader" class="loader">
+            <div class="empty loading">Loading ...</div>
+            <div class="full loading"></div>
+            <div class="play">Play &gt;</div>
+          </div>
+
+          <div class="pages">
+            <button class="previous">&#9664;</button>
+            <button class="next">&#9654;</button>
+          </div>
+        
+        </div>
+      </div>
+    </div>
+
+    <script src="js/mmapp.js"></script>
+
+  </body>
+</html>

@@ -3,19 +3,190 @@
 
 @font-face {
     font-family: 'populaire';
-    src: url('populaire_regular.eot');
-    src: url('populaire_regular.eot?#iefix') format('embedded-opentype'),
-         url('populaire_regular.woff2') format('woff2'),
-         url('populaire_regular.woff') format('woff'),
-         url('populaire_regular.ttf') format('truetype');
+    src: url('../fonts/populaire_regular.eot');
+    src: url('../fonts/populaire_regular.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/populaire_regular.woff2') format('woff2'),
+         url('../fonts/populaire_regular.woff') format('woff'),
+         url('../fonts/populaire_regular.ttf') format('truetype');
     font-weight: 400;
 }
 @font-face {
     font-family: 'populaire';
-    src: url('populaire_light.eot');
-    src: url('populaire_light.eot?#iefix') format('embedded-opentype'),
-         url('populaire_light.woff2') format('woff2'),
-         url('populaire_light.woff') format('woff'),
-         url('populaire_light.ttf') format('truetype');
+    src: url('../fonts/populaire_light.eot');
+    src: url('../fonts/populaire_light.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/populaire_light.woff2') format('woff2'),
+         url('../fonts/populaire_light.woff') format('woff'),
+         url('../fonts/populaire_light.ttf') format('truetype');
+    font-weight: 300;
+}
+
+
+
+
+/*``````````````````````````````
+    Museo Sans                */
+
+@font-face {
+    font-family: 'museo-sans';
+    src: url('../fonts/museosans-100.eot');
+    src: url('../fonts/museosans-100.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/museosans-100.woff2') format('woff2'),
+         url('../fonts/museosans-100.woff') format('woff'),
+         url('../fonts/museosans-100.ttf') format('truetype');
+    font-weight: 100;
+}
+@font-face {
+    font-family: 'museo-sans';
+    src: url('../fonts/museosans-100italic.eot');
+    src: url('../fonts/museosans-100italic.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/museosans-100italic.woff2') format('woff2'),
+         url('../fonts/museosans-100italic.woff') format('woff'),
+         url('../fonts/museosans-100italic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'museo-sans';
+    src: url('../fonts/museosans-300.eot');
+    src: url('../fonts/museosans-300.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/museosans-300.woff2') format('woff2'),
+         url('../fonts/museosans-300.woff') format('woff'),
+         url('../fonts/museosans-300.ttf') format('truetype');
+    font-weight: 300;
+}
+@font-face {
+    font-family: 'museo-sans';
+    src: url('../fonts/museosans-300italic.eot');
+    src: url('../fonts/museosans-300italic.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/museosans-300italic.woff2') format('woff2'),
+         url('../fonts/museosans-300italic.woff') format('woff'),
+         url('../fonts/museosans-300italic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'museo-sans';
+    src: url('../fonts/museosans_500.eot');
+    src: url('../fonts/museosans_500.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/museosans_500.woff2') format('woff2'),
+         url('../fonts/museosans_500.woff') format('woff'),
+         url('../fonts/museosans_500.ttf') format('truetype');
+    font-weight: 500;
+}
+@font-face {
+    font-family: 'museo-sans';
+    src: url('../fonts/museosans_500_italic.eot');
+    src: url('../fonts/museosans_500_italic.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/museosans_500_italic.woff2') format('woff2'),
+         url('../fonts/museosans_500_italic.woff') format('woff'),
+         url('../fonts/museosans_500_italic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'museo-sans';
+    src: url('../fonts/museosans_700.eot');
+    src: url('../fonts/museosans_700.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/museosans_700.woff2') format('woff2'),
+         url('../fonts/museosans_700.woff') format('woff'),
+         url('../fonts/museosans_700.ttf') format('truetype');
+    font-weight: 700;
+}
+@font-face {
+    font-family: 'museo-sans';
+    src: url('../fonts/museosans-700italic.eot');
+    src: url('../fonts/museosans-700italic.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/museosans-700italic.woff2') format('woff2'),
+         url('../fonts/museosans-700italic.woff') format('woff'),
+         url('../fonts/museosans-700italic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'museo-sans';
+    src: url('../fonts/museosans_900.eot');
+    src: url('../fonts/museosans_900.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/museosans_900.woff2') format('woff2'),
+         url('../fonts/museosans_900.woff') format('woff'),
+         url('../fonts/museosans_900.ttf') format('truetype');
+    font-weight: 900;
+}
+@font-face {
+    font-family: 'museo-sans';
+    src: url('../fonts/museosans-900italic.eot');
+    src: url('../fonts/museosans-900italic.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/museosans-900italic.woff2') format('woff2'),
+         url('../fonts/museosans-900italic.woff') format('woff'),
+         url('../fonts/museosans-900italic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+
+
+/*``````````````````````````````
+    Dosis                     */
+
+@font-face {
+    font-family: 'dosis';
+    src: url('../fonts/dosis-extralight.eot');
+    src: url('../fonts/dosis-extralight.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/dosis-extralight.woff2') format('woff2'),
+         url('../fonts/dosis-extralight.woff') format('woff'),
+         url('../fonts/dosis-extralight.ttf') format('truetype');
+    font-weight: 200;
+}
+@font-face {
+    font-family: 'dosis';
+    src: url('../fonts/dosis-medium.eot');
+    src: url('../fonts/dosis-medium.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/dosis-medium.woff2') format('woff2'),
+         url('../fonts/dosis-medium.woff') format('woff'),
+         url('../fonts/dosis-medium.ttf') format('truetype');
+    font-weight: 500;
+}
+@font-face {
+    font-family: 'dosis';
+    src: url('../fonts/dosis-extrabold.eot');
+    src: url('../fonts/dosis-extrabold.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/dosis-extrabold.woff2') format('woff2'),
+         url('../fonts/dosis-extrabold.woff') format('woff'),
+         url('../fonts/dosis-extrabold.ttf') format('truetype');
+    font-weight: 800;
+}
+@font-face {
+    font-family: 'dosis';
+    src: url('../fonts/dosis-bold.eot');
+    src: url('../fonts/dosis-bold.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/dosis-bold.woff2') format('woff2'),
+         url('../fonts/dosis-bold.woff') format('woff'),
+         url('../fonts/dosis-bold.ttf') format('truetype');
+    font-weight: 700;
+}
+@font-face {
+    font-family: 'dosis';
+    src: url('../fonts/dosis-semibold.eot');
+    src: url('../fonts/dosis-semibold.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/dosis-semibold.woff2') format('woff2'),
+         url('../fonts/dosis-semibold.woff') format('woff'),
+         url('../fonts/dosis-semibold.ttf') format('truetype');
+    font-weight: 600;
+}
+@font-face {
+    font-family: 'dosis';
+    src: url('../fonts/dosis-regular.eot');
+    src: url('../fonts/dosis-regular.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/dosis-regular.woff2') format('woff2'),
+         url('../fonts/dosis-regular.woff') format('woff'),
+         url('../fonts/dosis-regular.ttf') format('truetype');
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'dosis';
+    src: url('../fonts/dosis-light.eot');
+    src: url('../fonts/dosis-light.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/dosis-light.woff2') format('woff2'),
+         url('../fonts/dosis-light.woff') format('woff'),
+         url('../fonts/dosis-light.ttf') format('truetype');
     font-weight: 300;
 }

@@ -1,0 +1,300 @@
+body,
+html {
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: 'Open Sans', sans-serif;
+  /*overflow: hidden;*/
+  position: absolute;
+  width: 685px;
+  height: 616px;
+}
+a {
+  color: #FAC40A;
+  text-decoration: none;
+}
+.buttonMixin {
+  display: inline-block;
+  text-align: center;
+  color: black;
+  border: none;
+  border-radius: 0.2em;
+  padding: 0.8em 1.7em;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  font-size: 130%;
+  text-transform: uppercase;
+}
+button {
+  display: inline-block;
+  text-align: center;
+  color: black;
+  border: none;
+  border-radius: 0.2em;
+  padding: 0.8em 1.7em;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  font-size: 130%;
+  text-transform: uppercase;
+  cursor: pointer;
+  background-color: #333;
+}
+button:hover {
+  background-color: #FAC40A;
+}
+#svgContainer {
+  width: 700px;
+  display: none;
+}
+#debug {
+  color: white;
+}
+#debug .msg {
+  margin: 0.1em 0;
+  background-color: grey;
+}
+/* for debugging */
+#plots .plot {
+  fill: none;
+  stroke-width: 1px;
+}
+#plots .plot-0 {
+  stroke: blue;
+}
+#plots .plot-1 {
+  stroke: red;
+}
+.overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.overlay .modal {
+  width: 90%;
+  height: 90%;
+  position: absolute;
+  left: 5%;
+  top: 5%;
+  background-color: transparent;
+  color: white;
+}
+.overlay .modal .footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+.svgButton image.hover {
+  display: none;
+}
+.svgButton:hover image.hover {
+  cursor: pointer;
+  display: block;
+}
+#recMenu {
+  /* Buttons in the menu bar, rec, delete, play , ... */
+}
+#recMenu .svgButton {
+  display: none;
+}
+#recMenu.initial #startRecording {
+  display: block;
+}
+#recMenu.initial #playRecordingDisabled {
+  display: block;
+}
+#recMenu.initial #cancelRecordingDisabled {
+  display: block;
+}
+#recMenu.recording #nowRecording {
+  display: block;
+}
+#recMenu.recording #playRecordingDisabled {
+  display: block;
+}
+#recMenu.recording #cancelRecording {
+  display: block;
+}
+#recMenu.recordingReady #recordingDisabled {
+  display: block;
+}
+#recMenu.recordingReady #playRecording {
+  display: block;
+}
+#recMenu.recordingReady #deleteRecording {
+  display: block;
+}
+#recMenu.recordingReady #submitMashup {
+  display: block;
+}
+#recMenu.playing #recordingDisabled {
+  display: block;
+}
+#recMenu.playing #stopPlaying {
+  display: block;
+}
+#recMenu.playing #deleteRecordingDisabled {
+  display: block;
+}
+#soundbankButtons #selectSoundbank2,
+#soundbankButtons #soundbank1Selected,
+#soundbankButtons #soundbank2Selected {
+  display: none;
+}
+#soundbankButtons.selected1 #soundbank1Selected {
+  display: block;
+}
+#soundbankButtons.selected1 #selectSoundbank1 {
+  display: none;
+}
+#soundbankButtons.selected2 #soundbank2Selected {
+  display: block;
+}
+#soundbankButtons.selected2 #selectSoundbank2 {
+  display: none;
+}
+#otherButtons #hideKeyboardHelp {
+  display: none;
+  cursor: pointer;
+}
+.recLiquid {
+  fill: #F17BBC;
+  opacity: 0.15;
+}
+.playLiquid {
+  fill: #149157;
+  opacity: 0.15;
+}
+.placeCubeToStart rect {
+  fill: 9BE1E8;
+  opacity: 0.15;
+}
+.placeCubeToStart text {
+  font-size: 200%;
+  fill: white;
+}
+/* Little circles on top of controllers to show the key to press activate or deactivate */
+.keyHelper text {
+  fill: white;
+  stroke: white;
+  font-size: 125%;
+  text-transform: uppercase;
+}
+.keyHelper.melody circle {
+  fill: #B24040;
+}
+.keyHelper.bass circle {
+  fill: #54b8cd;
+}
+.keyHelper.drum circle {
+  fill: #6660A0;
+}
+.keyHelper.vocal circle {
+  fill: #CE921B;
+}
+#confirmDeleteRecordingModal,
+#confirmSubmitMashupModal {
+  text-align: center;
+}
+#confirmDeleteRecordingModal .modal,
+#confirmSubmitMashupModal .modal {
+  top: 30%;
+}
+#confirmDeleteRecordingModal .modal .message,
+#confirmSubmitMashupModal .modal .message {
+  font-size: 200%;
+}
+#confirmDeleteRecordingModal .modal .buttons,
+#confirmSubmitMashupModal .modal .buttons {
+  margin-top: 2em;
+}
+#notSupportedModal {
+  text-align: center;
+}
+#notSupportedModal .message {
+  font-size: 200%;
+  margin-bottom: 2em;
+}
+#notSupportedModal img.melting {
+  display: block;
+}
+#tutorialModal {
+  display: block;
+}
+#tutorialModal .animations .slide {
+  display: none;
+}
+#tutorialModal .animations .slide .caption {
+  color: black;
+  text-align: center;
+  font-size: 200%;
+  margin: 0 15%;
+  margin-top: 50%;
+}
+#tutorialModal .animations .slide > iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+#tutorialModal .footer {
+  min-height: 4em;
+  /* Necessary to have a height if footer empty otherwise */
+}
+#tutorialModal .footer .pages {
+  display: none;
+}
+#tutorialModal .footer .loader {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+#tutorialModal .footer .loader .full,
+#tutorialModal .footer .loader .empty,
+#tutorialModal .footer .loader .play {
+  width: 8em;
+  display: inline-block;
+  text-align: center;
+  color: black;
+  border: none;
+  border-radius: 0.2em;
+  padding: 0.8em 1.7em;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  font-size: 130%;
+  text-transform: uppercase;
+  z-index: 2;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+#tutorialModal .footer .loader .full {
+  z-index: 1;
+  height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  background-color: #0C5835;
+}
+#tutorialModal .footer .loader .play {
+  display: none;
+  background-color: #6fe0f7;
+  cursor: pointer;
+}
+#tutorialModal .footer .loader .play:hover {
+  background-color: #CFA208;
+}
+#tutorialModal .footer #soundbank2Loader {
+  display: none;
+}
+.mmlogo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}

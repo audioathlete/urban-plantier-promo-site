@@ -1,0 +1,708 @@
+/*!
+Urban Plantier promo site 2014
+*/
+
+@charset 'UTF-8';
+
+@import (reference) '../bower_components/lesshat/build/lesshat.less';
+@import (reference) 'inc/custom-vars-mixins.less';
+// @import 'bower_components/ionicons/less/ionicons.less';
+
+
+
+/*//////////////////////////////
+
+    App specific CSS
+
+//////////////////////////////*/
+
+* { .box-sizing( border-box ); }
+
+body, html { height: 100%; }
+
+body {
+    font: 300 16px/1.5 'museo-sans' sans-serif;
+    .antialiased;
+    color: @text-color;
+}
+
+#main-nav         { z-index: 5; }
+#nano-pot         { z-index: 4; }
+#main             { z-index: 3; }
+#tomato-in-a-pot  { z-index: 2; }
+#window-sil       { z-index: 1; }
+#bg-city-panorama { z-index: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: @brand-typeface;
+    font-weight: 300;
+}
+
+a {
+    color: darken( @brand-blue, 10% );
+    text-decoration: none;
+    // border-bottom: 1px solid darken( @brand-blue, 10% );
+    .transition( color @reflex @ease );
+
+    &:hover, &:active {
+        color: lighten( @brand-blue, 10% );
+        // border-bottom-color: white;
+    }
+}
+
+
+
+//``````````````````````````````
+//  Nav menus
+//
+#main-nav,
+#home-nav {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 0;
+    padding-top: 450px;
+
+    font-family: @brand-typeface;
+    font-weight: 300;
+    font-size: 40px;
+    line-height: 1;
+    text-transform: uppercase;
+
+    ul {
+        padding: 0;
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 720px;
+        height: 140px;
+        margin: 0 -360px;
+    }
+
+    li {
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 50%;
+        height: 140px;
+        text-align: left;
+        .transform-origin( 100% 50% );
+        .transition( transform ( @reflex / 2 ) @ease );
+
+        span {
+            display: inline-table;
+            width: 140px;
+            height: 140px;
+            // .transform( scale( 0 ) );
+            .transition( transform ( @reflex / 2 ) @ease );
+        }
+
+        a {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            padding-top: 9px;
+            .border-radius( 100% );
+            outline: 0;
+            text-decoration: none;
+            white-space: pre-line;
+        }
+
+        &.smart-pot       { a { .gradient-label( @brand-primary ); } }
+        &.plant-mash      { a { .gradient-label( @brand-blue ); } }
+        &.urban-chef      { a { .gradient-label( @brand-red ); } }
+        &.nature-prevails { a { .gradient-label( @brand-green ); } }
+        &.planting-party  { a { .gradient-label( @brand-indigo ); } }
+
+        &.active          { z-index: 0; }
+    }
+}
+
+#home-nav li {
+    &.plant-mash      { .transform( rotate(  30deg ) ); span { .transform( scale( 0 ) rotate( -30deg ) ); } }
+    &.urban-chef      { .transform( rotate(  30deg ) ); span { .transform( scale( 0 ) rotate( -30deg ) ); } }
+    &.nature-prevails { .transform( rotate(  30deg ) ); span { .transform( scale( 0 ) rotate( -30deg ) ); } }
+    &.planting-party  { .transform( rotate(  30deg ) ); span { .transform( scale( 0 ) rotate( -30deg ) ); } }
+}
+
+#main-nav {
+    position: fixed;
+    font-size: 26px;
+
+    &,
+    &.collapsible:hover,
+    &.open {
+        top: auto;
+        bottom: 0;
+        width: 400px;
+        margin-left: -200px;
+        padding-top: 290px;
+        .transition( none );
+    }
+
+    &.collapsible,
+    body.home &,
+    li.home {
+        left: 50%;
+        bottom: 10px;
+        margin-left: -40px;
+        padding-top: 150px;
+        width: 80px;
+        overflow: hidden;
+        .transition( all 0 @ease @reflex );
+    }
+
+    body.home & {
+        pointer-events: none;
+    }
+
+    li,
+    &.collapsible:hover li,
+    &.open li {
+        &.home            { visibility: visible; }
+        &.smart-pot       { .transform( rotate(  30deg ) ); span { .transform( scale( 1 ) rotate( -30deg ) ); } }
+        &.plant-mash      { .transform( rotate(  30deg ) ); span { .transform( scale( 1 ) rotate( -30deg ) ); } }
+        &.urban-chef      { .transform( rotate(  70deg ) ); span { .transform( scale( 1 ) rotate( -70deg ) ); } }
+        &.nature-prevails { .transform( rotate( 110deg ) ); span { .transform( scale( 1 ) rotate(-110deg ) ); } }
+        &.planting-party  { .transform( rotate( 150deg ) ); span { .transform( scale( 1 ) rotate(-150deg ) ); } }
+    }
+
+    li.active,
+    &.collapsible:hover li.active,
+    &.open li.active  {
+        z-index: 0;
+    }
+
+    ul {
+        bottom: 30px;
+        width: 400px;
+        height: 90px;
+        margin: 0 -200px;
+    }
+
+    li {
+        .transition( transform @reflex @ease );
+
+        &, span { height: 90px; }
+        span { width: 90px; .transition( transform @reflex @ease ); }
+        a { padding-top: 5px; }
+
+        &.home {
+            top: auto;
+            bottom: -20px;
+            z-index: 2;
+            visibility: hidden;
+            
+            span, a {
+                position: absolute;
+                left: 0;
+                top: 0;
+                display: block;
+                width: 100%;
+                height: 150px;
+                padding: 0;
+            }
+
+            span {
+                .transform( ~'none !important' );
+            }
+            
+            a {
+                overflow:hidden;
+                text-indent: -999px;
+                .border-radius( 0 );
+            }
+        }
+    }
+}
+
+body {
+    
+    &.home {
+        #home-nav li {
+            &.plant-mash      { .transform( rotate(  30deg ) ); .transition( transform ( @reflex * 2 ) @ease ( @view-transition-dur + .15 ) ); span { .transform( scale( 1 ) rotate( -30deg ) ); .transition( transform ( @reflex * 2 ) @ease ( @view-transition-dur + .15 ) ); } }
+            &.urban-chef      { .transform( rotate(  70deg ) ); .transition( transform ( @reflex * 2 ) @ease ( @view-transition-dur + .1  ) ); span { .transform( scale( 1 ) rotate( -70deg ) ); .transition( transform ( @reflex * 2 ) @ease ( @view-transition-dur + .1  ) ); } }
+            &.nature-prevails { .transform( rotate( 110deg ) ); .transition( transform ( @reflex * 2 ) @ease ( @view-transition-dur + .05 ) ); span { .transform( scale( 1 ) rotate(-110deg ) ); .transition( transform ( @reflex * 2 ) @ease ( @view-transition-dur + .05 ) ); } }
+            &.planting-party  { .transform( rotate( 150deg ) ); .transition( transform ( @reflex * 2 ) @ease ( @view-transition-dur       ) ); span { .transform( scale( 1 ) rotate(-150deg ) ); .transition( transform ( @reflex * 2 ) @ease ( @view-transition-dur       ) ); } }
+        }
+        #main-nav li {
+            .transform( rotate( 0deg ) );
+            span { .transform( scale( 0 ) rotate( 0deg ) ); }
+        }
+    }
+    
+    &.smart-pot #main-nav {
+        li,
+        &.collapsible:hover li,
+        &.open li {
+            &.smart-pot       { .transform( rotate(  30deg ) ); span { .transform( scale( 0 ) rotate( -30deg ) ); } }
+            &.plant-mash      { .transform( rotate(  30deg ) ); span { .transform( scale( 1 ) rotate( -30deg ) ); } }
+            &.urban-chef      { .transform( rotate(  70deg ) ); span { .transform( scale( 1 ) rotate( -70deg ) ); } }
+            &.nature-prevails { .transform( rotate( 110deg ) ); span { .transform( scale( 1 ) rotate(-110deg ) ); } }
+            &.planting-party  { .transform( rotate( 150deg ) ); span { .transform( scale( 1 ) rotate(-150deg ) ); } }
+        }
+    }
+    
+    &.plant-mash #main-nav {
+        li,
+        &.collapsible:hover li,
+        &.open li {
+            &.smart-pot       { .transform( rotate(  30deg ) ); span { .transform( scale( 1 ) rotate( -30deg ) ); } }
+            &.plant-mash      { .transform( rotate(  30deg ) ); span { .transform( scale( 0 ) rotate( -30deg ) ); } }
+            &.urban-chef      { .transform( rotate(  70deg ) ); span { .transform( scale( 1 ) rotate( -70deg ) ); } }
+            &.nature-prevails { .transform( rotate( 110deg ) ); span { .transform( scale( 1 ) rotate(-110deg ) ); } }
+            &.planting-party  { .transform( rotate( 150deg ) ); span { .transform( scale( 1 ) rotate(-150deg ) ); } }
+        }
+    }
+    
+    &.urban-chef #main-nav {
+        li,
+        &.collapsible:hover li,
+        &.open li {
+            &.smart-pot       { .transform( rotate(  30deg ) ); span { .transform( scale( 1 ) rotate( -30deg ) ); } }
+            &.plant-mash      { .transform( rotate(  70deg ) ); span { .transform( scale( 1 ) rotate( -70deg ) ); } }
+            &.urban-chef      { .transform( rotate(  70deg ) ); span { .transform( scale( 0 ) rotate( -70deg ) ); } }
+            &.nature-prevails { .transform( rotate( 110deg ) ); span { .transform( scale( 1 ) rotate(-110deg ) ); } }
+            &.planting-party  { .transform( rotate( 150deg ) ); span { .transform( scale( 1 ) rotate(-150deg ) ); } }
+        }
+    }
+
+    &.nature-prevails #main-nav {
+        li,
+        &.collapsible:hover li,
+        &.open li {
+            &.smart-pot       { .transform( rotate(  30deg ) ); span { .transform( scale( 1 ) rotate( -30deg ) ); } }
+            &.plant-mash      { .transform( rotate(  70deg ) ); span { .transform( scale( 1 ) rotate( -70deg ) ); } }
+            &.urban-chef      { .transform( rotate( 110deg ) ); span { .transform( scale( 1 ) rotate(-110deg ) ); } }
+            &.nature-prevails { .transform( rotate( 110deg ) ); span { .transform( scale( 0 ) rotate(-110deg ) ); } }
+            &.planting-party  { .transform( rotate( 150deg ) ); span { .transform( scale( 1 ) rotate(-150deg ) ); } }
+        }
+    }
+
+    &.planting-party #main-nav {
+        li,
+        &.collapsible:hover li,
+        &.open li {
+            &.smart-pot       { .transform( rotate(  30deg ) ); span { .transform( scale( 1 ) rotate( -30deg ) ); } }
+            &.plant-mash      { .transform( rotate(  70deg ) ); span { .transform( scale( 1 ) rotate( -70deg ) ); } }
+            &.urban-chef      { .transform( rotate( 110deg ) ); span { .transform( scale( 1 ) rotate(-110deg ) ); } }
+            &.nature-prevails { .transform( rotate( 150deg ) ); span { .transform( scale( 1 ) rotate(-150deg ) ); } }
+            &.planting-party  { .transform( rotate( 150deg ) ); span { .transform( scale( 0 ) rotate(-150deg ) ); } }
+        }
+    }
+
+    &.smart-pot,
+    &.plant-mash,
+    &.urban-chef,
+    &.nature-prevails,
+    &.planting-party {
+        #main-nav {
+            li.active,
+            &.collapsible li,
+            &.open li.active  {
+                .transform( rotate( 0deg ) );
+                span { .transform( scale( 0 ) rotate( 0deg ) ); }
+            }
+        }
+    }
+}
+
+
+
+//``````````````````````````````
+//  Background elements
+//
+#bg-city-panorama {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url( ../g/bg-city-panorama.jpg );
+    background-position: 0% 0%;
+    background-size: auto 100%;
+    .transition( background-position-x @view-transition-dur @view-transition-ease );
+    .transform( translate3d(0,0,0) );
+}
+
+body.home            #bg-city-panorama { background-position-x:   0%; }
+body.smart-pot       #bg-city-panorama { background-position-x:  15%; }
+body.plant-mash      #bg-city-panorama { background-position-x:  30%; }
+body.urban-chef      #bg-city-panorama { background-position-x:  45%; }
+body.nature-prevails #bg-city-panorama { background-position-x:  60%; }
+body.planting-party  #bg-city-panorama { background-position-x:  75%; }
+body.error404        #bg-city-panorama { background-position-x:   0%; }
+
+#window-sil {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    overflow: hidden;
+    .transition( height @view-transition-dur @view-transition-ease );
+}
+
+body.home            #window-sil { height: 170px; }
+body.smart-pot       #window-sil { height:   90%; }
+body.plant-mash      #window-sil { height:  60px; }
+body.urban-chef      #window-sil { height:  60px; }
+body.nature-prevails #window-sil { height:  60px; }
+body.planting-party  #window-sil { height:  60px; }
+body.error404        #window-sil { height:   0px; }
+
+
+
+//``````````````````````````````
+//  The Pot
+//
+#tomato-in-a-pot >div,
+#pot-with-shadow {
+    position: absolute;
+    left: 50%;
+    bottom: -20px;
+    width: ( 1692px * .375 );
+    height: ( 1599px * .375 );
+    margin-left: -( ( ( 1692px + 75 ) / 2 ) * .375 );
+    background-image: url( ../g/pot-with-shadow.png );
+    background-position: center bottom;
+    background-size: contain;
+    opacity: 0;
+    .backface-visibility( hidden );
+    .transform-origin( center bottom );
+
+    //  default state on home page
+    opacity: 1;
+    .transform( translate( 0, 0 ) scale( 1 ) );
+    .transition( transform ( @view-transition-dur / 2 ) @view-transition-ease @view-transition-dur, opacity 0 linear @view-transition-dur );
+}
+
+#tomato-in-a-pot {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0;
+    >div { background-image: url( ../g/mini-tomato-in-a-pot.png ); }
+}
+
+#interface {
+    position: absolute;
+    left: 50%;
+    bottom: 180px;
+    width: 140px;
+    height: 140px;
+    margin-left: -55px;
+    overflow: hidden;
+    .transform( translate3d(0,0,0) );
+    .border-radius( 100% );
+    .gradient-label( @brand-primary );
+    .box-shadow( 5px 5px 20px -5px fade( black, 10% ) );
+
+    #interface-window {
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        
+        &, svg {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    #indicator {
+        position: absolute;
+        z-index: 0;
+        left: 2px;
+        top: 2px;
+        width: 136px;
+        height: ( 136px / 2 );
+        overflow: hidden;
+
+        i {
+            display: block;
+            position: relative;
+            width: 100%;
+            height: 200%;
+            background-color: @brand-primary;
+            overflow: hidden;
+            .border-radius( 100% );
+            .transform( rotate( 0deg ) );
+            .transition( transform @reflex @ease );
+
+            &:before, &:after {
+                content: '';
+                display: block;
+                position: absolute;
+                z-index: 0;
+                left: 0;
+                top: 0;
+                width: 50%;
+                height: 100%;
+                background-color: @dry-red;
+            }
+            &:after {
+                left: 50%;
+                background-color: @wet-blue;
+            }
+
+            #indicator-green {
+                position: absolute;
+                z-index: 1;
+                left: -2px;
+                top: -2px;
+
+                &, svg {
+                    width: 140px;
+                    height: 140px;
+                }
+            }
+        }
+
+        &.dry i { .transform( rotate(  90deg ) ); }
+        &.wet i { .transform( rotate( -90deg ) ); }
+        
+        &.dry i,
+        &.wet i { .transition( transform 40s ease-in-out ); }
+    }
+}
+
+#nano-pot {
+    width: 176px;
+    height: 163px;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    margin-left: -88px;
+    background: url( ../g/mini-tomato-in-a-pot-xs.png ) no-repeat;
+    background-size: contain;
+
+    //  default state on home page
+    opacity: 0;
+    margin-bottom: -170px;
+    .transition( opacity 0 linear @view-transition-dur, opacity 0 linear @view-transition-dur );
+
+    //  nano interface
+    i {
+        display: block;
+        position: absolute;
+        left: 50%;
+        bottom: round( 180px * .267 );
+        width: round( 140px * .267 );
+        height: round( 140px * .267 );
+        margin-left: round( -69px * .267 );
+        .gradient-label( @brand-primary );
+        .border-radius( 100% );
+        .box-shadow( ( 5px * .267 ) ( 5px * .267 ) ( 20px * .267 ) ( -5px * .267 ) fade( black, 10% ) );
+    }
+}
+
+body.smart-pot,
+body.plant-mash,
+body.urban-chef,
+body.nature-prevails,
+body.planting-party {
+    
+    #tomato-in-a-pot >div,
+    #pot-with-shadow {
+        .transform( translate( 11px, -20px ) scale( .267 ) );
+        .transition( transform @view-transition-dur @view-transition-ease, opacity 0 linear @view-transition-dur );
+    }
+    
+    #nano-pot {
+        opacity: 1;
+        margin-bottom: 0;
+    }
+
+    #interface #indicator {
+        opacity: 0;
+        .transition( opacity .1s @ease .1s );
+        
+        &.dry i,
+        &.wet i {
+            .transform( rotate( 0deg ) );
+            .transition( transform .1s @ease );
+        }
+    }
+}
+
+
+
+
+
+//``````````````````````````````
+//  Main View
+//
+#main {
+    position: relative;
+    height: 100%;
+
+    .view {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        min-height: 100%;
+        overflow: hidden;
+    }
+}
+body.pan-right .view {
+    &.ng-enter { .animation( enterFromRight @view-transition-dur @view-transition-ease both ); }
+    &.ng-leave { .animation(    leaveToLeft @view-transition-dur @view-transition-ease both ); }
+}
+body.pan-left .view {
+    &.ng-enter { .animation( enterFromLeft @view-transition-dur @view-transition-ease both ); }
+    &.ng-leave { .animation(  leaveToRight @view-transition-dur @view-transition-ease both ); }
+}
+.keyframes(~'enterFromRight, 0%{ transform: translateX( 100% ); opacity: 0; } 100%{ transform: translateX(   0% ); opacity: 1; }');
+.keyframes(~'leaveToLeft,    0%{ transform: translateX(   0% ); opacity: 1; } 100%{ transform: translateX(-100% ); opacity: 0; }');
+.keyframes(~'enterFromLeft,  0%{ transform: translateX(-100% ); opacity: 0; } 100%{ transform: translateX(   0% ); opacity: 1; }');
+.keyframes(~'leaveToRight,   0%{ transform: translateX(   0% ); opacity: 1; } 100%{ transform: translateX( 100% ); opacity: 0; }');
+
+
+
+//``````````````````````````````
+//  Home
+//
+.view.home { height: 100%; }
+
+body.home {
+
+    //  view CONTENT entry animation
+    //  after view entry animation
+    #home #home-logo,
+    #home #home-blurb p {
+        opacity: 1;
+        .transform( scale( 1 ) );
+    }
+    #home #home-logo    { .transition( all @reflex @ease ( @view-transition-dur * 1.5       ) ); }
+    #home #home-blurb p { .transition( all @reflex @ease ( @view-transition-dur * 1.5 + .2s ) ); }
+}
+
+#home {
+    display: block;
+    height: 100%;
+    position: relative;
+
+    #home-blurb {
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 300px;
+        height: 145px;
+        margin-left: -150px;
+        text-align: center;
+
+        p {
+            font-size: 13px;
+            line-height: 1.3;
+            margin: .75em 0 0;
+        }
+
+        a {
+            font-weight: 400;
+            font-size: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+    }
+
+    #home-logo {
+        width: 168px;
+        height: 48px;
+        margin: 0 auto;
+        padding: 7px;
+        background: url( ../g/urban-plantier-logotype-box.svg ) no-repeat center top;
+        background-size: 100% auto;
+
+        color: white;
+        font-family: 'populaire';
+        font-weight: 300;
+        font-size: 42px;
+        line-height: 1;
+
+        span { text-transform: uppercase; }
+    }
+
+    #home-logo,
+    #home-blurb p {
+        opacity: 0;
+        .transform( scale( 0 ) );
+        .transition( all ( @reflex / 2 ) @ease );
+    }
+}
+
+
+
+//``````````````````````````````
+//  Smart Pot
+//
+body.smart-pot {
+
+    //  view CONTENT entry animation
+    //  after view entry animation
+    #smart-pot {
+        opacity: 1;
+        .transform( translateY( 0 ) );
+        .transition( all ( @view-transition-dur * .8 ) @ease @view-transition-dur );
+    }
+}
+
+#smart-pot {
+    max-width: 1080px;
+    margin: 0 auto;
+    min-height: 100%;
+    opacity: 0;
+    .transform( translateY( 1000px ) );
+    .transition( all ( @view-transition-dur * .3 ) @ease );
+
+    text-align: center;
+}
+
+.smart-pot-top-spacer {
+    // height: 10%; // set with JS since parent has MIN-height: 100%;
+    width: 100%;
+}
+
+
+
+//``````````````````````````````
+//  Plant Mash
+//
+#plant-mash {
+    text-align: center;
+    
+    iframe {
+        border: none;
+        background: none;
+        width: 700px;
+        height: 700px;
+    }
+}
+
+
+
+//``````````````````````````````
+//  Urban Chef
+//
+#urban-chef { text-align: center; }
+
+
+
+//``````````````````````````````
+//  #NaturePrevails
+//
+#nature-prevails { text-align: center; }
+
+
+
+//``````````````````````````````
+//  Planting Party
+//
+#planting-party { text-align: center; }
+
+

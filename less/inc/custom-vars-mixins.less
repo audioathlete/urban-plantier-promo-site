@@ -4,14 +4,26 @@
 //``````````````````````````````
 //  Custom vars
 //
+@text-color:    hsl(  40,  15%,  20% );
+@brand-primary: hsl(  80,  70%,  70% );
+@brand-blue:    hsl( 190,  50%,  60% );
+@brand-green:   hsl( 130,  60%,  65% );
+@brand-red:     hsl(   0, 100%,  75% );
+@brand-indigo:  hsl( 280,  50%,  60% );
+@wet-blue:      hsl( 220,  65%,  57% );
+@dry-red:       hsl(   2,  65%,  57% );
 
+@brand-typeface: 'populaire';
+
+@view-transition-dur: .75s;
+@view-transition-ease: cubic-bezier(.6,0,.4,1);
 @reflex: .15s;
 @ease: ease-in-out;
 
-@facebookBlue:      rgb(59, 89, 152);
-@twitterBlue:       rgb(64, 153, 255);
-@linkedInBlue:      rgb(0, 123, 182);
-@googlePlusOrange:  rgb(221, 75, 57);
+@facebook-blue:      rgb( 59, 89, 152 );
+@twitter-blue:       rgb( 64, 153, 255 );
+@linkedin-blue:      rgb( 0, 123, 182 );
+@googleplus-orange:  rgb( 221, 75, 57 );
 
 
 
@@ -28,6 +40,12 @@
     -moz-osx-font-smoothing: none;
 }
 
-
+.gradient-label( @color: @brand-primary ) {
+    // color: @color;
+    // background-color: fade( @color, 20% );
+    color: white;
+    background-color: @color;
+    .background-image( linear-gradient( 150deg, lighten( @color, 5% ) 0%, darken( @color, 7% ) 100% ) );
+}
 
 

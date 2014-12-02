@@ -1,0 +1,8 @@
+<ul>
+    <li ng-repeat="path in navPaths"
+        class="{{ path.slug }}"
+        ng-class="{ 'active': ( navState == path.slug || ( path.slug == 'smart-pot' && navState == 'home' ) ) }"
+    >
+        <span><a href="{{ path.slug=='home' ? '' : path.slug }}">{{ path.label }}</a></span>
+    </li>
+</ul>

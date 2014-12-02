@@ -1,0 +1,1557 @@
+@charset 'UTF-8';
+/*!
+Urban Plantier promo site 2014
+*/
+/*//////////////////////////////
+
+    App specific CSS
+
+//////////////////////////////*/
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body,
+html {
+  height: 100%;
+}
+body {
+  font: 300 16px/1.5 'museo-sans' sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #3b362b;
+}
+#main-nav {
+  z-index: 5;
+}
+#nano-pot {
+  z-index: 4;
+}
+#main {
+  z-index: 3;
+}
+#tomato-in-a-pot {
+  z-index: 2;
+}
+#window-sil {
+  z-index: 1;
+}
+#bg-city-panorama {
+  z-index: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'populaire';
+  font-weight: 300;
+}
+a {
+  color: #40aabf;
+  text-decoration: none;
+  -webkit-transition: color 0.15s ease-in-out;
+  -moz-transition: color 0.15s ease-in-out;
+  -o-transition: color 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out;
+}
+a:hover,
+a:active {
+  color: #8cccd9;
+}
+#main-nav,
+#home-nav {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 0;
+  padding-top: 450px;
+  font-family: 'populaire';
+  font-weight: 300;
+  font-size: 40px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+#main-nav ul,
+#home-nav ul {
+  padding: 0;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 720px;
+  height: 140px;
+  margin: 0 -360px;
+}
+#main-nav li,
+#home-nav li {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 50%;
+  height: 140px;
+  text-align: left;
+  -webkit-transform-origin: 100% 50%;
+  -moz-transform-origin: 100% 50%;
+  -o-transform-origin: 100% 50%;
+  -ms-transform-origin: 100% 50%;
+  transform-origin: 100% 50%;
+  -webkit-transition: -webkit-transform 0.075s ease-in-out;
+  -moz-transition: -moz-transform 0.075s ease-in-out;
+  -o-transition: -o-transform 0.075s ease-in-out;
+  transition: -webkit-transform 0.075s ease-in-out,-moz-transform 0.075s ease-in-out,-o-transform 0.075s ease-in-out,transform 0.075s ease-in-out;
+}
+#main-nav li span,
+#home-nav li span {
+  display: inline-table;
+  width: 140px;
+  height: 140px;
+  -webkit-transition: -webkit-transform 0.075s ease-in-out;
+  -moz-transition: -moz-transform 0.075s ease-in-out;
+  -o-transition: -o-transform 0.075s ease-in-out;
+  transition: -webkit-transform 0.075s ease-in-out,-moz-transform 0.075s ease-in-out,-o-transform 0.075s ease-in-out,transform 0.075s ease-in-out;
+}
+#main-nav li a,
+#home-nav li a {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  padding-top: 9px;
+  -webkit-border-radius: 100%;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 100%;
+  -moz-background-clip: padding;
+  border-radius: 100%;
+  background-clip: padding-box;
+  outline: 0;
+  text-decoration: none;
+  white-space: pre-line;
+}
+#main-nav li.smart-pot a,
+#home-nav li.smart-pot a {
+  color: white;
+  background-color: #c4e87d;
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMSAxIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48bGluZWFyR3JhZGllbnQgaWQ9Imxlc3NoYXQtZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMTAwJSIgeDI9IjAlIiB5Mj0iMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNjZWVjOTMiIHN0b3Atb3BhY2l0eT0iMSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2I3ZTM1ZiIgc3RvcC1vcGFjaXR5PSIxIi8+PC9saW5lYXJHcmFkaWVudD48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2xlc3NoYXQtZ2VuZXJhdGVkKSIgLz48L3N2Zz4=);
+  background-image: -webkit-linear-gradient(-60deg, #ceec93 0%, #b7e35f 100%);
+  background-image: -moz-linear-gradient(-60deg, #ceec93 0%, #b7e35f 100%);
+  background-image: -o-linear-gradient(-60deg, #ceec93 0%, #b7e35f 100%);
+  background-image: linear-gradient(150deg, #ceec93 0%, #b7e35f 100%);
+}
+#main-nav li.plant-mash a,
+#home-nav li.plant-mash a {
+  color: white;
+  background-color: #66bbcc;
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMSAxIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48bGluZWFyR3JhZGllbnQgaWQ9Imxlc3NoYXQtZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMTAwJSIgeDI9IjAlIiB5Mj0iMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiM3OWMzZDIiIHN0b3Atb3BhY2l0eT0iMSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzRiYWZjMyIgc3RvcC1vcGFjaXR5PSIxIi8+PC9saW5lYXJHcmFkaWVudD48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2xlc3NoYXQtZ2VuZXJhdGVkKSIgLz48L3N2Zz4=);
+  background-image: -webkit-linear-gradient(-60deg, #79c3d2 0%, #4bafc3 100%);
+  background-image: -moz-linear-gradient(-60deg, #79c3d2 0%, #4bafc3 100%);
+  background-image: -o-linear-gradient(-60deg, #79c3d2 0%, #4bafc3 100%);
+  background-image: linear-gradient(150deg, #79c3d2 0%, #4bafc3 100%);
+}
+#main-nav li.urban-chef a,
+#home-nav li.urban-chef a {
+  color: white;
+  background-color: #ff8080;
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMSAxIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48bGluZWFyR3JhZGllbnQgaWQ9Imxlc3NoYXQtZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMTAwJSIgeDI9IjAlIiB5Mj0iMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNmZjk5OTkiIHN0b3Atb3BhY2l0eT0iMSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZmNWM1YyIgc3RvcC1vcGFjaXR5PSIxIi8+PC9saW5lYXJHcmFkaWVudD48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2xlc3NoYXQtZ2VuZXJhdGVkKSIgLz48L3N2Zz4=);
+  background-image: -webkit-linear-gradient(-60deg, #ff9999 0%, #ff5c5c 100%);
+  background-image: -moz-linear-gradient(-60deg, #ff9999 0%, #ff5c5c 100%);
+  background-image: -o-linear-gradient(-60deg, #ff9999 0%, #ff5c5c 100%);
+  background-image: linear-gradient(150deg, #ff9999 0%, #ff5c5c 100%);
+}
+#main-nav li.nature-prevails a,
+#home-nav li.nature-prevails a {
+  color: white;
+  background-color: #70db82;
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMSAxIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48bGluZWFyR3JhZGllbnQgaWQ9Imxlc3NoYXQtZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMTAwJSIgeDI9IjAlIiB5Mj0iMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiM4NWUwOTQiIHN0b3Atb3BhY2l0eT0iMSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzU0ZDQ2OSIgc3RvcC1vcGFjaXR5PSIxIi8+PC9saW5lYXJHcmFkaWVudD48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2xlc3NoYXQtZ2VuZXJhdGVkKSIgLz48L3N2Zz4=);
+  background-image: -webkit-linear-gradient(-60deg, #85e094 0%, #54d469 100%);
+  background-image: -moz-linear-gradient(-60deg, #85e094 0%, #54d469 100%);
+  background-image: -o-linear-gradient(-60deg, #85e094 0%, #54d469 100%);
+  background-image: linear-gradient(150deg, #85e094 0%, #54d469 100%);
+}
+#main-nav li.planting-party a,
+#home-nav li.planting-party a {
+  color: white;
+  background-color: #aa66cc;
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMSAxIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48bGluZWFyR3JhZGllbnQgaWQ9Imxlc3NoYXQtZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMTAwJSIgeDI9IjAlIiB5Mj0iMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNiNTc5ZDIiIHN0b3Atb3BhY2l0eT0iMSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzliNGJjMyIgc3RvcC1vcGFjaXR5PSIxIi8+PC9saW5lYXJHcmFkaWVudD48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2xlc3NoYXQtZ2VuZXJhdGVkKSIgLz48L3N2Zz4=);
+  background-image: -webkit-linear-gradient(-60deg, #b579d2 0%, #9b4bc3 100%);
+  background-image: -moz-linear-gradient(-60deg, #b579d2 0%, #9b4bc3 100%);
+  background-image: -o-linear-gradient(-60deg, #b579d2 0%, #9b4bc3 100%);
+  background-image: linear-gradient(150deg, #b579d2 0%, #9b4bc3 100%);
+}
+#main-nav li.active,
+#home-nav li.active {
+  z-index: 0;
+}
+#home-nav li.plant-mash {
+  -webkit-transform: rotate(30deg);
+  -moz-transform: rotate(30deg);
+  -o-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  transform: rotate(30deg);
+}
+#home-nav li.plant-mash span {
+  -webkit-transform: scale(0) rotate(-30deg);
+  -moz-transform: scale(0) rotate(-30deg);
+  -o-transform: scale(0) rotate(-30deg);
+  -ms-transform: scale(0) rotate(-30deg);
+  transform: scale(0) rotate(-30deg);
+}
+#home-nav li.urban-chef {
+  -webkit-transform: rotate(30deg);
+  -moz-transform: rotate(30deg);
+  -o-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  transform: rotate(30deg);
+}
+#home-nav li.urban-chef span {
+  -webkit-transform: scale(0) rotate(-30deg);
+  -moz-transform: scale(0) rotate(-30deg);
+  -o-transform: scale(0) rotate(-30deg);
+  -ms-transform: scale(0) rotate(-30deg);
+  transform: scale(0) rotate(-30deg);
+}
+#home-nav li.nature-prevails {
+  -webkit-transform: rotate(30deg);
+  -moz-transform: rotate(30deg);
+  -o-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  transform: rotate(30deg);
+}
+#home-nav li.nature-prevails span {
+  -webkit-transform: scale(0) rotate(-30deg);
+  -moz-transform: scale(0) rotate(-30deg);
+  -o-transform: scale(0) rotate(-30deg);
+  -ms-transform: scale(0) rotate(-30deg);
+  transform: scale(0) rotate(-30deg);
+}
+#home-nav li.planting-party {
+  -webkit-transform: rotate(30deg);
+  -moz-transform: rotate(30deg);
+  -o-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  transform: rotate(30deg);
+}
+#home-nav li.planting-party span {
+  -webkit-transform: scale(0) rotate(-30deg);
+  -moz-transform: scale(0) rotate(-30deg);
+  -o-transform: scale(0) rotate(-30deg);
+  -ms-transform: scale(0) rotate(-30deg);
+  transform: scale(0) rotate(-30deg);
+}
+#main-nav {
+  position: fixed;
+  font-size: 26px;
+}
+#main-nav,
+#main-nav.collapsible:hover,
+#main-nav.open {
+  top: auto;
+  bottom: 0;
+  width: 400px;
+  margin-left: -200px;
+  padding-top: 290px;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+#main-nav.collapsible,
+body.home #main-nav,
+#main-nav li.home {
+  left: 50%;
+  bottom: 10px;
+  margin-left: -40px;
+  padding-top: 150px;
+  width: 80px;
+  overflow: hidden;
+  -webkit-transition: all 0 ease-in-out 0.15s;
+  -moz-transition: all 0 ease-in-out 0.15s;
+  -o-transition: all 0 ease-in-out 0.15s;
+  transition: all 0 ease-in-out 0.15s;
+}
+body.home #main-nav {
+  pointer-events: none;
+}
+#main-nav li.home,
+#main-nav.collapsible:hover li.home,
+#main-nav.open li.home {
+  visibility: visible;
+}
+#main-nav li.smart-pot,
+#main-nav.collapsible:hover li.smart-pot,
+#main-nav.open li.smart-pot {
+  -webkit-transform: rotate(30deg);
+  -moz-transform: rotate(30deg);
+  -o-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  transform: rotate(30deg);
+}
+#main-nav li.smart-pot span,
+#main-nav.collapsible:hover li.smart-pot span,
+#main-nav.open li.smart-pot span {
+  -webkit-transform: scale(1) rotate(-30deg);
+  -moz-transform: scale(1) rotate(-30deg);
+  -o-transform: scale(1) rotate(-30deg);
+  -ms-transform: scale(1) rotate(-30deg);
+  transform: scale(1) rotate(-30deg);
+}
+#main-nav li.plant-mash,
+#main-nav.collapsible:hover li.plant-mash,
+#main-nav.open li.plant-mash {
+  -webkit-transform: rotate(30deg);
+  -moz-transform: rotate(30deg);
+  -o-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  transform: rotate(30deg);
+}
+#main-nav li.plant-mash span,
+#main-nav.collapsible:hover li.plant-mash span,
+#main-nav.open li.plant-mash span {
+  -webkit-transform: scale(1) rotate(-30deg);
+  -moz-transform: scale(1) rotate(-30deg);
+  -o-transform: scale(1) rotate(-30deg);
+  -ms-transform: scale(1) rotate(-30deg);
+  transform: scale(1) rotate(-30deg);
+}
+#main-nav li.urban-chef,
+#main-nav.collapsible:hover li.urban-chef,
+#main-nav.open li.urban-chef {
+  -webkit-transform: rotate(70deg);
+  -moz-transform: rotate(70deg);
+  -o-transform: rotate(70deg);
+  -ms-transform: rotate(70deg);
+  transform: rotate(70deg);
+}
+#main-nav li.urban-chef span,
+#main-nav.collapsible:hover li.urban-chef span,
+#main-nav.open li.urban-chef span {
+  -webkit-transform: scale(1) rotate(-70deg);
+  -moz-transform: scale(1) rotate(-70deg);
+  -o-transform: scale(1) rotate(-70deg);
+  -ms-transform: scale(1) rotate(-70deg);
+  transform: scale(1) rotate(-70deg);
+}
+#main-nav li.nature-prevails,
+#main-nav.collapsible:hover li.nature-prevails,
+#main-nav.open li.nature-prevails {
+  -webkit-transform: rotate(110deg);
+  -moz-transform: rotate(110deg);
+  -o-transform: rotate(110deg);
+  -ms-transform: rotate(110deg);
+  transform: rotate(110deg);
+}
+#main-nav li.nature-prevails span,
+#main-nav.collapsible:hover li.nature-prevails span,
+#main-nav.open li.nature-prevails span {
+  -webkit-transform: scale(1) rotate(-110deg);
+  -moz-transform: scale(1) rotate(-110deg);
+  -o-transform: scale(1) rotate(-110deg);
+  -ms-transform: scale(1) rotate(-110deg);
+  transform: scale(1) rotate(-110deg);
+}
+#main-nav li.planting-party,
+#main-nav.collapsible:hover li.planting-party,
+#main-nav.open li.planting-party {
+  -webkit-transform: rotate(150deg);
+  -moz-transform: rotate(150deg);
+  -o-transform: rotate(150deg);
+  -ms-transform: rotate(150deg);
+  transform: rotate(150deg);
+}
+#main-nav li.planting-party span,
+#main-nav.collapsible:hover li.planting-party span,
+#main-nav.open li.planting-party span {
+  -webkit-transform: scale(1) rotate(-150deg);
+  -moz-transform: scale(1) rotate(-150deg);
+  -o-transform: scale(1) rotate(-150deg);
+  -ms-transform: scale(1) rotate(-150deg);
+  transform: scale(1) rotate(-150deg);
+}
+#main-nav li.active,
+#main-nav.collapsible:hover li.active,
+#main-nav.open li.active {
+  z-index: 0;
+}
+#main-nav ul {
+  bottom: 30px;
+  width: 400px;
+  height: 90px;
+  margin: 0 -200px;
+}
+#main-nav li {
+  -webkit-transition: -webkit-transform 0.15s ease-in-out;
+  -moz-transition: -moz-transform 0.15s ease-in-out;
+  -o-transition: -o-transform 0.15s ease-in-out;
+  transition: -webkit-transform 0.15s ease-in-out,-moz-transform 0.15s ease-in-out,-o-transform 0.15s ease-in-out,transform 0.15s ease-in-out;
+}
+#main-nav li,
+#main-nav li span {
+  height: 90px;
+}
+#main-nav li span {
+  width: 90px;
+  -webkit-transition: -webkit-transform 0.15s ease-in-out;
+  -moz-transition: -moz-transform 0.15s ease-in-out;
+  -o-transition: -o-transform 0.15s ease-in-out;
+  transition: -webkit-transform 0.15s ease-in-out,-moz-transform 0.15s ease-in-out,-o-transform 0.15s ease-in-out,transform 0.15s ease-in-out;
+}
+#main-nav li a {
+  padding-top: 5px;
+}
+#main-nav li.home {
+  top: auto;
+  bottom: -20px;
+  z-index: 2;
+  visibility: hidden;
+}
+#main-nav li.home span,
+#main-nav li.home a {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  width: 100%;
+  height: 150px;
+  padding: 0;
+}
+#main-nav li.home span {
+  -webkit-transform: none !important;
+  -moz-transform: none !important;
+  -o-transform: none !important;
+  -ms-transform: none !important;
+  transform: none !important;
+}
+#main-nav li.home a {
+  overflow: hidden;
+  text-indent: -999px;
+  -webkit-border-radius: 0;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 0;
+  -moz-background-clip: padding;
+  border-radius: 0;
+  background-clip: padding-box;
+}
+body.home #home-nav li.plant-mash {
+  -webkit-transform: rotate(30deg);
+  -moz-transform: rotate(30deg);
+  -o-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  transform: rotate(30deg);
+  -webkit-transition: -webkit-transform 0.3s ease-in-out 0.9s;
+  -moz-transition: -moz-transform 0.3s ease-in-out 0.9s;
+  -o-transition: -o-transform 0.3s ease-in-out 0.9s;
+  transition: -webkit-transform 0.3s ease-in-out 0.9s,-moz-transform 0.3s ease-in-out 0.9s,-o-transform 0.3s ease-in-out 0.9s,transform 0.3s ease-in-out 0.9s;
+}
+body.home #home-nav li.plant-mash span {
+  -webkit-transform: scale(1) rotate(-30deg);
+  -moz-transform: scale(1) rotate(-30deg);
+  -o-transform: scale(1) rotate(-30deg);
+  -ms-transform: scale(1) rotate(-30deg);
+  transform: scale(1) rotate(-30deg);
+  -webkit-transition: -webkit-transform 0.3s ease-in-out 0.9s;
+  -moz-transition: -moz-transform 0.3s ease-in-out 0.9s;
+  -o-transition: -o-transform 0.3s ease-in-out 0.9s;
+  transition: -webkit-transform 0.3s ease-in-out 0.9s,-moz-transform 0.3s ease-in-out 0.9s,-o-transform 0.3s ease-in-out 0.9s,transform 0.3s ease-in-out 0.9s;
+}
+body.home #home-nav li.urban-chef {
+  -webkit-transform: rotate(70deg);
+  -moz-transform: rotate(70deg);
+  -o-transform: rotate(70deg);
+  -ms-transform: rotate(70deg);
+  transform: rotate(70deg);
+  -webkit-transition: -webkit-transform 0.3s ease-in-out 0.85s;
+  -moz-transition: -moz-transform 0.3s ease-in-out 0.85s;
+  -o-transition: -o-transform 0.3s ease-in-out 0.85s;
+  transition: -webkit-transform 0.3s ease-in-out 0.85s,-moz-transform 0.3s ease-in-out 0.85s,-o-transform 0.3s ease-in-out 0.85s,transform 0.3s ease-in-out 0.85s;
+}
+body.home #home-nav li.urban-chef span {
+  -webkit-transform: scale(1) rotate(-70deg);
+  -moz-transform: scale(1) rotate(-70deg);
+  -o-transform: scale(1) rotate(-70deg);
+  -ms-transform: scale(1) rotate(-70deg);
+  transform: scale(1) rotate(-70deg);
+  -webkit-transition: -webkit-transform 0.3s ease-in-out 0.85s;
+  -moz-transition: -moz-transform 0.3s ease-in-out 0.85s;
+  -o-transition: -o-transform 0.3s ease-in-out 0.85s;
+  transition: -webkit-transform 0.3s ease-in-out 0.85s,-moz-transform 0.3s ease-in-out 0.85s,-o-transform 0.3s ease-in-out 0.85s,transform 0.3s ease-in-out 0.85s;
+}
+body.home #home-nav li.nature-prevails {
+  -webkit-transform: rotate(110deg);
+  -moz-transform: rotate(110deg);
+  -o-transform: rotate(110deg);
+  -ms-transform: rotate(110deg);
+  transform: rotate(110deg);
+  -webkit-transition: -webkit-transform 0.3s ease-in-out 0.8s;
+  -moz-transition: -moz-transform 0.3s ease-in-out 0.8s;
+  -o-transition: -o-transform 0.3s ease-in-out 0.8s;
+  transition: -webkit-transform 0.3s ease-in-out 0.8s,-moz-transform 0.3s ease-in-out 0.8s,-o-transform 0.3s ease-in-out 0.8s,transform 0.3s ease-in-out 0.8s;
+}
+body.home #home-nav li.nature-prevails span {
+  -webkit-transform: scale(1) rotate(-110deg);
+  -moz-transform: scale(1) rotate(-110deg);
+  -o-transform: scale(1) rotate(-110deg);
+  -ms-transform: scale(1) rotate(-110deg);
+  transform: scale(1) rotate(-110deg);
+  -webkit-transition: -webkit-transform 0.3s ease-in-out 0.8s;
+  -moz-transition: -moz-transform 0.3s ease-in-out 0.8s;
+  -o-transition: -o-transform 0.3s ease-in-out 0.8s;
+  transition: -webkit-transform 0.3s ease-in-out 0.8s,-moz-transform 0.3s ease-in-out 0.8s,-o-transform 0.3s ease-in-out 0.8s,transform 0.3s ease-in-out 0.8s;
+}
+body.home #home-nav li.planting-party {
+  -webkit-transform: rotate(150deg);
+  -moz-transform: rotate(150deg);
+  -o-transform: rotate(150deg);
+  -ms-transform: rotate(150deg);
+  transform: rotate(150deg);
+  -webkit-transition: -webkit-transform 0.3s ease-in-out 0.75s;
+  -moz-transition: -moz-transform 0.3s ease-in-out 0.75s;
+  -o-transition: -o-transform 0.3s ease-in-out 0.75s;
+  transition: -webkit-transform 0.3s ease-in-out 0.75s,-moz-transform 0.3s ease-in-out 0.75s,-o-transform 0.3s ease-in-out 0.75s,transform 0.3s ease-in-out 0.75s;
+}
+body.home #home-nav li.planting-party span {
+  -webkit-transform: scale(1) rotate(-150deg);
+  -moz-transform: scale(1) rotate(-150deg);
+  -o-transform: scale(1) rotate(-150deg);
+  -ms-transform: scale(1) rotate(-150deg);
+  transform: scale(1) rotate(-150deg);
+  -webkit-transition: -webkit-transform 0.3s ease-in-out 0.75s;
+  -moz-transition: -moz-transform 0.3s ease-in-out 0.75s;
+  -o-transition: -o-transform 0.3s ease-in-out 0.75s;
+  transition: -webkit-transform 0.3s ease-in-out 0.75s,-moz-transform 0.3s ease-in-out 0.75s,-o-transform 0.3s ease-in-out 0.75s,transform 0.3s ease-in-out 0.75s;
+}
+body.home #main-nav li {
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+body.home #main-nav li span {
+  -webkit-transform: scale(0) rotate(0deg);
+  -moz-transform: scale(0) rotate(0deg);
+  -o-transform: scale(0) rotate(0deg);
+  -ms-transform: scale(0) rotate(0deg);
+  transform: scale(0) rotate(0deg);
+}
+body.smart-pot #main-nav li.smart-pot,
+body.smart-pot #main-nav.collapsible:hover li.smart-pot,
+body.smart-pot #main-nav.open li.smart-pot {
+  -webkit-transform: rotate(30deg);
+  -moz-transform: rotate(30deg);
+  -o-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  transform: rotate(30deg);
+}
+body.smart-pot #main-nav li.smart-pot span,
+body.smart-pot #main-nav.collapsible:hover li.smart-pot span,
+body.smart-pot #main-nav.open li.smart-pot span {
+  -webkit-transform: scale(0) rotate(-30deg);
+  -moz-transform: scale(0) rotate(-30deg);
+  -o-transform: scale(0) rotate(-30deg);
+  -ms-transform: scale(0) rotate(-30deg);
+  transform: scale(0) rotate(-30deg);
+}
+body.smart-pot #main-nav li.plant-mash,
+body.smart-pot #main-nav.collapsible:hover li.plant-mash,
+body.smart-pot #main-nav.open li.plant-mash {
+  -webkit-transform: rotate(30deg);
+  -moz-transform: rotate(30deg);
+  -o-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  transform: rotate(30deg);
+}
+body.smart-pot #main-nav li.plant-mash span,
+body.smart-pot #main-nav.collapsible:hover li.plant-mash span,
+body.smart-pot #main-nav.open li.plant-mash span {
+  -webkit-transform: scale(1) rotate(-30deg);
+  -moz-transform: scale(1) rotate(-30deg);
+  -o-transform: scale(1) rotate(-30deg);
+  -ms-transform: scale(1) rotate(-30deg);
+  transform: scale(1) rotate(-30deg);
+}
+body.smart-pot #main-nav li.urban-chef,
+body.smart-pot #main-nav.collapsible:hover li.urban-chef,
+body.smart-pot #main-nav.open li.urban-chef {
+  -webkit-transform: rotate(70deg);
+  -moz-transform: rotate(70deg);
+  -o-transform: rotate(70deg);
+  -ms-transform: rotate(70deg);
+  transform: rotate(70deg);
+}
+body.smart-pot #main-nav li.urban-chef span,
+body.smart-pot #main-nav.collapsible:hover li.urban-chef span,
+body.smart-pot #main-nav.open li.urban-chef span {
+  -webkit-transform: scale(1) rotate(-70deg);
+  -moz-transform: scale(1) rotate(-70deg);
+  -o-transform: scale(1) rotate(-70deg);
+  -ms-transform: scale(1) rotate(-70deg);
+  transform: scale(1) rotate(-70deg);
+}
+body.smart-pot #main-nav li.nature-prevails,
+body.smart-pot #main-nav.collapsible:hover li.nature-prevails,
+body.smart-pot #main-nav.open li.nature-prevails {
+  -webkit-transform: rotate(110deg);
+  -moz-transform: rotate(110deg);
+  -o-transform: rotate(110deg);
+  -ms-transform: rotate(110deg);
+  transform: rotate(110deg);
+}
+body.smart-pot #main-nav li.nature-prevails span,
+body.smart-pot #main-nav.collapsible:hover li.nature-prevails span,
+body.smart-pot #main-nav.open li.nature-prevails span {
+  -webkit-transform: scale(1) rotate(-110deg);
+  -moz-transform: scale(1) rotate(-110deg);
+  -o-transform: scale(1) rotate(-110deg);
+  -ms-transform: scale(1) rotate(-110deg);
+  transform: scale(1) rotate(-110deg);
+}
+body.smart-pot #main-nav li.planting-party,
+body.smart-pot #main-nav.collapsible:hover li.planting-party,
+body.smart-pot #main-nav.open li.planting-party {
+  -webkit-transform: rotate(150deg);
+  -moz-transform: rotate(150deg);
+  -o-transform: rotate(150deg);
+  -ms-transform: rotate(150deg);
+  transform: rotate(150deg);
+}
+body.smart-pot #main-nav li.planting-party span,
+body.smart-pot #main-nav.collapsible:hover li.planting-party span,
+body.smart-pot #main-nav.open li.planting-party span {
+  -webkit-transform: scale(1) rotate(-150deg);
+  -moz-transform: scale(1) rotate(-150deg);
+  -o-transform: scale(1) rotate(-150deg);
+  -ms-transform: scale(1) rotate(-150deg);
+  transform: scale(1) rotate(-150deg);
+}
+body.plant-mash #main-nav li.smart-pot,
+body.plant-mash #main-nav.collapsible:hover li.smart-pot,
+body.plant-mash #main-nav.open li.smart-pot {
+  -webkit-transform: rotate(30deg);
+  -moz-transform: rotate(30deg);
+  -o-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  transform: rotate(30deg);
+}
+body.plant-mash #main-nav li.smart-pot span,
+body.plant-mash #main-nav.collapsible:hover li.smart-pot span,
+body.plant-mash #main-nav.open li.smart-pot span {
+  -webkit-transform: scale(1) rotate(-30deg);
+  -moz-transform: scale(1) rotate(-30deg);
+  -o-transform: scale(1) rotate(-30deg);
+  -ms-transform: scale(1) rotate(-30deg);
+  transform: scale(1) rotate(-30deg);
+}
+body.plant-mash #main-nav li.plant-mash,
+body.plant-mash #main-nav.collapsible:hover li.plant-mash,
+body.plant-mash #main-nav.open li.plant-mash {
+  -webkit-transform: rotate(30deg);
+  -moz-transform: rotate(30deg);
+  -o-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  transform: rotate(30deg);
+}
+body.plant-mash #main-nav li.plant-mash span,
+body.plant-mash #main-nav.collapsible:hover li.plant-mash span,
+body.plant-mash #main-nav.open li.plant-mash span {
+  -webkit-transform: scale(0) rotate(-30deg);
+  -moz-transform: scale(0) rotate(-30deg);
+  -o-transform: scale(0) rotate(-30deg);
+  -ms-transform: scale(0) rotate(-30deg);
+  transform: scale(0) rotate(-30deg);
+}
+body.plant-mash #main-nav li.urban-chef,
+body.plant-mash #main-nav.collapsible:hover li.urban-chef,
+body.plant-mash #main-nav.open li.urban-chef {
+  -webkit-transform: rotate(70deg);
+  -moz-transform: rotate(70deg);
+  -o-transform: rotate(70deg);
+  -ms-transform: rotate(70deg);
+  transform: rotate(70deg);
+}
+body.plant-mash #main-nav li.urban-chef span,
+body.plant-mash #main-nav.collapsible:hover li.urban-chef span,
+body.plant-mash #main-nav.open li.urban-chef span {
+  -webkit-transform: scale(1) rotate(-70deg);
+  -moz-transform: scale(1) rotate(-70deg);
+  -o-transform: scale(1) rotate(-70deg);
+  -ms-transform: scale(1) rotate(-70deg);
+  transform: scale(1) rotate(-70deg);
+}
+body.plant-mash #main-nav li.nature-prevails,
+body.plant-mash #main-nav.collapsible:hover li.nature-prevails,
+body.plant-mash #main-nav.open li.nature-prevails {
+  -webkit-transform: rotate(110deg);
+  -moz-transform: rotate(110deg);
+  -o-transform: rotate(110deg);
+  -ms-transform: rotate(110deg);
+  transform: rotate(110deg);
+}
+body.plant-mash #main-nav li.nature-prevails span,
+body.plant-mash #main-nav.collapsible:hover li.nature-prevails span,
+body.plant-mash #main-nav.open li.nature-prevails span {
+  -webkit-transform: scale(1) rotate(-110deg);
+  -moz-transform: scale(1) rotate(-110deg);
+  -o-transform: scale(1) rotate(-110deg);
+  -ms-transform: scale(1) rotate(-110deg);
+  transform: scale(1) rotate(-110deg);
+}
+body.plant-mash #main-nav li.planting-party,
+body.plant-mash #main-nav.collapsible:hover li.planting-party,
+body.plant-mash #main-nav.open li.planting-party {
+  -webkit-transform: rotate(150deg);
+  -moz-transform: rotate(150deg);
+  -o-transform: rotate(150deg);
+  -ms-transform: rotate(150deg);
+  transform: rotate(150deg);
+}
+body.plant-mash #main-nav li.planting-party span,
+body.plant-mash #main-nav.collapsible:hover li.planting-party span,
+body.plant-mash #main-nav.open li.planting-party span {
+  -webkit-transform: scale(1) rotate(-150deg);
+  -moz-transform: scale(1) rotate(-150deg);
+  -o-transform: scale(1) rotate(-150deg);
+  -ms-transform: scale(1) rotate(-150deg);
+  transform: scale(1) rotate(-150deg);
+}
+body.urban-chef #main-nav li.smart-pot,
+body.urban-chef #main-nav.collapsible:hover li.smart-pot,
+body.urban-chef #main-nav.open li.smart-pot {
+  -webkit-transform: rotate(30deg);
+  -moz-transform: rotate(30deg);
+  -o-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  transform: rotate(30deg);
+}
+body.urban-chef #main-nav li.smart-pot span,
+body.urban-chef #main-nav.collapsible:hover li.smart-pot span,
+body.urban-chef #main-nav.open li.smart-pot span {
+  -webkit-transform: scale(1) rotate(-30deg);
+  -moz-transform: scale(1) rotate(-30deg);
+  -o-transform: scale(1) rotate(-30deg);
+  -ms-transform: scale(1) rotate(-30deg);
+  transform: scale(1) rotate(-30deg);
+}
+body.urban-chef #main-nav li.plant-mash,
+body.urban-chef #main-nav.collapsible:hover li.plant-mash,
+body.urban-chef #main-nav.open li.plant-mash {
+  -webkit-transform: rotate(70deg);
+  -moz-transform: rotate(70deg);
+  -o-transform: rotate(70deg);
+  -ms-transform: rotate(70deg);
+  transform: rotate(70deg);
+}
+body.urban-chef #main-nav li.plant-mash span,
+body.urban-chef #main-nav.collapsible:hover li.plant-mash span,
+body.urban-chef #main-nav.open li.plant-mash span {
+  -webkit-transform: scale(1) rotate(-70deg);
+  -moz-transform: scale(1) rotate(-70deg);
+  -o-transform: scale(1) rotate(-70deg);
+  -ms-transform: scale(1) rotate(-70deg);
+  transform: scale(1) rotate(-70deg);
+}
+body.urban-chef #main-nav li.urban-chef,
+body.urban-chef #main-nav.collapsible:hover li.urban-chef,
+body.urban-chef #main-nav.open li.urban-chef {
+  -webkit-transform: rotate(70deg);
+  -moz-transform: rotate(70deg);
+  -o-transform: rotate(70deg);
+  -ms-transform: rotate(70deg);
+  transform: rotate(70deg);
+}
+body.urban-chef #main-nav li.urban-chef span,
+body.urban-chef #main-nav.collapsible:hover li.urban-chef span,
+body.urban-chef #main-nav.open li.urban-chef span {
+  -webkit-transform: scale(0) rotate(-70deg);
+  -moz-transform: scale(0) rotate(-70deg);
+  -o-transform: scale(0) rotate(-70deg);
+  -ms-transform: scale(0) rotate(-70deg);
+  transform: scale(0) rotate(-70deg);
+}
+body.urban-chef #main-nav li.nature-prevails,
+body.urban-chef #main-nav.collapsible:hover li.nature-prevails,
+body.urban-chef #main-nav.open li.nature-prevails {
+  -webkit-transform: rotate(110deg);
+  -moz-transform: rotate(110deg);
+  -o-transform: rotate(110deg);
+  -ms-transform: rotate(110deg);
+  transform: rotate(110deg);
+}
+body.urban-chef #main-nav li.nature-prevails span,
+body.urban-chef #main-nav.collapsible:hover li.nature-prevails span,
+body.urban-chef #main-nav.open li.nature-prevails span {
+  -webkit-transform: scale(1) rotate(-110deg);
+  -moz-transform: scale(1) rotate(-110deg);
+  -o-transform: scale(1) rotate(-110deg);
+  -ms-transform: scale(1) rotate(-110deg);
+  transform: scale(1) rotate(-110deg);
+}
+body.urban-chef #main-nav li.planting-party,
+body.urban-chef #main-nav.collapsible:hover li.planting-party,
+body.urban-chef #main-nav.open li.planting-party {
+  -webkit-transform: rotate(150deg);
+  -moz-transform: rotate(150deg);
+  -o-transform: rotate(150deg);
+  -ms-transform: rotate(150deg);
+  transform: rotate(150deg);
+}
+body.urban-chef #main-nav li.planting-party span,
+body.urban-chef #main-nav.collapsible:hover li.planting-party span,
+body.urban-chef #main-nav.open li.planting-party span {
+  -webkit-transform: scale(1) rotate(-150deg);
+  -moz-transform: scale(1) rotate(-150deg);
+  -o-transform: scale(1) rotate(-150deg);
+  -ms-transform: scale(1) rotate(-150deg);
+  transform: scale(1) rotate(-150deg);
+}
+body.nature-prevails #main-nav li.smart-pot,
+body.nature-prevails #main-nav.collapsible:hover li.smart-pot,
+body.nature-prevails #main-nav.open li.smart-pot {
+  -webkit-transform: rotate(30deg);
+  -moz-transform: rotate(30deg);
+  -o-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  transform: rotate(30deg);
+}
+body.nature-prevails #main-nav li.smart-pot span,
+body.nature-prevails #main-nav.collapsible:hover li.smart-pot span,
+body.nature-prevails #main-nav.open li.smart-pot span {
+  -webkit-transform: scale(1) rotate(-30deg);
+  -moz-transform: scale(1) rotate(-30deg);
+  -o-transform: scale(1) rotate(-30deg);
+  -ms-transform: scale(1) rotate(-30deg);
+  transform: scale(1) rotate(-30deg);
+}
+body.nature-prevails #main-nav li.plant-mash,
+body.nature-prevails #main-nav.collapsible:hover li.plant-mash,
+body.nature-prevails #main-nav.open li.plant-mash {
+  -webkit-transform: rotate(70deg);
+  -moz-transform: rotate(70deg);
+  -o-transform: rotate(70deg);
+  -ms-transform: rotate(70deg);
+  transform: rotate(70deg);
+}
+body.nature-prevails #main-nav li.plant-mash span,
+body.nature-prevails #main-nav.collapsible:hover li.plant-mash span,
+body.nature-prevails #main-nav.open li.plant-mash span {
+  -webkit-transform: scale(1) rotate(-70deg);
+  -moz-transform: scale(1) rotate(-70deg);
+  -o-transform: scale(1) rotate(-70deg);
+  -ms-transform: scale(1) rotate(-70deg);
+  transform: scale(1) rotate(-70deg);
+}
+body.nature-prevails #main-nav li.urban-chef,
+body.nature-prevails #main-nav.collapsible:hover li.urban-chef,
+body.nature-prevails #main-nav.open li.urban-chef {
+  -webkit-transform: rotate(110deg);
+  -moz-transform: rotate(110deg);
+  -o-transform: rotate(110deg);
+  -ms-transform: rotate(110deg);
+  transform: rotate(110deg);
+}
+body.nature-prevails #main-nav li.urban-chef span,
+body.nature-prevails #main-nav.collapsible:hover li.urban-chef span,
+body.nature-prevails #main-nav.open li.urban-chef span {
+  -webkit-transform: scale(1) rotate(-110deg);
+  -moz-transform: scale(1) rotate(-110deg);
+  -o-transform: scale(1) rotate(-110deg);
+  -ms-transform: scale(1) rotate(-110deg);
+  transform: scale(1) rotate(-110deg);
+}
+body.nature-prevails #main-nav li.nature-prevails,
+body.nature-prevails #main-nav.collapsible:hover li.nature-prevails,
+body.nature-prevails #main-nav.open li.nature-prevails {
+  -webkit-transform: rotate(110deg);
+  -moz-transform: rotate(110deg);
+  -o-transform: rotate(110deg);
+  -ms-transform: rotate(110deg);
+  transform: rotate(110deg);
+}
+body.nature-prevails #main-nav li.nature-prevails span,
+body.nature-prevails #main-nav.collapsible:hover li.nature-prevails span,
+body.nature-prevails #main-nav.open li.nature-prevails span {
+  -webkit-transform: scale(0) rotate(-110deg);
+  -moz-transform: scale(0) rotate(-110deg);
+  -o-transform: scale(0) rotate(-110deg);
+  -ms-transform: scale(0) rotate(-110deg);
+  transform: scale(0) rotate(-110deg);
+}
+body.nature-prevails #main-nav li.planting-party,
+body.nature-prevails #main-nav.collapsible:hover li.planting-party,
+body.nature-prevails #main-nav.open li.planting-party {
+  -webkit-transform: rotate(150deg);
+  -moz-transform: rotate(150deg);
+  -o-transform: rotate(150deg);
+  -ms-transform: rotate(150deg);
+  transform: rotate(150deg);
+}
+body.nature-prevails #main-nav li.planting-party span,
+body.nature-prevails #main-nav.collapsible:hover li.planting-party span,
+body.nature-prevails #main-nav.open li.planting-party span {
+  -webkit-transform: scale(1) rotate(-150deg);
+  -moz-transform: scale(1) rotate(-150deg);
+  -o-transform: scale(1) rotate(-150deg);
+  -ms-transform: scale(1) rotate(-150deg);
+  transform: scale(1) rotate(-150deg);
+}
+body.planting-party #main-nav li.smart-pot,
+body.planting-party #main-nav.collapsible:hover li.smart-pot,
+body.planting-party #main-nav.open li.smart-pot {
+  -webkit-transform: rotate(30deg);
+  -moz-transform: rotate(30deg);
+  -o-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  transform: rotate(30deg);
+}
+body.planting-party #main-nav li.smart-pot span,
+body.planting-party #main-nav.collapsible:hover li.smart-pot span,
+body.planting-party #main-nav.open li.smart-pot span {
+  -webkit-transform: scale(1) rotate(-30deg);
+  -moz-transform: scale(1) rotate(-30deg);
+  -o-transform: scale(1) rotate(-30deg);
+  -ms-transform: scale(1) rotate(-30deg);
+  transform: scale(1) rotate(-30deg);
+}
+body.planting-party #main-nav li.plant-mash,
+body.planting-party #main-nav.collapsible:hover li.plant-mash,
+body.planting-party #main-nav.open li.plant-mash {
+  -webkit-transform: rotate(70deg);
+  -moz-transform: rotate(70deg);
+  -o-transform: rotate(70deg);
+  -ms-transform: rotate(70deg);
+  transform: rotate(70deg);
+}
+body.planting-party #main-nav li.plant-mash span,
+body.planting-party #main-nav.collapsible:hover li.plant-mash span,
+body.planting-party #main-nav.open li.plant-mash span {
+  -webkit-transform: scale(1) rotate(-70deg);
+  -moz-transform: scale(1) rotate(-70deg);
+  -o-transform: scale(1) rotate(-70deg);
+  -ms-transform: scale(1) rotate(-70deg);
+  transform: scale(1) rotate(-70deg);
+}
+body.planting-party #main-nav li.urban-chef,
+body.planting-party #main-nav.collapsible:hover li.urban-chef,
+body.planting-party #main-nav.open li.urban-chef {
+  -webkit-transform: rotate(110deg);
+  -moz-transform: rotate(110deg);
+  -o-transform: rotate(110deg);
+  -ms-transform: rotate(110deg);
+  transform: rotate(110deg);
+}
+body.planting-party #main-nav li.urban-chef span,
+body.planting-party #main-nav.collapsible:hover li.urban-chef span,
+body.planting-party #main-nav.open li.urban-chef span {
+  -webkit-transform: scale(1) rotate(-110deg);
+  -moz-transform: scale(1) rotate(-110deg);
+  -o-transform: scale(1) rotate(-110deg);
+  -ms-transform: scale(1) rotate(-110deg);
+  transform: scale(1) rotate(-110deg);
+}
+body.planting-party #main-nav li.nature-prevails,
+body.planting-party #main-nav.collapsible:hover li.nature-prevails,
+body.planting-party #main-nav.open li.nature-prevails {
+  -webkit-transform: rotate(150deg);
+  -moz-transform: rotate(150deg);
+  -o-transform: rotate(150deg);
+  -ms-transform: rotate(150deg);
+  transform: rotate(150deg);
+}
+body.planting-party #main-nav li.nature-prevails span,
+body.planting-party #main-nav.collapsible:hover li.nature-prevails span,
+body.planting-party #main-nav.open li.nature-prevails span {
+  -webkit-transform: scale(1) rotate(-150deg);
+  -moz-transform: scale(1) rotate(-150deg);
+  -o-transform: scale(1) rotate(-150deg);
+  -ms-transform: scale(1) rotate(-150deg);
+  transform: scale(1) rotate(-150deg);
+}
+body.planting-party #main-nav li.planting-party,
+body.planting-party #main-nav.collapsible:hover li.planting-party,
+body.planting-party #main-nav.open li.planting-party {
+  -webkit-transform: rotate(150deg);
+  -moz-transform: rotate(150deg);
+  -o-transform: rotate(150deg);
+  -ms-transform: rotate(150deg);
+  transform: rotate(150deg);
+}
+body.planting-party #main-nav li.planting-party span,
+body.planting-party #main-nav.collapsible:hover li.planting-party span,
+body.planting-party #main-nav.open li.planting-party span {
+  -webkit-transform: scale(0) rotate(-150deg);
+  -moz-transform: scale(0) rotate(-150deg);
+  -o-transform: scale(0) rotate(-150deg);
+  -ms-transform: scale(0) rotate(-150deg);
+  transform: scale(0) rotate(-150deg);
+}
+body.smart-pot #main-nav li.active,
+body.plant-mash #main-nav li.active,
+body.urban-chef #main-nav li.active,
+body.nature-prevails #main-nav li.active,
+body.planting-party #main-nav li.active,
+body.smart-pot #main-nav.collapsible li,
+body.plant-mash #main-nav.collapsible li,
+body.urban-chef #main-nav.collapsible li,
+body.nature-prevails #main-nav.collapsible li,
+body.planting-party #main-nav.collapsible li,
+body.smart-pot #main-nav.open li.active,
+body.plant-mash #main-nav.open li.active,
+body.urban-chef #main-nav.open li.active,
+body.nature-prevails #main-nav.open li.active,
+body.planting-party #main-nav.open li.active {
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+body.smart-pot #main-nav li.active span,
+body.plant-mash #main-nav li.active span,
+body.urban-chef #main-nav li.active span,
+body.nature-prevails #main-nav li.active span,
+body.planting-party #main-nav li.active span,
+body.smart-pot #main-nav.collapsible li span,
+body.plant-mash #main-nav.collapsible li span,
+body.urban-chef #main-nav.collapsible li span,
+body.nature-prevails #main-nav.collapsible li span,
+body.planting-party #main-nav.collapsible li span,
+body.smart-pot #main-nav.open li.active span,
+body.plant-mash #main-nav.open li.active span,
+body.urban-chef #main-nav.open li.active span,
+body.nature-prevails #main-nav.open li.active span,
+body.planting-party #main-nav.open li.active span {
+  -webkit-transform: scale(0) rotate(0deg);
+  -moz-transform: scale(0) rotate(0deg);
+  -o-transform: scale(0) rotate(0deg);
+  -ms-transform: scale(0) rotate(0deg);
+  transform: scale(0) rotate(0deg);
+}
+#bg-city-panorama {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(../g/bg-city-panorama.jpg );
+  background-position: 0% 0%;
+  background-size: auto 100%;
+  -webkit-transition: background-position-x 0.75s cubic-bezier(0.6, 0, 0.4, 1);
+  -moz-transition: background-position-x 0.75s cubic-bezier(0.6, 0, 0.4, 1);
+  -o-transition: background-position-x 0.75s cubic-bezier(0.6, 0, 0.4, 1);
+  transition: background-position-x 0.75s cubic-bezier(0.6, 0, 0.4, 1);
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+body.home #bg-city-panorama {
+  background-position-x: 0%;
+}
+body.smart-pot #bg-city-panorama {
+  background-position-x: 15%;
+}
+body.plant-mash #bg-city-panorama {
+  background-position-x: 30%;
+}
+body.urban-chef #bg-city-panorama {
+  background-position-x: 45%;
+}
+body.nature-prevails #bg-city-panorama {
+  background-position-x: 60%;
+}
+body.planting-party #bg-city-panorama {
+  background-position-x: 75%;
+}
+body.error404 #bg-city-panorama {
+  background-position-x: 0%;
+}
+#window-sil {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  overflow: hidden;
+  -webkit-transition: height 0.75s cubic-bezier(0.6, 0, 0.4, 1);
+  -moz-transition: height 0.75s cubic-bezier(0.6, 0, 0.4, 1);
+  -o-transition: height 0.75s cubic-bezier(0.6, 0, 0.4, 1);
+  transition: height 0.75s cubic-bezier(0.6, 0, 0.4, 1);
+}
+body.home #window-sil {
+  height: 170px;
+}
+body.smart-pot #window-sil {
+  height: 90%;
+}
+body.plant-mash #window-sil {
+  height: 60px;
+}
+body.urban-chef #window-sil {
+  height: 60px;
+}
+body.nature-prevails #window-sil {
+  height: 60px;
+}
+body.planting-party #window-sil {
+  height: 60px;
+}
+body.error404 #window-sil {
+  height: 0px;
+}
+#tomato-in-a-pot > div,
+#pot-with-shadow {
+  position: absolute;
+  left: 50%;
+  bottom: -20px;
+  width: 634.5px;
+  height: 599.625px;
+  margin-left: -331.3125px;
+  background-image: url(../g/pot-with-shadow.png );
+  background-position: center bottom;
+  background-size: contain;
+  opacity: 0;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform-origin: center bottom;
+  -moz-transform-origin: center bottom;
+  -o-transform-origin: center bottom;
+  -ms-transform-origin: center bottom;
+  transform-origin: center bottom;
+  opacity: 1;
+  -webkit-transform: translate(0px, 0px) scale(1);
+  -moz-transform: translate(0px, 0px) scale(1);
+  -o-transform: translate(0px, 0px) scale(1);
+  -ms-transform: translate(0px, 0px) scale(1);
+  transform: translate(0px, 0px) scale(1);
+  -webkit-transition: -webkit-transform 0.375s cubic-bezier(0.6, 0, 0.4, 1) 0.75s, opacity 0 linear 0.75s;
+  -moz-transition: -moz-transform 0.375s cubic-bezier(0.6, 0, 0.4, 1) 0.75s, opacity 0 linear 0.75s;
+  -o-transition: -o-transform 0.375s cubic-bezier(0.6, 0, 0.4, 1) 0.75s, opacity 0 linear 0.75s;
+  transition: -webkit-transform 0.375s cubic-bezier(0.6, 0, 0.4, 1) 0.75s,-moz-transform 0.375s cubic-bezier(0.6, 0, 0.4, 1) 0.75s,-o-transform 0.375s cubic-bezier(0.6, 0, 0.4, 1) 0.75s,transform 0.375s cubic-bezier(0.6, 0, 0.4, 1) 0.75s, opacity 0 linear 0.75s;
+}
+#tomato-in-a-pot {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 0;
+}
+#tomato-in-a-pot > div {
+  background-image: url(../g/mini-tomato-in-a-pot.png );
+}
+#interface {
+  position: absolute;
+  left: 50%;
+  bottom: 180px;
+  width: 140px;
+  height: 140px;
+  margin-left: -55px;
+  overflow: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-border-radius: 100%;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 100%;
+  -moz-background-clip: padding;
+  border-radius: 100%;
+  background-clip: padding-box;
+  color: white;
+  background-color: #c4e87d;
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMSAxIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48bGluZWFyR3JhZGllbnQgaWQ9Imxlc3NoYXQtZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMTAwJSIgeDI9IjAlIiB5Mj0iMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNjZWVjOTMiIHN0b3Atb3BhY2l0eT0iMSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2I3ZTM1ZiIgc3RvcC1vcGFjaXR5PSIxIi8+PC9saW5lYXJHcmFkaWVudD48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2xlc3NoYXQtZ2VuZXJhdGVkKSIgLz48L3N2Zz4=);
+  background-image: -webkit-linear-gradient(-60deg, #ceec93 0%, #b7e35f 100%);
+  background-image: -moz-linear-gradient(-60deg, #ceec93 0%, #b7e35f 100%);
+  background-image: -o-linear-gradient(-60deg, #ceec93 0%, #b7e35f 100%);
+  background-image: linear-gradient(150deg, #ceec93 0%, #b7e35f 100%);
+  -webkit-box-shadow: 5px 5px 20px -5px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 5px 5px 20px -5px rgba(0, 0, 0, 0.1);
+  box-shadow: 5px 5px 20px -5px rgba(0, 0, 0, 0.1);
+}
+#interface #interface-window {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
+}
+#interface #interface-window,
+#interface #interface-window svg {
+  width: 100%;
+  height: 100%;
+}
+#interface #indicator {
+  position: absolute;
+  z-index: 0;
+  left: 2px;
+  top: 2px;
+  width: 136px;
+  height: 68px;
+  overflow: hidden;
+}
+#interface #indicator i {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 200%;
+  background-color: #c4e87d;
+  overflow: hidden;
+  -webkit-border-radius: 100%;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 100%;
+  -moz-background-clip: padding;
+  border-radius: 100%;
+  background-clip: padding-box;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: -webkit-transform 0.15s ease-in-out;
+  -moz-transition: -moz-transform 0.15s ease-in-out;
+  -o-transition: -o-transform 0.15s ease-in-out;
+  transition: -webkit-transform 0.15s ease-in-out,-moz-transform 0.15s ease-in-out,-o-transform 0.15s ease-in-out,transform 0.15s ease-in-out;
+}
+#interface #indicator i:before,
+#interface #indicator i:after {
+  content: '';
+  display: block;
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #d94f4a;
+}
+#interface #indicator i:after {
+  left: 50%;
+  background-color: #4a7ad9;
+}
+#interface #indicator i #indicator-green {
+  position: absolute;
+  z-index: 1;
+  left: -2px;
+  top: -2px;
+}
+#interface #indicator i #indicator-green,
+#interface #indicator i #indicator-green svg {
+  width: 140px;
+  height: 140px;
+}
+#interface #indicator.dry i {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+#interface #indicator.wet i {
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+#interface #indicator.dry i,
+#interface #indicator.wet i {
+  -webkit-transition: -webkit-transform 40s ease-in-out;
+  -moz-transition: -moz-transform 40s ease-in-out;
+  -o-transition: -o-transform 40s ease-in-out;
+  transition: -webkit-transform 40s ease-in-out,-moz-transform 40s ease-in-out,-o-transform 40s ease-in-out,transform 40s ease-in-out;
+}
+#nano-pot {
+  width: 176px;
+  height: 163px;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  margin-left: -88px;
+  background: url(../g/mini-tomato-in-a-pot-xs.png ) no-repeat;
+  background-size: contain;
+  opacity: 0;
+  margin-bottom: -170px;
+  -webkit-transition: opacity 0 linear 0.75s, opacity 0 linear 0.75s;
+  -moz-transition: opacity 0 linear 0.75s, opacity 0 linear 0.75s;
+  -o-transition: opacity 0 linear 0.75s, opacity 0 linear 0.75s;
+  transition: opacity 0 linear 0.75s, opacity 0 linear 0.75s;
+}
+#nano-pot i {
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: 48px;
+  width: 37px;
+  height: 37px;
+  margin-left: -18px;
+  color: white;
+  background-color: #c4e87d;
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMSAxIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48bGluZWFyR3JhZGllbnQgaWQ9Imxlc3NoYXQtZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMTAwJSIgeDI9IjAlIiB5Mj0iMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNjZWVjOTMiIHN0b3Atb3BhY2l0eT0iMSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2I3ZTM1ZiIgc3RvcC1vcGFjaXR5PSIxIi8+PC9saW5lYXJHcmFkaWVudD48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2xlc3NoYXQtZ2VuZXJhdGVkKSIgLz48L3N2Zz4=);
+  background-image: -webkit-linear-gradient(-60deg, #ceec93 0%, #b7e35f 100%);
+  background-image: -moz-linear-gradient(-60deg, #ceec93 0%, #b7e35f 100%);
+  background-image: -o-linear-gradient(-60deg, #ceec93 0%, #b7e35f 100%);
+  background-image: linear-gradient(150deg, #ceec93 0%, #b7e35f 100%);
+  -webkit-border-radius: 100%;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 100%;
+  -moz-background-clip: padding;
+  border-radius: 100%;
+  background-clip: padding-box;
+  -webkit-box-shadow: 1.335px 1.335px 5.34px -1.335px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 1.335px 1.335px 5.34px -1.335px rgba(0, 0, 0, 0.1);
+  box-shadow: 1.335px 1.335px 5.34px -1.335px rgba(0, 0, 0, 0.1);
+}
+body.smart-pot #tomato-in-a-pot > div,
+body.plant-mash #tomato-in-a-pot > div,
+body.urban-chef #tomato-in-a-pot > div,
+body.nature-prevails #tomato-in-a-pot > div,
+body.planting-party #tomato-in-a-pot > div,
+body.smart-pot #pot-with-shadow,
+body.plant-mash #pot-with-shadow,
+body.urban-chef #pot-with-shadow,
+body.nature-prevails #pot-with-shadow,
+body.planting-party #pot-with-shadow {
+  -webkit-transform: translate(11px, -20px) scale(0.267);
+  -moz-transform: translate(11px, -20px) scale(0.267);
+  -o-transform: translate(11px, -20px) scale(0.267);
+  -ms-transform: translate(11px, -20px) scale(0.267);
+  transform: translate(11px, -20px) scale(0.267);
+  -webkit-transition: -webkit-transform 0.75s cubic-bezier(0.6, 0, 0.4, 1), opacity 0 linear 0.75s;
+  -moz-transition: -moz-transform 0.75s cubic-bezier(0.6, 0, 0.4, 1), opacity 0 linear 0.75s;
+  -o-transition: -o-transform 0.75s cubic-bezier(0.6, 0, 0.4, 1), opacity 0 linear 0.75s;
+  transition: -webkit-transform 0.75s cubic-bezier(0.6, 0, 0.4, 1),-moz-transform 0.75s cubic-bezier(0.6, 0, 0.4, 1),-o-transform 0.75s cubic-bezier(0.6, 0, 0.4, 1),transform 0.75s cubic-bezier(0.6, 0, 0.4, 1), opacity 0 linear 0.75s;
+}
+body.smart-pot #nano-pot,
+body.plant-mash #nano-pot,
+body.urban-chef #nano-pot,
+body.nature-prevails #nano-pot,
+body.planting-party #nano-pot {
+  opacity: 1;
+  margin-bottom: 0;
+}
+body.smart-pot #interface #indicator,
+body.plant-mash #interface #indicator,
+body.urban-chef #interface #indicator,
+body.nature-prevails #interface #indicator,
+body.planting-party #interface #indicator {
+  opacity: 0;
+  -webkit-transition: opacity 0.1s ease-in-out 0.1s;
+  -moz-transition: opacity 0.1s ease-in-out 0.1s;
+  -o-transition: opacity 0.1s ease-in-out 0.1s;
+  transition: opacity 0.1s ease-in-out 0.1s;
+}
+body.smart-pot #interface #indicator.dry i,
+body.plant-mash #interface #indicator.dry i,
+body.urban-chef #interface #indicator.dry i,
+body.nature-prevails #interface #indicator.dry i,
+body.planting-party #interface #indicator.dry i,
+body.smart-pot #interface #indicator.wet i,
+body.plant-mash #interface #indicator.wet i,
+body.urban-chef #interface #indicator.wet i,
+body.nature-prevails #interface #indicator.wet i,
+body.planting-party #interface #indicator.wet i {
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: -webkit-transform 0.1s ease-in-out;
+  -moz-transition: -moz-transform 0.1s ease-in-out;
+  -o-transition: -o-transform 0.1s ease-in-out;
+  transition: -webkit-transform 0.1s ease-in-out,-moz-transform 0.1s ease-in-out,-o-transform 0.1s ease-in-out,transform 0.1s ease-in-out;
+}
+#main {
+  position: relative;
+  height: 100%;
+}
+#main .view {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+}
+body.pan-right .view.ng-enter {
+  -webkit-animation: enterFromRight 0.75s cubic-bezier(0.6, 0, 0.4, 1) both;
+  -moz-animation: enterFromRight 0.75s cubic-bezier(0.6, 0, 0.4, 1) both;
+  -o-animation: enterFromRight 0.75s cubic-bezier(0.6, 0, 0.4, 1) both;
+  animation: enterFromRight 0.75s cubic-bezier(0.6, 0, 0.4, 1) both;
+}
+body.pan-right .view.ng-leave {
+  -webkit-animation: leaveToLeft 0.75s cubic-bezier(0.6, 0, 0.4, 1) both;
+  -moz-animation: leaveToLeft 0.75s cubic-bezier(0.6, 0, 0.4, 1) both;
+  -o-animation: leaveToLeft 0.75s cubic-bezier(0.6, 0, 0.4, 1) both;
+  animation: leaveToLeft 0.75s cubic-bezier(0.6, 0, 0.4, 1) both;
+}
+body.pan-left .view.ng-enter {
+  -webkit-animation: enterFromLeft 0.75s cubic-bezier(0.6, 0, 0.4, 1) both;
+  -moz-animation: enterFromLeft 0.75s cubic-bezier(0.6, 0, 0.4, 1) both;
+  -o-animation: enterFromLeft 0.75s cubic-bezier(0.6, 0, 0.4, 1) both;
+  animation: enterFromLeft 0.75s cubic-bezier(0.6, 0, 0.4, 1) both;
+}
+body.pan-left .view.ng-leave {
+  -webkit-animation: leaveToRight 0.75s cubic-bezier(0.6, 0, 0.4, 1) both;
+  -moz-animation: leaveToRight 0.75s cubic-bezier(0.6, 0, 0.4, 1) both;
+  -o-animation: leaveToRight 0.75s cubic-bezier(0.6, 0, 0.4, 1) both;
+  animation: leaveToRight 0.75s cubic-bezier(0.6, 0, 0.4, 1) both;
+}
+lesshat-selector {
+  -lh-property: 0; } 
+@-webkit-keyframes enterFromRight{ 0%{ -webkit-transform: translateX( 100% ); opacity: 0; } 100%{ -webkit-transform: translateX(   0% ); opacity: 1; }}
+@-moz-keyframes enterFromRight{ 0%{ -moz-transform: translateX( 100% ); opacity: 0; } 100%{ -moz-transform: translateX(   0% ); opacity: 1; }}
+@-o-keyframes enterFromRight{ 0%{ -o-transform: translateX( 100% ); opacity: 0; } 100%{ -o-transform: translateX(   0% ); opacity: 1; }}
+@keyframes enterFromRight{ 0%{-webkit-transform: translateX( 100% );-moz-transform: translateX( 100% );-ms-transform: translateX( 100% );transform: translateX( 100% ); opacity: 0; } 100%{-webkit-transform: translateX(   0% );-moz-transform: translateX(   0% );-ms-transform: translateX(   0% );transform: translateX(   0% ); opacity: 1; };
+}
+lesshat-selector {
+  -lh-property: 0; } 
+@-webkit-keyframes leaveToLeft{    0%{ -webkit-transform: translateX(   0% ); opacity: 1; } 100%{ -webkit-transform: translateX(-100% ); opacity: 0; }}
+@-moz-keyframes leaveToLeft{    0%{ -moz-transform: translateX(   0% ); opacity: 1; } 100%{ -moz-transform: translateX(-100% ); opacity: 0; }}
+@-o-keyframes leaveToLeft{    0%{ -o-transform: translateX(   0% ); opacity: 1; } 100%{ -o-transform: translateX(-100% ); opacity: 0; }}
+@keyframes leaveToLeft{    0%{-webkit-transform: translateX(   0% );-moz-transform: translateX(   0% );-ms-transform: translateX(   0% );transform: translateX(   0% ); opacity: 1; } 100%{-webkit-transform: translateX(-100% );-moz-transform: translateX(-100% );-ms-transform: translateX(-100% );transform: translateX(-100% ); opacity: 0; };
+}
+lesshat-selector {
+  -lh-property: 0; } 
+@-webkit-keyframes enterFromLeft{  0%{ -webkit-transform: translateX(-100% ); opacity: 0; } 100%{ -webkit-transform: translateX(   0% ); opacity: 1; }}
+@-moz-keyframes enterFromLeft{  0%{ -moz-transform: translateX(-100% ); opacity: 0; } 100%{ -moz-transform: translateX(   0% ); opacity: 1; }}
+@-o-keyframes enterFromLeft{  0%{ -o-transform: translateX(-100% ); opacity: 0; } 100%{ -o-transform: translateX(   0% ); opacity: 1; }}
+@keyframes enterFromLeft{  0%{-webkit-transform: translateX(-100% );-moz-transform: translateX(-100% );-ms-transform: translateX(-100% );transform: translateX(-100% ); opacity: 0; } 100%{-webkit-transform: translateX(   0% );-moz-transform: translateX(   0% );-ms-transform: translateX(   0% );transform: translateX(   0% ); opacity: 1; };
+}
+lesshat-selector {
+  -lh-property: 0; } 
+@-webkit-keyframes leaveToRight{   0%{ -webkit-transform: translateX(   0% ); opacity: 1; } 100%{ -webkit-transform: translateX( 100% ); opacity: 0; }}
+@-moz-keyframes leaveToRight{   0%{ -moz-transform: translateX(   0% ); opacity: 1; } 100%{ -moz-transform: translateX( 100% ); opacity: 0; }}
+@-o-keyframes leaveToRight{   0%{ -o-transform: translateX(   0% ); opacity: 1; } 100%{ -o-transform: translateX( 100% ); opacity: 0; }}
+@keyframes leaveToRight{   0%{-webkit-transform: translateX(   0% );-moz-transform: translateX(   0% );-ms-transform: translateX(   0% );transform: translateX(   0% ); opacity: 1; } 100%{-webkit-transform: translateX( 100% );-moz-transform: translateX( 100% );-ms-transform: translateX( 100% );transform: translateX( 100% ); opacity: 0; };
+}
+.view.home {
+  height: 100%;
+}
+body.home #home #home-logo,
+body.home #home #home-blurb p {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -o-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+body.home #home #home-logo {
+  -webkit-transition: all 0.15s ease-in-out 1.125s;
+  -moz-transition: all 0.15s ease-in-out 1.125s;
+  -o-transition: all 0.15s ease-in-out 1.125s;
+  transition: all 0.15s ease-in-out 1.125s;
+}
+body.home #home #home-blurb p {
+  -webkit-transition: all 0.15s ease-in-out 1.325s;
+  -moz-transition: all 0.15s ease-in-out 1.325s;
+  -o-transition: all 0.15s ease-in-out 1.325s;
+  transition: all 0.15s ease-in-out 1.325s;
+}
+#home {
+  display: block;
+  height: 100%;
+  position: relative;
+}
+#home #home-blurb {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 300px;
+  height: 145px;
+  margin-left: -150px;
+  text-align: center;
+}
+#home #home-blurb p {
+  font-size: 13px;
+  line-height: 1.3;
+  margin: .75em 0 0;
+}
+#home #home-blurb a {
+  font-weight: 400;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+#home #home-logo {
+  width: 168px;
+  height: 48px;
+  margin: 0 auto;
+  padding: 7px;
+  background: url(../g/urban-plantier-logotype-box.svg ) no-repeat center top;
+  background-size: 100% auto;
+  color: white;
+  font-family: 'populaire';
+  font-weight: 300;
+  font-size: 42px;
+  line-height: 1;
+}
+#home #home-logo span {
+  text-transform: uppercase;
+}
+#home #home-logo,
+#home #home-blurb p {
+  opacity: 0;
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -o-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  -webkit-transition: all 0.075s ease-in-out;
+  -moz-transition: all 0.075s ease-in-out;
+  -o-transition: all 0.075s ease-in-out;
+  transition: all 0.075s ease-in-out;
+}
+body.smart-pot #smart-pot {
+  opacity: 1;
+  -webkit-transform: translateY(0px);
+  -moz-transform: translateY(0px);
+  -o-transform: translateY(0px);
+  -ms-transform: translateY(0px);
+  transform: translateY(0px);
+  -webkit-transition: all 0.6000000000000001s ease-in-out 0.75s;
+  -moz-transition: all 0.6000000000000001s ease-in-out 0.75s;
+  -o-transition: all 0.6000000000000001s ease-in-out 0.75s;
+  transition: all 0.6000000000000001s ease-in-out 0.75s;
+}
+#smart-pot {
+  max-width: 1080px;
+  margin: 0 auto;
+  min-height: 100%;
+  opacity: 0;
+  -webkit-transform: translateY(1000px);
+  -moz-transform: translateY(1000px);
+  -o-transform: translateY(1000px);
+  -ms-transform: translateY(1000px);
+  transform: translateY(1000px);
+  -webkit-transition: all 0.22499999999999998s ease-in-out;
+  -moz-transition: all 0.22499999999999998s ease-in-out;
+  -o-transition: all 0.22499999999999998s ease-in-out;
+  transition: all 0.22499999999999998s ease-in-out;
+  text-align: center;
+}
+.smart-pot-top-spacer {
+  width: 100%;
+}
+#plant-mash {
+  text-align: center;
+}
+#plant-mash iframe {
+  border: none;
+  background: none;
+  width: 700px;
+  height: 700px;
+}
+#urban-chef {
+  text-align: center;
+}
+#nature-prevails {
+  text-align: center;
+}
+#planting-party {
+  text-align: center;
+}

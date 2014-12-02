@@ -1,0 +1,21 @@
+RewriteEngine On 
+Options FollowSymLinks
+
+RewriteBase /
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /#/$1 [L]
+
+
+##	Nginx equivalent
+#
+#server {
+#   server_name my-app;
+#
+#   root /path/to/app;
+#
+#   location / {
+#       try_files $uri $uri/ /index.html;
+#   }
+#}
