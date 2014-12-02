@@ -6,7 +6,7 @@
 
 
 
-angular.module('appDirectives').directive('mmapp', ['$timeout', function( $timeout ) {
+angular.module('appDirectives').directive('mmapp', ['$timeout', '$rootScope', function( $timeout, $rootScope ) {
 
     function Link( $scope, $element, attributes ) {
 
