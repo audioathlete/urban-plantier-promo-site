@@ -17,6 +17,8 @@
 
         <link rel="stylesheet" href="css/normalize.min.css">
         <link rel="stylesheet" href="css/fonts.css">
+        <link rel="stylesheet" href="bower_components/ionicons/css/ionicons.min.css">
+        <link rel="stylesheet" href="css/grid-gallery.css">
         <link rel="stylesheet" href="css/style.css">
 
         <script src="bower_components/jquery/dist/jquery.min.js"></script>
@@ -26,6 +28,13 @@
         <script src="bower_components/angular-route/angular-route.min.js"></script>
         <script src="bower_components/angular-animate/angular-animate.min.js"></script>
         <script src="bower_components/angular-loading-bar/build/loading-bar.min.js"></script>
+
+        <!-- GridGallery  -->
+        <script src="js/grid-gallery/imagesloaded.pkgd.min.js"></script>
+        <script src="js/grid-gallery/masonry.pkgd.min.js"></script>
+        <script src="js/grid-gallery/classie.js"></script>
+        <script src="js/grid-gallery/cbpGridGallery.js"></script>
+
         <script src="js/angular-app.js"></script>
 
     </head>
@@ -36,12 +45,14 @@
 
 
 
-        <div id="main">
+        <div id="main" ng-class="{ 'faded': ( mainIsOverlayed || mainIsLoading ) && viewClass != 'home' }">
             <div ng-view class="view {{viewClass}}"></div>
+            <!-- <div id="main-overlay" ng-show="mainIsOverlayed"></div> -->
+            <div class="spinner" ng-show="mainIsLoading">Loading...</div>
         </div>
 
 
-        <nav id="main-nav" class="main-nav" ng-class="{ 'collapsible': collapseMenu }"></nav>
+        <nav id="main-nav" class="main-nav" ng-class="{ 'collapsible': collapseMenu, 'closed': forceCloseMainNav }"></nav>
 
 
         <div id="bg-city-panorama"></div>

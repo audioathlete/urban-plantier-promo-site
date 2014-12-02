@@ -49,7 +49,7 @@ angular.module('app').config(['$locationProvider', 'cfpLoadingBarProvider', func
 //``````````````````````````````
 //	Run on app init
 //
-angular.module('app').run(['$rootScope', '$route', '$location', '$window', function( $rootScope, $route, $location, $window ) {
+angular.module('app').run(['$rootScope', '$route', '$location', '$window', '$timeout', function( $rootScope, $route, $location, $window, $timeout ) {
 
 	//``````````````````````````````
 	//	Define some useful root scope
@@ -62,6 +62,11 @@ angular.module('app').run(['$rootScope', '$route', '$location', '$window', funct
 		$location.path( path );
 	};
 
+
+	// $rootScope.$on('$routeChangeStart', function( evt, curr, prev ) { $timeout(function(){ $rootScope.forceCloseMainNav =  true; }, 150); });
+	// $rootScope.$on('$routeChangeError', function( evt, curr, prev ) { $timeout(function(){ $rootScope.forceCloseMainNav = false; }, 500); });
+	// $rootScope.$on('$routeChangeStart', function( evt, curr, prev ) { $rootScope.mainIsLoading = true;  });
+	$rootScope.$on('$routeChangeError', function( evt, curr, prev ) { $rootScope.mainIsLoading = false; });
 
 	$rootScope
 		.$on('$routeChangeSuccess', function( evt, curr, prev ) {
@@ -81,6 +86,7 @@ angular.module('app').run(['$rootScope', '$route', '$location', '$window', funct
 
 			$rootScope.viewClass = viewClass;
 			$rootScope.navState = viewClass;
+			// $timeout(function(){ $rootScope.forceCloseMainNav = false; }, 500);
 		
 			//``````````````````````````````
 			//	Trigger ‘routeChangeSuccess’

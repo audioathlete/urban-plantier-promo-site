@@ -26,12 +26,12 @@ body {
     color: @text-color;
 }
 
-#main-nav         { z-index: 5; }
-#nano-pot         { z-index: 4; }
-#main             { z-index: 3; }
-#tomato-in-a-pot  { z-index: 2; }
-#window-sil       { z-index: 1; }
-#bg-city-panorama { z-index: 0; }
+#main-nav         { z-index: 50; }
+#nano-pot         { z-index: 40; }
+#tomato-in-a-pot  { z-index: 30; }
+#window-sil       { z-index: 20; }
+#main             { z-index: 10; }
+#bg-city-panorama { z-index:  0; }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: @brand-typeface;
@@ -110,7 +110,7 @@ a {
             white-space: pre-line;
         }
 
-        &.smart-pot       { a { .gradient-label( @brand-primary ); } }
+        &.smart-pot       { a { .gradient-label( @brand-primary ); color: @text-color; } }
         &.plant-mash      { a { .gradient-label( @brand-blue ); } }
         &.urban-chef      { a { .gradient-label( @brand-red ); } }
         &.nature-prevails { a { .gradient-label( @brand-green ); } }
@@ -144,7 +144,8 @@ a {
 
     &.collapsible,
     body.home &,
-    li.home {
+    li.home,
+    &.closed, &.closed:hover {
         left: 50%;
         bottom: 10px;
         margin-left: -40px;
@@ -154,7 +155,8 @@ a {
         .transition( all 0 @ease @reflex );
     }
 
-    body.home & {
+    body.home &,
+    body.slideshow-open & {
         pointer-events: none;
     }
 
@@ -406,11 +408,23 @@ body.error404        #window-sil { height:   0px; }
         z-index: 1;
         left: 0;
         top: 0;
+
+        opacity: 1;
+        .transition( opacity ( @view-transition-dur / 2 ) @ease @view-transition-dur );
         
         &, svg {
             width: 100%;
             height: 100%;
         }
+
+        #interface_window_green,
+        #interface_window_shade {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        #interface_window_green { z-index: 2; }
+        #interface_window_shade { z-index: 1; }
     }
 
     #indicator {
@@ -421,6 +435,7 @@ body.error404        #window-sil { height:   0px; }
         width: 136px;
         height: ( 136px / 2 );
         overflow: hidden;
+
         opacity: 1;
         .transition( opacity ( @view-transition-dur / 2 ) @ease @view-transition-dur );
 
@@ -473,11 +488,11 @@ body.error404        #window-sil { height:   0px; }
 }
 
 #nano-pot {
-    width: 176px;
-    height: 163px;
-    position: absolute;
+    position: fixed;
     left: 50%;
     bottom: 0;
+    width: 176px;
+    height: 163px;
     margin-left: -88px;
     background: url( ../g/mini-tomato-in-a-pot-xs.png ) no-repeat;
     background-size: contain;
@@ -485,7 +500,7 @@ body.error404        #window-sil { height:   0px; }
     //  default state on home page
     opacity: 0;
     margin-bottom: -170px;
-    .transition( opacity 0 linear @view-transition-dur, opacity 0 linear @view-transition-dur );
+    .transition( opacity 0 linear @view-transition-dur, margin-bottom 0 linear @view-transition-dur );
 
     //  nano interface
     i {
@@ -510,6 +525,7 @@ body.planting-party {
     
     #tomato-in-a-pot >div,
     #pot-with-shadow {
+        opacity: 0;
         .transform( translate( 11px, -20px ) scale( .267 ) );
         .transition( transform @view-transition-dur @view-transition-ease, opacity 0 linear @view-transition-dur );
     }
@@ -519,15 +535,39 @@ body.planting-party {
         margin-bottom: 0;
     }
 
-    #interface #indicator {
+    #interface #indicator,
+    #interface #interface-window {
         opacity: 0;
-        .transition( opacity @view-transition-dur @ease );
-        
+        .transition( opacity @view-transition-dur @ease .1s );
+    }
+
+    #interface #indicator {
         &.dry i,
         &.wet i {
             .transform( rotate( 0deg ) );
             .transition( transform .1s @ease );
         }
+    }
+}
+
+body.nature-prevails {
+    #nano-pot {
+        .transition( opacity 0 linear @view-transition-dur, margin-bottom 0 linear @view-transition-dur, transform @reflex @ease .3s );
+    }
+    #window-sil {
+        .transition( height @view-transition-dur @view-transition-ease, transform @reflex @ease .3s );
+    }
+}
+body.slideshow-open {
+    #nano-pot {
+        .transition( opacity 0 linear @view-transition-dur, margin-bottom 0 linear @view-transition-dur, transform @reflex @ease );
+    }
+    #window-sil {
+        .transition( height @view-transition-dur @view-transition-ease, transform @reflex @ease );
+    }
+    #nano-pot,
+    #window-sil {
+        .transform( translateY( 170px ) );
     }
 }
 
@@ -544,12 +584,64 @@ body.planting-party {
 
     .view {
         position: absolute;
+        z-index: 0;
         left: 0;
         top: 0;
         width: 100%;
         min-height: 100%;
         overflow: hidden;
+        .transition( opacity @reflex @ease );
     }
+
+    &.faded .view { opacity: .1; }
+
+    .spinner {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        margin: -3em -1em;
+
+        font-size: 5px;
+        text-indent: -9999em;
+
+        &,
+        &:before,
+        &:after {
+            width: 2em;
+            height: 2em;
+            .border-radius( 50% );
+            .animation-fill-mode( both );
+            .animation( threeDotSpinner 1.2s infinite cubic-bezier(.6,0,.4,1) .1s );
+        }
+
+        &:before,
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 3em;
+        }
+
+        &:before { left: -3em; .animation-delay( 0 ); }
+
+        &:after { .animation-delay( .2s ); }
+    }
+
+    /*#main-overlay {
+        content: '';
+        display: block;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: fade( white, 70% );
+        .transition( opacity @reflex @ease );
+
+        &.ng-hide-remove { opacity: 0; &.ng-hide-remove-active { opacity: 1; } }
+        &.ng-hide-add    { opacity: 1; &.ng-hide-add-active    { opacity: 0; } }
+    }*/
 }
 body.pan-right .view {
     &.ng-enter { .animation( enterFromRight @view-transition-dur @view-transition-ease both ); }
@@ -564,6 +656,8 @@ body.pan-left .view {
 .keyframes(~'enterFromLeft,  0%{ transform: translateX(-100% ); opacity: 0; } 100%{ transform: translateX(   0% ); opacity: 1; }');
 .keyframes(~'leaveToRight,   0%{ transform: translateX(   0% ); opacity: 1; } 100%{ transform: translateX( 100% ); opacity: 0; }');
 
+.keyframes(~'threeDotSpinner, 0%{ box-shadow: 0 2.5em 0 -1.3em #C4E87D; } 60%{ box-shadow: 0 2.5em 0 -1.3em #C4E87D; } 100%{ box-shadow: 0 2.5em 0 -1.3em #C4E87D; } 30%{ box-shadow: 0 2.5em 0 0 #C4E87D; }');
+
 
 
 //``````````````````````````````
@@ -572,6 +666,8 @@ body.pan-left .view {
 .view.home { height: 100%; }
 
 body.home {
+    
+    #main { z-index: 35; }
 
     //  view CONTENT entry animation
     //  after view entry animation
@@ -654,6 +750,8 @@ body.home {
 //  Smart Pot
 //
 body.smart-pot {
+    
+    #main { z-index: 35; }
 
     //  view CONTENT entry animation
     //  after view entry animation

@@ -30,6 +30,7 @@ angular.module('app').config(['$routeProvider', function( $routeProvider ) {
 angular.module('appControllers').controller('404Controller', ['$scope', '$rootScope', '$routeParams', 'appGlobals', function( $scope, $rootScope, $routeParams, appGlobals ) {
     
     $rootScope.navState = 'error';
+    $rootScope.mainIsLoading = false;
 
 }]);
 

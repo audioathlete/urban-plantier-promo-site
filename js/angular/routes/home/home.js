@@ -29,7 +29,7 @@ angular.module('app').config(['$routeProvider', function( $routeProvider ) {
 //
 angular.module('appControllers').controller('HomeController', ['$scope', '$rootScope', '$routeParams', 'appGlobals', function( $scope, $rootScope, $routeParams, appGlobals ) {
 	
-	
+	$rootScope.mainIsLoading = false;
 	
 }]);
 

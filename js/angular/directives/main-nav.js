@@ -6,9 +6,12 @@
 
 
 
-angular.module('appDirectives').directive('mainNav', function() {
+angular.module('appDirectives').directive('mainNav', ['$rootScope', function( $rootScope ) {
 
     function Link( $scope, $element, attributes ) {
+
+        $element.on('mouseenter', function(){ if ( !$rootScope.mainIsOverlayed ) $rootScope.$apply( $rootScope.mainIsOverlayed = true );  });
+        $element.on('mouseleave', function(){ if (  $rootScope.mainIsOverlayed ) $rootScope.$apply( $rootScope.mainIsOverlayed = false ); });
 
         $scope.navPaths = [
             { slug: 'home',            label: 'Home' },
@@ -47,6 +50,6 @@ angular.module('appDirectives').directive('mainNav', function() {
         templateUrl: 'js/angular/partials/main-nav.html'
     };
 
-});
+}]);
 
 

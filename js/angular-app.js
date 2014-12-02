@@ -49,7 +49,7 @@ angular.module('app').config(['$locationProvider', 'cfpLoadingBarProvider', func
 //``````````````````````````````
 //	Run on app init
 //
-angular.module('app').run(['$rootScope', '$route', '$location', '$window', function( $rootScope, $route, $location, $window ) {
+angular.module('app').run(['$rootScope', '$route', '$location', '$window', '$timeout', function( $rootScope, $route, $location, $window, $timeout ) {
 
 	//``````````````````````````````
 	//	Define some useful root scope
@@ -62,6 +62,11 @@ angular.module('app').run(['$rootScope', '$route', '$location', '$window', funct
 		$location.path( path );
 	};
 
+
+	// $rootScope.$on('$routeChangeStart', function( evt, curr, prev ) { $timeout(function(){ $rootScope.forceCloseMainNav =  true; }, 150); });
+	// $rootScope.$on('$routeChangeError', function( evt, curr, prev ) { $timeout(function(){ $rootScope.forceCloseMainNav = false; }, 500); });
+	// $rootScope.$on('$routeChangeStart', function( evt, curr, prev ) { $rootScope.mainIsLoading = true;  });
+	$rootScope.$on('$routeChangeError', function( evt, curr, prev ) { $rootScope.mainIsLoading = false; });
 
 	$rootScope
 		.$on('$routeChangeSuccess', function( evt, curr, prev ) {
@@ -81,6 +86,7 @@ angular.module('app').run(['$rootScope', '$route', '$location', '$window', funct
 
 			$rootScope.viewClass = viewClass;
 			$rootScope.navState = viewClass;
+			// $timeout(function(){ $rootScope.forceCloseMainNav = false; }, 500);
 		
 			//``````````````````````````````
 			//	Trigger ‘routeChangeSuccess’
@@ -148,6 +154,7 @@ angular.module('app').config(['$routeProvider', function( $routeProvider ) {
 angular.module('appControllers').controller('404Controller', ['$scope', '$rootScope', '$routeParams', 'appGlobals', function( $scope, $rootScope, $routeParams, appGlobals ) {
     
     $rootScope.navState = 'error';
+    $rootScope.mainIsLoading = false;
 
 }]);
 
@@ -184,7 +191,7 @@ angular.module('app').config(['$routeProvider', function( $routeProvider ) {
 //
 angular.module('appControllers').controller('HomeController', ['$scope', '$rootScope', '$routeParams', 'appGlobals', function( $scope, $rootScope, $routeParams, appGlobals ) {
 	
-	
+	$rootScope.mainIsLoading = false;
 	
 }]);
 
@@ -295,7 +302,7 @@ angular.module('app').config(['$routeProvider', function( $routeProvider ) {
 //
 angular.module('appControllers').controller('PlantingPartyController', ['$scope', '$rootScope', '$routeParams', 'appGlobals', function( $scope, $rootScope, $routeParams, appGlobals ) {
 	
-	
+	$rootScope.mainIsLoading = false;
 	
 }]);
 
@@ -332,7 +339,7 @@ angular.module('app').config(['$routeProvider', function( $routeProvider ) {
 //
 angular.module('appControllers').controller('SmartPotController', ['$scope', '$rootScope', '$routeParams', 'appGlobals', function( $scope, $rootScope, $routeParams, appGlobals ) {
 	
-	
+	$rootScope.mainIsLoading = false;
 	
 }]);
 
@@ -369,9 +376,147 @@ angular.module('app').config(['$routeProvider', function( $routeProvider ) {
 //
 angular.module('appControllers').controller('UrbanChefController', ['$scope', '$rootScope', '$routeParams', 'appGlobals', function( $scope, $rootScope, $routeParams, appGlobals ) {
 	
-	
+	$rootScope.mainIsLoading = false;
 	
 }]);
+
+
+
+/*//////////////////////////////
+
+    site main navigation
+
+//////////////////////////////*/
+
+
+
+angular.module('appDirectives').directive('gridGallery', ['$http', '$q', '$rootScope', function( $http, $q, $rootScope ) {
+
+    var instagramHashtag = 'naturePrevails',
+        instagramApiClientId = window.location.host == 'plantier2.ips.re' ? 'b6239960f3fb4091869ba881d21e5a38' : '7f74c14a8b654df8ab6094c4d852f511',
+        numMediaToGet = 120, // Instagram seems to return max 33 at a time, no matter what
+        instagramApiEndpoint = 'https://api.instagram.com/v1/tags/'+ instagramHashtag +'/media/recent?client_id='+ instagramApiClientId +'&count='+ numMediaToGet +'&callback=JSON_CALLBACK',
+        galleryImagesCache = [];
+    
+    function getInstagram( instagramApiEndpoint ) {
+
+        var deferred = $q.defer();
+
+        $http
+            .jsonp( instagramApiEndpoint )
+            .success( function( res, status, headers, config ) {
+
+                if ( status != 200 || !res.data.length )
+                    deferred.reject();
+
+                deferred.resolve( res );
+
+            })
+            .error( function( res, status, headers, config ) {
+
+                console.error( res, status, headers(), config );
+                deferred.reject();
+
+            });
+
+        return deferred.promise;
+    }
+
+    function makeGallery( instagramApiEndpoint, $scope, element ) {
+
+        if ( $scope.gridGalleryImages >= numMediaToGet ) {
+            $scope.gridGalleryImages.extend( galleryImagesCache );
+            $rootScope.mainIsLoading = false;
+            return;
+        }
+
+        getInstagram( instagramApiEndpoint ).then( function( promise ) {
+
+            galleryImagesCache.extend( promise.data );
+
+            if ( galleryImagesCache.length < numMediaToGet )
+                makeGallery( instagramApiEndpoint +'&max_tag_id='+ promise.pagination.next_max_tag_id, $scope, element );
+
+            else {
+                $scope.gridGalleryImages.extend( galleryImagesCache );
+                $rootScope.mainIsLoading = false;
+            }
+
+            /*$scope.gridGalleryImages.extend( promise.data );
+
+            if ( $scope.gridGalleryImages.length < numMediaToGet )
+                makeGallery( instagramApiEndpoint +'&max_tag_id='+ promise.pagination.next_max_tag_id, $scope, element );*/
+
+        });
+
+    };
+
+    function Link( $scope, $element, attributes ) {
+
+        $scope.gridGalleryImages = [];
+        $rootScope.mainIsLoading = true;
+
+        makeGallery( instagramApiEndpoint, $scope, $element[ 0 ] );
+
+    };
+
+    function Controller( $scope, $element ) {
+        
+        this.reFlowGallery = function() {
+
+            console.log('re-flow the gallery');
+
+            new CBPGridGallery( $element[ 0 ] );
+
+        };
+
+    };
+
+    return {
+        link: Link,
+        controller: Controller,
+        restrict: 'C',
+        templateUrl: 'js/angular/partials/grid-gallery.html'
+    };
+
+}]);
+
+angular.module('appDirectives').directive('gridGalleryItem', function() {
+    return {
+        restrict: 'C',
+        require: '^gridGallery',
+        transclude: true,
+        link: function( $scope, $element, attributes, gridGalleryCtrl ) {
+            
+            //  last element rendered
+            // if ( $scope.$last )
+            //     gridGalleryCtrl.reFlowGallery();
+
+        },
+        template: '<div ng-transclude></div>'
+    };
+});
+
+angular.module('appDirectives').directive('gridGallerySlideshowItem', function() {
+    return {
+        restrict: 'C',
+        require: '^gridGallery',
+        transclude: true,
+        link: function( $scope, $element, attributes, gridGalleryCtrl ) {
+            
+            //  last element rendered
+            if ( $scope.$last )
+                gridGalleryCtrl.reFlowGallery();
+
+        },
+        template: '<div ng-transclude></div>'
+    };
+});
+
+Array.prototype.extend = function (other_array) {
+    /* you should include a test to check whether other_array really is an array */
+    other_array.forEach(function(v) {this.push(v)}, this);    
+}
 
 
 
@@ -832,9 +977,12 @@ angular.module('appDirectives').directive('lazySrc', function($window, $document
 
 
 
-angular.module('appDirectives').directive('mainNav', function() {
+angular.module('appDirectives').directive('mainNav', ['$rootScope', function( $rootScope ) {
 
     function Link( $scope, $element, attributes ) {
+
+        $element.on('mouseenter', function(){ if ( !$rootScope.mainIsOverlayed ) $rootScope.$apply( $rootScope.mainIsOverlayed = true );  });
+        $element.on('mouseleave', function(){ if (  $rootScope.mainIsOverlayed ) $rootScope.$apply( $rootScope.mainIsOverlayed = false ); });
 
         $scope.navPaths = [
             { slug: 'home',            label: 'Home' },
@@ -873,7 +1021,7 @@ angular.module('appDirectives').directive('mainNav', function() {
         templateUrl: 'js/angular/partials/main-nav.html'
     };
 
-});
+}]);
 
 
 
@@ -885,12 +1033,14 @@ angular.module('appDirectives').directive('mainNav', function() {
 
 
 
-angular.module('appDirectives').directive('mmapp', function() {
+angular.module('appDirectives').directive('mmapp', ['$timeout', function( $timeout ) {
 
     function Link( $scope, $element, attributes ) {
+
+        $rootScope.mainIsLoading = false;
         
-        setTimeout(function(){
-            $scope.$apply( $scope.mmappUrl = 'mmapp/dist/app.html' );
+        $timeout( function(){
+            $scope.mmappUrl = 'mmapp/dist/app.html';
         }, 2000 );
 
         $scope.$root.$on('$routeChangeSuccess', function( evt, curr, prev ) {
@@ -904,7 +1054,7 @@ angular.module('appDirectives').directive('mmapp', function() {
         restrict: 'C'
     };
 
-});
+}]);
 
 
 

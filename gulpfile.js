@@ -13,7 +13,7 @@ function swallowError( error ) {
 };
 
 gulp.task('less', function () {
-    return gulp.src('./less/style.less')
+    return gulp.src('./less/*.less')
         .pipe( less(/*{ compress: true }*/) )
         .on('error', swallowError )
         .pipe( gulp.dest('./css') );

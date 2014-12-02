@@ -1,0 +1,33 @@
+<section class="grid-wrap">
+    <ul class="grid">
+        
+        <li class="grid-sizer"></li><!-- for Masonry column width -->
+
+        <li ng-repeat="img in gridGalleryImages" class="grid-gallery-item">
+            <figure>
+                <img src="{{ img.images.low_resolution.url }}" alt="{{ img.caption.text }}" width="{{ img.images.low_resolution.width }}" height="{{ img.images.low_resolution.height }}">
+            </figure>
+        </li>
+
+    </ul>
+</section><!-- // grid-wrap -->
+
+<section class="slideshow">
+
+    <ul>
+
+        <li ng-repeat="img in gridGalleryImages" class="grid-gallery-slideshow-item">
+            <figure>
+                <img src="{{ img.images.standard_resolution.url }}" alt="{{ img.caption.text }}"  width="{{ img.images.standard_resolution.width }}" height="{{ img.images.standard_resolution.height }}">
+            </figure>
+        </li>
+
+    </ul>
+
+    <nav>
+        <span class="icon nav-prev ion-ios7-arrow-left"></span>
+        <span class="icon nav-next ion-ios7-arrow-right"></span>
+        <span class="icon nav-close ion-ios7-close-empty"></span>
+    </nav>
+
+</section><!-- // slideshow -->

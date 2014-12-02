@@ -1,0 +1,233 @@
+@charset 'UTF-8';
+
+@import (reference) '../bower_components/lesshat/build/lesshat.less';
+@import (reference) 'inc/custom-vars-mixins.less';
+
+
+.grid-gallery {
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    figure {
+        margin: 0;
+
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    figcaption {
+        h3 {
+            margin: 0;
+            padding: 0 0 0.5em;
+        }
+
+        figcaption p {
+            margin: 0;
+        }
+    }
+}
+
+.grid-wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 15px 15px 150px;
+}
+
+.grid {
+    margin: 0 auto;
+
+    li {
+        width: 25%;
+        float: left;
+        cursor: pointer;
+    }
+
+    figure {
+        padding: 15px;
+        -webkit-transition: opacity 0.2s;
+        transition: opacity 0.2s;
+    }
+
+    li:hover figure {
+        opacity: 0.7;
+    }
+
+    figcaption {
+        background: #e4e4e4;
+        padding: 25px;
+    }
+}
+
+.slideshow {
+    position: fixed;
+    background: fade( #1f1f1f, 95% );
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 500;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    .perspective( 1000px );
+    .transition( opacity .3s, visibility 0s .3s );
+
+    ul {
+        width: 100%;
+        height: 100%;
+        .transform-style( preserve-3d );
+        .transform( translate3d( 0, 0, 150px ) );
+        .transition( transform .3s );
+
+        &.animatable li { .transition( transform .3s ); }
+    }
+
+    li {
+        width: 640px;
+        height: 640px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -320px;
+        visibility: hidden;
+
+        &.show {
+            visibility: visible;
+        }
+
+        &:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: fade( #1f1f1f, 70% );
+            .transition( opacity .3s @ease );
+        }
+
+        &.current:after {
+            visibility: hidden;
+            opacity: 0;
+            .transition( opacity @reflex, visibility 0s @reflex );
+        }
+    }
+
+    figure {
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        overflow: hidden;
+    }
+
+    figcaption {
+        padding-bottom: 20px;
+
+        h3 {
+            font-weight: 300;
+            font-size: 200%;
+        }
+    }
+
+    nav span {
+        position: fixed;
+        z-index: 1000;
+        color: white;
+        font-size: 90px;
+        .antialiased;
+        padding: 211px 28px;
+        cursor: pointer;
+        text-align: center;
+
+        &.nav-prev,
+        &.nav-next {
+            top: 50%;
+            .transform( translateY( -50% ) );
+        }
+
+        &.nav-prev { left: 0; }
+        &.nav-next { right: 0; }
+
+        &.nav-close {
+            top: 0;
+            right: 0;
+            font-size: 70px;
+            line-height: 1;
+            padding: 20px 36px;
+            color: fade( white, 40% );
+            .transition( color @reflex @ease );
+
+            &:hover { color: white; }
+        }
+    }
+}
+
+.slideshow-open .slideshow {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: opacity 0.5s;
+    transition: opacity 0.5s;
+
+    ul { .transform( translate3d(0,0,0) ); }
+}
+
+
+/* Example media queries (reduce number of columns and change slideshow layout) */
+
+@media screen and ( max-width: 60em ) {
+    /* responsive columns; see "Element sizing" on http://masonry.desandro.com/options.html */
+    .grid li {
+        width: 33.3%;
+    }
+}
+
+@media screen and ( max-width: 35em ) {
+    .grid li {
+        width: 50%;
+    }
+}
+
+@media screen and ( max-width: 24em ) {
+    .grid li {
+        width: 100%;
+    }
+}
+
+@media screen and ( max-width: 640px ) {
+    .slideshow {
+        li {
+            width: 100%;
+            height: 0;
+            padding-top: 100%;
+            margin: -50%;
+
+            figure {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+
+                img { max-width: 100%; }
+            }
+        }
+
+        nav span {
+            font-size: 60px;
+            padding: 160px 20px;
+
+            &.nav-close {
+                font-size: 50px;
+                padding: 7px 20px;
+            }
+        }
+    }
+}
+

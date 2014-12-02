@@ -6,12 +6,14 @@
 
 
 
-angular.module('appDirectives').directive('mmapp', function() {
+angular.module('appDirectives').directive('mmapp', ['$timeout', function( $timeout ) {
 
     function Link( $scope, $element, attributes ) {
+
+        $rootScope.mainIsLoading = false;
         
-        setTimeout(function(){
-            $scope.$apply( $scope.mmappUrl = 'mmapp/dist/app.html' );
+        $timeout( function(){
+            $scope.mmappUrl = 'mmapp/dist/app.html';
         }, 2000 );
 
         $scope.$root.$on('$routeChangeSuccess', function( evt, curr, prev ) {
@@ -25,6 +27,6 @@ angular.module('appDirectives').directive('mmapp', function() {
         restrict: 'C'
     };
 
-});
+}]);
 
 
