@@ -466,7 +466,7 @@ body.error404        #window-sil { height:   0px; }
         &.wet i { .transform( rotate( -90deg ) ); }
         
         &.dry i,
-        &.wet i { .transition( transform 40s ease-in-out ); }
+        &.wet i { .transition( transform 30s ease-out ); }
     }
 }
 
@@ -589,10 +589,11 @@ body.home {
 
     #home-blurb {
         position: absolute;
+        z-index: 1;
         left: 50%;
         bottom: 0;
         width: 300px;
-        height: 145px;
+        height: 300px;
         margin-left: -150px;
         text-align: center;
 
@@ -609,6 +610,15 @@ body.home {
             text-transform: uppercase;
         }
 
+    }
+
+    #home-interface-hitarea {
+        width: 140px;
+        height: 140px;
+        margin: 0 auto 15px;
+        overflow: hidden;
+        cursor: pointer;
+        .border-radius( 100% );
     }
 
     #home-logo {

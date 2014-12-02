@@ -1259,10 +1259,10 @@ body.error404 #window-sil {
 }
 #interface #indicator.dry i,
 #interface #indicator.wet i {
-  -webkit-transition: -webkit-transform 40s ease-in-out;
-  -moz-transition: -moz-transform 40s ease-in-out;
-  -o-transition: -o-transform 40s ease-in-out;
-  transition: -webkit-transform 40s ease-in-out,-moz-transform 40s ease-in-out,-o-transform 40s ease-in-out,transform 40s ease-in-out;
+  -webkit-transition: -webkit-transform 30s ease-out;
+  -moz-transition: -moz-transform 30s ease-out;
+  -o-transition: -o-transform 30s ease-out;
+  transition: -webkit-transform 30s ease-out,-moz-transform 30s ease-out,-o-transform 30s ease-out,transform 30s ease-out;
 }
 #nano-pot {
   width: 176px;
@@ -1459,10 +1459,11 @@ body.home #home #home-blurb p {
 }
 #home #home-blurb {
   position: absolute;
+  z-index: 1;
   left: 50%;
   bottom: 0;
   width: 300px;
-  height: 145px;
+  height: 300px;
   margin-left: -150px;
   text-align: center;
 }
@@ -1476,6 +1477,19 @@ body.home #home #home-blurb p {
   font-size: 10px;
   letter-spacing: 1px;
   text-transform: uppercase;
+}
+#home #home-interface-hitarea {
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 15px;
+  overflow: hidden;
+  cursor: pointer;
+  -webkit-border-radius: 100%;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 100%;
+  -moz-background-clip: padding;
+  border-radius: 100%;
+  background-clip: padding-box;
 }
 #home #home-logo {
   width: 168px;
