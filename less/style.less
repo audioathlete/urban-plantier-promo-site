@@ -421,6 +421,8 @@ body.error404        #window-sil { height:   0px; }
         width: 136px;
         height: ( 136px / 2 );
         overflow: hidden;
+        opacity: 1;
+        .transition( opacity ( @view-transition-dur / 2 ) @ease @view-transition-dur );
 
         i {
             display: block;
@@ -519,7 +521,7 @@ body.planting-party {
 
     #interface #indicator {
         opacity: 0;
-        .transition( opacity .1s @ease .1s );
+        .transition( opacity @view-transition-dur @ease );
         
         &.dry i,
         &.wet i {

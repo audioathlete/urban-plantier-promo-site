@@ -1192,6 +1192,11 @@ body.error404 #window-sil {
   width: 136px;
   height: 68px;
   overflow: hidden;
+  opacity: 1;
+  -webkit-transition: opacity 0.375s ease-in-out 0.75s;
+  -moz-transition: opacity 0.375s ease-in-out 0.75s;
+  -o-transition: opacity 0.375s ease-in-out 0.75s;
+  transition: opacity 0.375s ease-in-out 0.75s;
 }
 #interface #indicator i {
   display: block;
@@ -1339,10 +1344,10 @@ body.urban-chef #interface #indicator,
 body.nature-prevails #interface #indicator,
 body.planting-party #interface #indicator {
   opacity: 0;
-  -webkit-transition: opacity 0.1s ease-in-out 0.1s;
-  -moz-transition: opacity 0.1s ease-in-out 0.1s;
-  -o-transition: opacity 0.1s ease-in-out 0.1s;
-  transition: opacity 0.1s ease-in-out 0.1s;
+  -webkit-transition: opacity 0.75s ease-in-out;
+  -moz-transition: opacity 0.75s ease-in-out;
+  -o-transition: opacity 0.75s ease-in-out;
+  transition: opacity 0.75s ease-in-out;
 }
 body.smart-pot #interface #indicator.dry i,
 body.plant-mash #interface #indicator.dry i,

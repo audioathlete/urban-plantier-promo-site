@@ -36,6 +36,10 @@ angular.module('appDirectives').directive('smartPotInterface', ['$timeout', func
 
         });
 
+        $scope.$root.$on('$routeChangeSuccess', function() {
+            $scope.soilState = 'normal';
+        });
+
     };
 
     return {

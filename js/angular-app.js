@@ -184,7 +184,7 @@ angular.module('app').config(['$routeProvider', function( $routeProvider ) {
 //
 angular.module('appControllers').controller('HomeController', ['$scope', '$rootScope', '$routeParams', 'appGlobals', function( $scope, $rootScope, $routeParams, appGlobals ) {
 	
-	console.log('init HomeController');
+	
 	
 }]);
 
@@ -1064,6 +1064,10 @@ angular.module('appDirectives').directive('smartPotInterface', ['$timeout', func
 
             }
 
+        });
+
+        $scope.$root.$on('$routeChangeSuccess', function() {
+            $scope.soilState = 'normal';
         });
 
     };
