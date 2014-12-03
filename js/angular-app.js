@@ -63,10 +63,15 @@ angular.module('app').run(['$rootScope', '$route', '$location', '$window', '$tim
 	};
 
 
-	// $rootScope.$on('$routeChangeStart', function( evt, curr, prev ) { $timeout(function(){ $rootScope.forceCloseMainNav =  true; }, 150); });
-	// $rootScope.$on('$routeChangeError', function( evt, curr, prev ) { $timeout(function(){ $rootScope.forceCloseMainNav = false; }, 500); });
-	// $rootScope.$on('$routeChangeStart', function( evt, curr, prev ) { $rootScope.mainIsLoading = true;  });
-	$rootScope.$on('$routeChangeError', function( evt, curr, prev ) { $rootScope.mainIsLoading = false; });
+	$rootScope
+		.$on('$routeChangeStart', function( evt, curr, prev ) {
+
+			$rootScope.mainNavAutocloseTimer = $timeout(function(){
+				$rootScope.mainNavOpen = false;
+				$rootScope.mainIsOverlayed = false;
+			}, 500 );
+
+		});
 
 	$rootScope
 		.$on('$routeChangeSuccess', function( evt, curr, prev ) {
@@ -86,7 +91,11 @@ angular.module('app').run(['$rootScope', '$route', '$location', '$window', '$tim
 
 			$rootScope.viewClass = viewClass;
 			$rootScope.navState = viewClass;
-			// $timeout(function(){ $rootScope.forceCloseMainNav = false; }, 500);
+
+			if ( viewClass == 'home' ) {
+				$rootScope.mainNavOpen = false;
+				$rootScope.mainIsOverlayed = false;
+			}
 		
 			//``````````````````````````````
 			//	Trigger ‘routeChangeSuccess’
@@ -117,6 +126,43 @@ angular.module('app').run(['$rootScope', '$route', '$location', '$window', '$tim
 		}, false );
 
 	}
+	
+}]);
+
+
+
+/*//////////////////////////////
+
+	Home route & controller
+
+	/
+
+//////////////////////////////*/
+
+
+
+//``````````````````````````````
+//	Configure the route
+//
+angular.module('app').config(['$routeProvider', function( $routeProvider ) {
+	'use strict';
+
+	$routeProvider.when('/',
+	{
+		templateUrl: 'js/angular/routes/home/home.html',
+		controller: 'HomeController'
+	});
+
+}]);
+
+
+
+//``````````````````````````````
+//	The controller
+//
+angular.module('appControllers').controller('HomeController', ['$scope', '$rootScope', '$routeParams', 'appGlobals', function( $scope, $rootScope, $routeParams, appGlobals ) {
+	
+	$rootScope.mainIsLoading = false;
 	
 }]);
 
@@ -156,43 +202,6 @@ angular.module('appControllers').controller('404Controller', ['$scope', '$rootSc
     $rootScope.navState = 'error';
     $rootScope.mainIsLoading = false;
 
-}]);
-
-
-
-/*//////////////////////////////
-
-	Home route & controller
-
-	/
-
-//////////////////////////////*/
-
-
-
-//``````````````````````````````
-//	Configure the route
-//
-angular.module('app').config(['$routeProvider', function( $routeProvider ) {
-	'use strict';
-
-	$routeProvider.when('/',
-	{
-		templateUrl: 'js/angular/routes/home/home.html',
-		controller: 'HomeController'
-	});
-
-}]);
-
-
-
-//``````````````````````````````
-//	The controller
-//
-angular.module('appControllers').controller('HomeController', ['$scope', '$rootScope', '$routeParams', 'appGlobals', function( $scope, $rootScope, $routeParams, appGlobals ) {
-	
-	$rootScope.mainIsLoading = false;
-	
 }]);
 
 
@@ -981,8 +990,21 @@ angular.module('appDirectives').directive('mainNav', ['$rootScope', function( $r
 
     function Link( $scope, $element, attributes ) {
 
-        $element.on('mouseenter', function(){ if ( !$rootScope.mainIsOverlayed ) $rootScope.$apply( $rootScope.mainIsOverlayed = true );  });
-        $element.on('mouseleave', function(){ if (  $rootScope.mainIsOverlayed ) $rootScope.$apply( $rootScope.mainIsOverlayed = false ); });
+        $element.on('mouseenter', function(){
+
+            clearTimeout( $rootScope.mainNavAutocloseTimer );
+
+            $rootScope.$apply( $rootScope.mainNavOpen = true );
+            $rootScope.$apply( $rootScope.mainIsOverlayed = true );
+
+        });
+
+        $element.on('mouseleave', function(){
+
+            $rootScope.$apply( $rootScope.mainNavOpen = false );
+            $rootScope.$apply( $rootScope.mainIsOverlayed = false );
+
+        });
 
         $scope.navPaths = [
             { slug: 'home',            label: 'Home' },
@@ -993,7 +1015,7 @@ angular.module('appDirectives').directive('mainNav', ['$rootScope', function( $r
             { slug: 'planting-party',  label: 'Planting\nParty' }
         ];
 
-        $scope.collapseMenu = false;
+        $scope.collapseMenu = true;
 
         $scope.$watch( 'navState', function( newValue, oldValue ) {
 
@@ -1009,7 +1031,7 @@ angular.module('appDirectives').directive('mainNav', ['$rootScope', function( $r
 
             }
 
-            $scope.collapseMenu = newValue == 'home' ? false : true;
+            // $scope.collapseMenu = newValue == 'home' ? false : true;
 
         });
 
@@ -1037,13 +1059,16 @@ angular.module('appDirectives').directive('mmapp', ['$timeout', '$rootScope', fu
 
     function Link( $scope, $element, attributes ) {
 
-        $rootScope.mainIsLoading = false;
+        $rootScope.mainIsLoading = true;
         
         $timeout( function(){
+
+            $rootScope.mainIsLoading = false;
             $scope.mmappUrl = 'mmapp/dist/app.html';
+        
         }, 2000 );
 
-        $scope.$root.$on('$routeChangeSuccess', function( evt, curr, prev ) {
+        $rootScope.$on('$routeChangeStart', function( evt, curr, prev ) {
             $scope.mmappUrl = '';
         });
 

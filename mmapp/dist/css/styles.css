@@ -1,14 +1,16 @@
+@charset 'UTF-8';
 body,
 html {
   padding: 0;
   margin: 0;
 }
 body {
-  font-family: 'Open Sans', sans-serif;
-  /*overflow: hidden;*/
+  color: #3b362b;
+  font: 300 16px/1.5 'museo-sans' sans-serif;
+  overflow: hidden;
   position: absolute;
-  width: 685px;
-  height: 616px;
+  width: 100%;
+  height: 100%;
 }
 a {
   color: #FAC40A;
@@ -44,7 +46,8 @@ button:hover {
   background-color: #FAC40A;
 }
 #svgContainer {
-  width: 700px;
+  width: 100%;
+  height: 100%;
   display: none;
 }
 #debug {
@@ -74,18 +77,18 @@ button:hover {
   height: 100%;
 }
 .overlay .modal {
-  width: 90%;
-  height: 90%;
+  width: 100%;
+  height: 100%;
   position: absolute;
-  left: 5%;
-  top: 5%;
+  left: 0;
+  top: 0;
   background-color: transparent;
   color: white;
 }
 .overlay .modal .footer {
   position: absolute;
   width: 100%;
-  bottom: 0;
+  top: 0;
   left: 0;
 }
 .svgButton image.hover {
@@ -244,21 +247,19 @@ button:hover {
   border: none;
 }
 #tutorialModal .footer {
-  min-height: 4em;
+  top: 50%;
+  height: 2em;
   /* Necessary to have a height if footer empty otherwise */
+  text-align: center;
 }
 #tutorialModal .footer .pages {
   display: none;
 }
-#tutorialModal .footer .loader {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
 #tutorialModal .footer .loader .full,
 #tutorialModal .footer .loader .empty,
 #tutorialModal .footer .loader .play {
-  width: 8em;
+  width: 100%;
+  padding: 0;
   display: inline-block;
   text-align: center;
   color: black;
@@ -270,16 +271,16 @@ button:hover {
   font-size: 130%;
   text-transform: uppercase;
   z-index: 2;
-  position: absolute;
-  bottom: 0;
-  right: 0;
 }
 #tutorialModal .footer .loader .full {
   z-index: 1;
-  height: 0;
   padding-top: 0;
   padding-bottom: 0;
-  background-color: #0C5835;
+  font-size: 12px;
+  color: #66bbcc;
+}
+#tutorialModal .footer .loader .empty {
+  display: none;
 }
 #tutorialModal .footer .loader .play {
   display: none;

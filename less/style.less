@@ -21,7 +21,7 @@ Urban Plantier promo site 2014
 body, html { height: 100%; }
 
 body {
-    font: 300 16px/1.5 'museo-sans' sans-serif;
+    font: 400 16px/1.5 'museo-sans' sans-serif;
     .antialiased;
     color: @text-color;
 }
@@ -132,26 +132,27 @@ a {
     font-size: 26px;
 
     &,
-    &.collapsible:hover,
-    &.open {
+    // &.collapsible:hover, 
+    &.collapsible.open {
         top: auto;
         bottom: 0;
         width: 400px;
         margin-left: -200px;
         padding-top: 290px;
+        overflow: hidden;
         .transition( none );
     }
 
+    &.collapsible.open { .border-radius( 50% ); }
+
     &.collapsible,
     body.home &,
-    li.home,
-    &.closed, &.closed:hover {
+    li.home {
         left: 50%;
         bottom: 10px;
         margin-left: -40px;
         padding-top: 150px;
         width: 80px;
-        overflow: hidden;
         .transition( all 0 @ease @reflex );
     }
 
@@ -161,7 +162,7 @@ a {
     }
 
     li,
-    &.collapsible:hover li,
+    // &.collapsible:hover li,
     &.open li {
         &.home            { visibility: visible; }
         &.smart-pot       { .transform( rotate(  30deg ) ); span { .transform( scale( 1 ) rotate( -30deg ) ); } }
@@ -172,7 +173,7 @@ a {
     }
 
     li.active,
-    &.collapsible:hover li.active,
+    // &.collapsible:hover li.active,
     &.open li.active  {
         z-index: 0;
     }
@@ -237,7 +238,7 @@ body {
     
     &.smart-pot #main-nav {
         li,
-        &.collapsible:hover li,
+        // &.collapsible:hover li,
         &.open li {
             &.smart-pot       { .transform( rotate(  30deg ) ); span { .transform( scale( 0 ) rotate( -30deg ) ); } }
             &.plant-mash      { .transform( rotate(  30deg ) ); span { .transform( scale( 1 ) rotate( -30deg ) ); } }
@@ -249,7 +250,7 @@ body {
     
     &.plant-mash #main-nav {
         li,
-        &.collapsible:hover li,
+        // &.collapsible:hover li,
         &.open li {
             &.smart-pot       { .transform( rotate(  30deg ) ); span { .transform( scale( 1 ) rotate( -30deg ) ); } }
             &.plant-mash      { .transform( rotate(  30deg ) ); span { .transform( scale( 0 ) rotate( -30deg ) ); } }
@@ -261,7 +262,7 @@ body {
     
     &.urban-chef #main-nav {
         li,
-        &.collapsible:hover li,
+        // &.collapsible:hover li,
         &.open li {
             &.smart-pot       { .transform( rotate(  30deg ) ); span { .transform( scale( 1 ) rotate( -30deg ) ); } }
             &.plant-mash      { .transform( rotate(  70deg ) ); span { .transform( scale( 1 ) rotate( -70deg ) ); } }
@@ -273,7 +274,7 @@ body {
 
     &.nature-prevails #main-nav {
         li,
-        &.collapsible:hover li,
+        // &.collapsible:hover li,
         &.open li {
             &.smart-pot       { .transform( rotate(  30deg ) ); span { .transform( scale( 1 ) rotate( -30deg ) ); } }
             &.plant-mash      { .transform( rotate(  70deg ) ); span { .transform( scale( 1 ) rotate( -70deg ) ); } }
@@ -285,7 +286,7 @@ body {
 
     &.planting-party #main-nav {
         li,
-        &.collapsible:hover li,
+        // &.collapsible:hover li,
         &.open li {
             &.smart-pot       { .transform( rotate(  30deg ) ); span { .transform( scale( 1 ) rotate( -30deg ) ); } }
             &.plant-mash      { .transform( rotate(  70deg ) ); span { .transform( scale( 1 ) rotate( -70deg ) ); } }
@@ -600,13 +601,15 @@ body.slideshow-open {
         left: 50%;
         top: 50%;
         margin: -3em -1em;
-
         font-size: 5px;
-        text-indent: -9999em;
 
-        &,
+        span { text-indent: -9999em; }
+
+        span,
         &:before,
         &:after {
+            display: block;
+            background-color: @brand-primary;
             width: 2em;
             height: 2em;
             .border-radius( 50% );
@@ -651,12 +654,18 @@ body.pan-left .view {
     &.ng-enter { .animation( enterFromLeft @view-transition-dur @view-transition-ease both ); }
     &.ng-leave { .animation(  leaveToRight @view-transition-dur @view-transition-ease both ); }
 }
+
+body.plant-mash      #main .spinner { span, &:before, &:after { background-color: @brand-blue; } }
+body.urban-chef      #main .spinner { span, &:before, &:after { background-color: @brand-red; } }
+body.nature-prevails #main .spinner { span, &:before, &:after { background-color: @brand-green; } }
+body.planting-party  #main .spinner { span, &:before, &:after { background-color: @brand-indigo; } }
+
 .keyframes(~'enterFromRight, 0%{ transform: translateX( 100% ); opacity: 0; } 100%{ transform: translateX(   0% ); opacity: 1; }');
 .keyframes(~'leaveToLeft,    0%{ transform: translateX(   0% ); opacity: 1; } 100%{ transform: translateX(-100% ); opacity: 0; }');
 .keyframes(~'enterFromLeft,  0%{ transform: translateX(-100% ); opacity: 0; } 100%{ transform: translateX(   0% ); opacity: 1; }');
 .keyframes(~'leaveToRight,   0%{ transform: translateX(   0% ); opacity: 1; } 100%{ transform: translateX( 100% ); opacity: 0; }');
 
-.keyframes(~'threeDotSpinner, 0%{ box-shadow: 0 2.5em 0 -1.3em #C4E87D; } 60%{ box-shadow: 0 2.5em 0 -1.3em #C4E87D; } 100%{ box-shadow: 0 2.5em 0 -1.3em #C4E87D; } 30%{ box-shadow: 0 2.5em 0 0 #C4E87D; }');
+.keyframes(~'threeDotSpinner, 0%{ transform: scale(0); } 30%{ transform: scale(1); } 60%{ transform: scale(0); } 100%{ transform: scale(0); }');
 
 
 
@@ -696,6 +705,7 @@ body.home {
         text-align: center;
 
         p {
+            font-weight: 300;
             font-size: 13px;
             line-height: 1.3;
             margin: .75em 0 0;
@@ -789,30 +799,52 @@ body.smart-pot {
     iframe {
         border: none;
         background: none;
-        width: 700px;
-        height: 700px;
+        width: 616px;
+        height: 616px;
+        margin-top: 20px;
     }
 }
 
 
 
 //``````````````````````````````
-//  Urban Chef
-//
-#urban-chef { text-align: center; }
-
-
-
-//``````````````````````````````
 //  #NaturePrevails
 //
-#nature-prevails { text-align: center; }
+#nature-prevails {}
 
 
 
 //``````````````````````````````
-//  Planting Party
+//  Urban Chef & Planting Party
 //
-#planting-party { text-align: center; }
+.view.smart-pot,
+.view.urban-chef,
+.view.planting-party { display: table; height: 100%; }
+
+#smart-pot      { h1, h2 { color: @brand-primary; } }
+#urban-chef     { color: @brand-red;    }
+#planting-party { color: @brand-indigo; }
+
+#smart-pot,
+#urban-chef,
+#planting-party {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    padding-bottom: 60px;
+
+    h1 {
+        font-size: 96px;
+        line-height: 1;
+        margin: 0;
+    }
+
+    label {
+        display: block;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+}
 
 

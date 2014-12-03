@@ -10,13 +10,16 @@ angular.module('appDirectives').directive('mmapp', ['$timeout', '$rootScope', fu
 
     function Link( $scope, $element, attributes ) {
 
-        $rootScope.mainIsLoading = false;
+        $rootScope.mainIsLoading = true;
         
         $timeout( function(){
+
+            $rootScope.mainIsLoading = false;
             $scope.mmappUrl = 'mmapp/dist/app.html';
+        
         }, 2000 );
 
-        $scope.$root.$on('$routeChangeSuccess', function( evt, curr, prev ) {
+        $rootScope.$on('$routeChangeStart', function( evt, curr, prev ) {
             $scope.mmappUrl = '';
         });
 

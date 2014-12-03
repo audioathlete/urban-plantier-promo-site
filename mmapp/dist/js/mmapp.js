@@ -13426,7 +13426,7 @@ exports.loaded = false
 
 // Logs messages from the app
 exports.log = function(msg) {
-  console.log(msg)
+  // console.log(msg)
 }
 
 // Measurements for the sound surface
@@ -13451,403 +13451,403 @@ outGain.connect(audioContext.destination)
 
 },{"./utils/waa":12,"events":1}],7:[function(require,module,exports){
 var waaUtils = require('./utils/waa')
-  , svgUtils = require('./utils/svg')
-  , button = require('./utils/button')
-  , context = require('./context')
-  , config = require('./config')
-  , TrackModel = require('./TrackModel')
-  , TrackView = require('./TrackView')
-  , Soundbank = require('./Soundbank')
-  , trackController = require('./trackController')
-  , recController = require('./recController')
-  , loadingTime = +(new Date)
+    , svgUtils = require('./utils/svg')
+    , button = require('./utils/button')
+    , context = require('./context')
+    , config = require('./config')
+    , TrackModel = require('./TrackModel')
+    , TrackView = require('./TrackView')
+    , Soundbank = require('./Soundbank')
+    , trackController = require('./trackController')
+    , recController = require('./recController')
+    , loadingTime = +(new Date)
 
 // Debugging
 /*$('<div>', { id: 'debug' }).appendTo('body')
 context.log = function(msg) {
-  $('<div>', { class: 'msg' }).text(msg).prependTo('#debug')
+    $('<div>', { class: 'msg' }).text(msg).prependTo('#debug')
 }*/
 /*waaUtils.loadBuffer('sounds/test.ogg', function(err, buffer) {
-  context.log('TEST OGG ' + buffer.duration + ' ; LEN ' + buffer.length)
+    context.log('TEST OGG ' + buffer.duration + ' ; LEN ' + buffer.length)
 })
 waaUtils.loadBuffer('sounds/test.mp3', function(err, buffer) {
-  context.log('TEST MP3 ' + buffer.duration + ' ; LEN ' + buffer.length)
+    context.log('TEST MP3 ' + buffer.duration + ' ; LEN ' + buffer.length)
 })*/
 
 
 if (!window.AudioContext) {
-  $('#tutorialModal').hide()
-  $('#notSupportedModal').show()
-  throw new Error('not supported :(')
+    $('#tutorialModal').hide()
+    $('#notSupportedModal').show()
+    throw new Error('not supported :(')
 }
 
 context.log('starting...')
 
 // Loading bar
-var loadingBarHeight = $('#tutorialModal .footer').outerHeight()
-$('#tutorialModal .loader').css({ height: loadingBarHeight })
+// var loadingBarHeight = $('#tutorialModal .footer').outerHeight()
+// $('#tutorialModal .loader').css({ height: loadingBarHeight })
 
 if (config.tutorial) {
 
-  $('.pages').show()
+    $('.pages').show()
 
-  // Setting-up the tutorial next/previous navigation
-  var currentPage = 0
-    , tutorialPages = $('#tutorialModal .animations>.slide')
-    , pageCount = tutorialPages.length
+    // Setting-up the tutorial next/previous navigation
+    var currentPage = 0
+        , tutorialPages = $('#tutorialModal .animations>.slide')
+        , pageCount = tutorialPages.length
 
-  $('#tutorialModal .pages .previous').click(function(event) {
-    event.preventDefault()
-    $(tutorialPages[currentPage]).fadeOut(function() {
-      currentPage = (pageCount + (currentPage - 1)) % pageCount
-      $(tutorialPages[currentPage]).fadeIn()
+    $('#tutorialModal .pages .previous').click(function(event) {
+        event.preventDefault()
+        $(tutorialPages[currentPage]).fadeOut(function() {
+            currentPage = (pageCount + (currentPage - 1)) % pageCount
+            $(tutorialPages[currentPage]).fadeIn()
+        })
     })
-  })
 
-  $('#tutorialModal .pages .next').click(function(event) {
-    event.preventDefault()
-    $(tutorialPages[currentPage]).fadeOut(function() {
-      currentPage = (currentPage + 1) % pageCount
-      $(tutorialPages[currentPage]).fadeIn()
+    $('#tutorialModal .pages .next').click(function(event) {
+        event.preventDefault()
+        $(tutorialPages[currentPage]).fadeOut(function() {
+            currentPage = (currentPage + 1) % pageCount
+            $(tutorialPages[currentPage]).fadeIn()
+        })
     })
-  })
 
-  $(tutorialPages[0]).fadeIn()
+    $(tutorialPages[0]).fadeIn()
 }
 
 // Creating sound banks
 var soundbank1 = new Soundbank('soundbank1', [
-  new TrackModel('bass', 'bass-0'),
-  new TrackModel('bass', 'bass-1'),
-  new TrackModel('bass', 'bass-2'),
-  new TrackModel('bass', 'bass-3'),
-  new TrackModel('bass', 'bass-4'),
+    new TrackModel('bass', 'bass-0'),
+    new TrackModel('bass', 'bass-1'),
+    new TrackModel('bass', 'bass-2'),
+    new TrackModel('bass', 'bass-3'),
+    new TrackModel('bass', 'bass-4'),
 
-  new TrackModel('drum', 'drum-0'),
-  new TrackModel('drum', 'drum-1'),
-  new TrackModel('drum', 'drum-2'),
-  new TrackModel('drum', 'drum-3'),
-  new TrackModel('drum', 'drum-4'),
+    new TrackModel('drum', 'drum-0'),
+    new TrackModel('drum', 'drum-1'),
+    new TrackModel('drum', 'drum-2'),
+    new TrackModel('drum', 'drum-3'),
+    new TrackModel('drum', 'drum-4'),
 
-  new TrackModel('melody', 'melody-0'),
-  new TrackModel('melody', 'melody-1'),
-  new TrackModel('melody', 'melody-2'),
-  new TrackModel('melody', 'melody-3'),
-  new TrackModel('melody', 'melody-4'),
+    new TrackModel('melody', 'melody-0'),
+    new TrackModel('melody', 'melody-1'),
+    new TrackModel('melody', 'melody-2'),
+    new TrackModel('melody', 'melody-3'),
+    new TrackModel('melody', 'melody-4'),
 
-  new TrackModel('vocal', 'vocal-0'),
-  new TrackModel('vocal', 'vocal-1'),
-  new TrackModel('vocal', 'vocal-2'),
-  new TrackModel('vocal', 'vocal-3'),
-  new TrackModel('vocal', 'vocal-4'),
+    new TrackModel('vocal', 'vocal-0'),
+    new TrackModel('vocal', 'vocal-1'),
+    new TrackModel('vocal', 'vocal-2'),
+    new TrackModel('vocal', 'vocal-3'),
+    new TrackModel('vocal', 'vocal-4'),
 ])
 
-var soundbank2 = new Soundbank('soundbank2', [
-  new TrackModel('bass', 'bass-0'),
-  new TrackModel('bass', 'bass-1'),
-  new TrackModel('bass', 'bass-2'),
-  new TrackModel('bass', 'bass-3'),
-  new TrackModel('bass', 'bass-4'),
+/*var soundbank2 = new Soundbank('soundbank2', [
+    new TrackModel('bass', 'bass-0'),
+    new TrackModel('bass', 'bass-1'),
+    new TrackModel('bass', 'bass-2'),
+    new TrackModel('bass', 'bass-3'),
+    new TrackModel('bass', 'bass-4'),
 
-  new TrackModel('drum', 'drum-0'),
-  new TrackModel('drum', 'drum-1'),
-  new TrackModel('drum', 'drum-2'),
-  new TrackModel('drum', 'drum-3'),
-  new TrackModel('drum', 'drum-4'),
+    new TrackModel('drum', 'drum-0'),
+    new TrackModel('drum', 'drum-1'),
+    new TrackModel('drum', 'drum-2'),
+    new TrackModel('drum', 'drum-3'),
+    new TrackModel('drum', 'drum-4'),
 
-  new TrackModel('melody', 'melody-0'),
-  new TrackModel('melody', 'melody-1'),
-  new TrackModel('melody', 'melody-2'),
-  new TrackModel('melody', 'melody-3'),
-  new TrackModel('melody', 'melody-4'),
+    new TrackModel('melody', 'melody-0'),
+    new TrackModel('melody', 'melody-1'),
+    new TrackModel('melody', 'melody-2'),
+    new TrackModel('melody', 'melody-3'),
+    new TrackModel('melody', 'melody-4'),
 
-  new TrackModel('vocal', 'vocal-0'),
-  new TrackModel('vocal', 'vocal-1'),
-  new TrackModel('vocal', 'vocal-2'),
-  new TrackModel('vocal', 'vocal-3'),
-  new TrackModel('vocal', 'vocal-4'),
-])
+    new TrackModel('vocal', 'vocal-0'),
+    new TrackModel('vocal', 'vocal-1'),
+    new TrackModel('vocal', 'vocal-2'),
+    new TrackModel('vocal', 'vocal-3'),
+    new TrackModel('vocal', 'vocal-4'),
+])*/
 
 async.series([
 
-  // Load the base layout as SVG
-  function(next) {
-    d3.xml('images/mashmachine.svg', 'image/svg+xml', function(xml) {
-      context.svg = d3.select(document.importNode(xml.documentElement, true))
-      context.svg.attr('id', 'mashmachine')
+    // Load the base layout as SVG
+    function(next) {
+        d3.xml('images/mashmachine.svg', 'image/svg+xml', function(xml) {
+            context.svg = d3.select(document.importNode(xml.documentElement, true))
+            context.svg.attr('id', 'mashmachine')
 
-      // This is an element used as an anchor to render foreground elements. Basically any moving
-      // element will be moved in front of this point so that is is in the foreground
-      context.svg.insert('g').attr('id', 'foreground' )
-      context.svg.insert('g', '#foreground').attr('id', 'recMenu' ).attr('class', 'initial')
-      context.svg.insert('g', '#foreground').attr('id', 'otherButtons' )
-      context.svg.insert('g', '#foreground').attr('id', 'trackButtons' )
-      context.svg.insert('g', '#foreground').attr('id', 'soundbankButtons' )
-      context.log('svg dowloaded')
-      next()
-    })
-  },
+            // This is an element used as an anchor to render foreground elements. Basically any moving
+            // element will be moved in front of this point so that is is in the foreground
+            context.svg.insert('g').attr('id', 'foreground' )
+            // context.svg.insert('g', '#foreground').attr('id', 'recMenu' ).attr('class', 'initial')
+            context.svg.insert('g', '#foreground').attr('id', 'otherButtons' )
+            context.svg.insert('g', '#foreground').attr('id', 'trackButtons' )
+            // context.svg.insert('g', '#foreground').attr('id', 'soundbankButtons' )
+            context.log('svg dowloaded')
+            next()
+        })
+    },
 
-  // Create all the track views
-  function(next) {
-    var rect = context.svg.select('#bass-0')
-    TrackView.size = parseFloat(rect.attr('width'))
-    trackController.setSoundbank(soundbank1)
-    context.log('track views ready')
-    next()
-  },
+    // Create all the track views
+    function(next) {
+        var rect = context.svg.select('#bass-0')
+        TrackView.size = parseFloat(rect.attr('width'))
+        trackController.setSoundbank(soundbank1)
+        context.log('track views ready')
+        next()
+    },
 
-  // Finally append the svg to the DOM and wait for loading
-  function(next) {
-    $('#svgContainer').append(context.svg[0][0])
-    var onSVGLoad = function() {
-      $('#svgContainer').fadeIn()
-      context.svg.on('load', null)
-      context.log('svg ready')
-      next()
-    }
-    // TODO : this should be on('load' and not on a timeout.
-    //context.svg.on('load', onSVGLoad)
-    setTimeout(onSVGLoad, 1000)
-  },
-
-  // Prepare and trackController. Get various measurements.
-  function(next) {
-    var surface = context.svg.select('#soundSurface') // TODO : should be a rect, so can be checked before loading
-      , points = surface[0][0].points, xList, yList
-      , surfaceBBox
-
-    // Calculate the bounding box ourselves, because SVGElem.getBBox
-    // doesn't seem to work so nicely across browsers :
-    // https://bugzilla.mozilla.org/show_bug.cgi?id=612118
-    points = _.chain(points.length || points.numberOfItems)
-      .range()
-      .map(function(i) { return points.getItem(i) }).value()
-    xList = _.pluck(points, 'x')
-    yList = _.pluck(points, 'y')
-    surfaceBBox = { x: Math.min.apply(Math, xList), y: Math.min.apply(Math, yList) }
-    surfaceBBox.width = Math.max.apply(Math, xList) - surfaceBBox.x
-    surfaceBBox.height = Math.max.apply(Math, yList) - surfaceBBox.y
-
-    surface.attr('fill', 'transparent')
-
-    context.soundSurface.topLeft = {x: surfaceBBox.x, y: surfaceBBox.y}
-    context.soundSurface.bottomRight = {x: surfaceBBox.x + surfaceBBox.width, y: surfaceBBox.y + surfaceBBox.height}
-
-    context.soundSurface.size = surfaceBBox.width
-    context.soundSurface.size3 = context.soundSurface.size / 3
-    context.soundSurface.size23 = 2 * context.soundSurface.size / 3
-
-    context.soundSurface.minSurfaceX = context.soundSurface.topLeft.x + TrackView.size / 2
-    context.soundSurface.minSurfaceY = context.soundSurface.topLeft.y + TrackView.size / 2
-    context.soundSurface.maxSurfaceX = context.soundSurface.bottomRight.x - TrackView.size / 2
-    context.soundSurface.maxSurfaceY = context.soundSurface.bottomRight.y - TrackView.size / 2
-
-    next()
-  },
-
-  // First test for support of different audio formats, and configure the context
-  // To use the favorite format
-  function(next) {
-    waaUtils.formatSupport(function(err, supportedFormats) {
-      context.log('formats supported : ' + supportedFormats.join(', '))
-      if (err) return next(err)
-      else if (supportedFormats.length === 0)
-        return next(new Error('no audio format seems to be supported'))
-
-      _.find(config.preferredFormats, function(format) {
-        if (_.contains(supportedFormats, format)) {
-          context.format = format
-          return true
+    // Finally append the svg to the DOM and wait for loading
+    function(next) {
+        $('#svgContainer').append(context.svg[0][0])
+        var onSVGLoad = function() {
+            $('#svgContainer').fadeIn()
+            context.svg.on('load', null)
+            context.log('svg ready')
+            next()
         }
-      })
+        // TODO : this should be on('load' and not on a timeout.
+        //context.svg.on('load', onSVGLoad)
+        setTimeout(onSVGLoad, 1000)
+    },
 
-      context.log('format used : ' + context.format)
-      next()
-    })
-  },
+    // Prepare and trackController. Get various measurements.
+    function(next) {
+        var surface = context.svg.select('#soundSurface') // TODO : should be a rect, so can be checked before loading
+            , points = surface[0][0].points, xList, yList
+            , surfaceBBox
 
-  // Then load the tracks, downloading sounds files and preparing the audio nodes.
-  // TODO: should be in a Soundbank object.
-  function(next) {
-    soundbank1.load(next, function(step, cumul) {
-      $('#soundbank1Loader .full').css({ height: loadingBarHeight * cumul })
-    })
-  }
+        // Calculate the bounding box ourselves, because SVGElem.getBBox
+        // doesn't seem to work so nicely across browsers :
+        // https://bugzilla.mozilla.org/show_bug.cgi?id=612118
+        points = _.chain(points.length || points.numberOfItems)
+            .range()
+            .map(function(i) { return points.getItem(i) }).value()
+        xList = _.pluck(points, 'x')
+        yList = _.pluck(points, 'y')
+        surfaceBBox = { x: Math.min.apply(Math, xList), y: Math.min.apply(Math, yList) }
+        surfaceBBox.width = Math.max.apply(Math, xList) - surfaceBBox.x
+        surfaceBBox.height = Math.max.apply(Math, yList) - surfaceBBox.y
+
+        surface.attr('fill', 'transparent')
+
+        context.soundSurface.topLeft = {x: surfaceBBox.x, y: surfaceBBox.y}
+        context.soundSurface.bottomRight = {x: surfaceBBox.x + surfaceBBox.width, y: surfaceBBox.y + surfaceBBox.height}
+
+        context.soundSurface.size = surfaceBBox.width
+        context.soundSurface.size3 = context.soundSurface.size / 3
+        context.soundSurface.size23 = 2 * context.soundSurface.size / 3
+
+        context.soundSurface.minSurfaceX = context.soundSurface.topLeft.x + TrackView.size / 2
+        context.soundSurface.minSurfaceY = context.soundSurface.topLeft.y + TrackView.size / 2
+        context.soundSurface.maxSurfaceX = context.soundSurface.bottomRight.x - TrackView.size / 2
+        context.soundSurface.maxSurfaceY = context.soundSurface.bottomRight.y - TrackView.size / 2
+
+        next()
+    },
+
+    // First test for support of different audio formats, and configure the context
+    // To use the favorite format
+    function(next) {
+        waaUtils.formatSupport(function(err, supportedFormats) {
+            context.log('formats supported : ' + supportedFormats.join(', '))
+            if (err) return next(err)
+            else if (supportedFormats.length === 0)
+                return next(new Error('no audio format seems to be supported'))
+
+            _.find(config.preferredFormats, function(format) {
+                if (_.contains(supportedFormats, format)) {
+                    context.format = format
+                    return true
+                }
+            })
+
+            context.log('format used : ' + context.format)
+            next()
+        })
+    },
+
+    // Then load the tracks, downloading sounds files and preparing the audio nodes.
+    // TODO: should be in a Soundbank object.
+    function(next) {
+        soundbank1.load(next, function(step, cumul) {
+            // $('#soundbank1Loader .full').css({ height: loadingBarHeight * cumul })
+            $('#soundbank1Loader .full').html( 'Loading sound riffs<br>'+Math.round( cumul * 100 )+'%' );
+        })
+    }
 
 ], function(err) {
-  if (err) {
-    context.log('ERR : ' + err)
-    throw err
-  }
+    if (err) {
+        context.log('ERR : ' + err)
+        throw err
+    }
 
-var buffer = soundbank1.tracks[0]._outputs[0].buffer
-context.log(buffer.sampleRate + ' ' + buffer.length + ' ' + buffer.length / buffer.sampleRate + ' ' + buffer.duration)
+    var buffer = soundbank1.tracks[0]._outputs[0].buffer
+    context.log(buffer.sampleRate + ' ' + buffer.length + ' ' + buffer.length / buffer.sampleRate + ' ' + buffer.duration)
 
-  // Calculating the loop length
-  context.loopLen = soundbank1.tracks[0].length / context.audioContext.sampleRate
-  context.log('buffer length : ' + soundbank1.tracks[0].length)
-  context.log('sample rate : ' + context.audioContext.sampleRate)
-  context.log('loop length : ' + context.loopLen)
+    // Calculating the loop length
+    context.loopLen = soundbank1.tracks[0].length / context.audioContext.sampleRate
+    context.log('buffer length : ' + soundbank1.tracks[0].length)
+    context.log('sample rate : ' + context.audioContext.sampleRate)
+    context.log('loop length : ' + context.loopLen)
 
-  // All loaded
-  context.log('All loaded, time : ' + (+(new Date) - loadingTime))
-  $('#soundbank1Loader .full').css({ height: loadingBarHeight })
-  context.loaded = true
+    // All loaded
+    context.log('All loaded, time : ' + (+(new Date) - loadingTime))
+    // $('#soundbank1Loader .full').css({ height: loadingBarHeight })
+    context.loaded = true
 
-  // Creating menus and wiring-up modals
-  recController.menuElem = context.svg.select('#recMenu')
+    // Creating menus and wiring-up modals
+    recController.menuElem = context.svg.select('#recMenu')
 
-  button('#recMenu', '#recStart', 'images/buttons/recStartOn.png').attr('id', 'nowRecording')
-  button('#recMenu', '#recStart', 'images/buttons/recStartNA.png').attr('id', 'recordingDisabled')
-  button('#recMenu', '#recStart',
-    'images/buttons/recStart.png',
-    'images/buttons/recStartHover.png'
-  ).attr('id', 'startRecording')
-    .on('click', _.bind(recController.onStartRecordClicked, recController))
+    button('#recMenu', '#recStart', 'images/buttons/recStartOn.png').attr('id', 'nowRecording')
+    button('#recMenu', '#recStart', 'images/buttons/recStartNA.png').attr('id', 'recordingDisabled')
+    button('#recMenu', '#recStart',
+        'images/buttons/recStart.png',
+        'images/buttons/recStartHover.png'
+    ).attr('id', 'startRecording')
+        .on('click', _.bind(recController.onStartRecordClicked, recController))
 
-  button('#recMenu', '#recPlay', 'images/buttons/recPlayNA.png').attr('id', 'playRecordingDisabled')
-  button('#recMenu', '#recPlay',
-    'images/buttons/recPlay.png',
-    'images/buttons/recPlayHover.png'
-  ).attr('id', 'playRecording')
-    .on('click', _.bind(recController.onPlayClicked, recController))
+    button('#recMenu', '#recPlay', 'images/buttons/recPlayNA.png').attr('id', 'playRecordingDisabled')
+    button('#recMenu', '#recPlay',
+        'images/buttons/recPlay.png',
+        'images/buttons/recPlayHover.png'
+    ).attr('id', 'playRecording')
+        .on('click', _.bind(recController.onPlayClicked, recController))
 
-  button('#recMenu', '#recPlay',
-    'images/buttons/recStop.png',
-    'images/buttons/recStopHover.png'
-  ).attr('id', 'stopPlaying')
-    .on('click', _.bind(recController.onStopClicked, recController))
+    button('#recMenu', '#recPlay',
+        'images/buttons/recStop.png',
+        'images/buttons/recStopHover.png'
+    ).attr('id', 'stopPlaying')
+        .on('click', _.bind(recController.onStopClicked, recController))
 
-  button('#recMenu', '#recDelete', 'images/buttons/recDeleteNA.png').attr('id', 'deleteRecordingDisabled')
-  button('#recMenu', '#recDelete',
-    'images/buttons/recDelete.png',
-    'images/buttons/recDeleteHover.png'
-  ).attr('id', 'deleteRecording')
-    .on('click', _.bind(recController.onDeleteClicked, recController))
+    button('#recMenu', '#recDelete', 'images/buttons/recDeleteNA.png').attr('id', 'deleteRecordingDisabled')
+    button('#recMenu', '#recDelete',
+        'images/buttons/recDelete.png',
+        'images/buttons/recDeleteHover.png'
+    ).attr('id', 'deleteRecording')
+        .on('click', _.bind(recController.onDeleteClicked, recController))
 
-  button('#recMenu', '#recDelete', 'images/buttons/recCancelNA.png').attr('id', 'cancelRecordingDisabled')
-  button('#recMenu', '#recDelete',
-    'images/buttons/recCancel.png',
-    'images/buttons/recCancelHover.png'
-  ).attr('id', 'cancelRecording')
-    .on('click', _.bind(recController.onRecCancelClicked, recController))
+    button('#recMenu', '#recDelete', 'images/buttons/recCancelNA.png').attr('id', 'cancelRecordingDisabled')
+    button('#recMenu', '#recDelete',
+        'images/buttons/recCancel.png',
+        'images/buttons/recCancelHover.png'
+    ).attr('id', 'cancelRecording')
+        .on('click', _.bind(recController.onRecCancelClicked, recController))
 
-  button('#otherButtons', '#keyboard',
-    'images/buttons/keyboardNA.png',
-    'images/buttons/keyboardHover.png'
-  ).attr('id', 'showKeyboardHelp')
-    .on('click', _.bind(trackController.onShowKeyboardHelpClicked, trackController))
-  button('#otherButtons', '#keyboard',
-    'images/buttons/keyboard.png',
-    'images/buttons/keyboardHover.png'
-  ).attr('id', 'hideKeyboardHelp')
-    .on('click', _.bind(trackController.onHideKeyboardHelpClicked, trackController))
+    button('#otherButtons', '#keyboard',
+        'images/buttons/keyboardNA.png',
+        'images/buttons/keyboardHover.png'
+    ).attr('id', 'showKeyboardHelp')
+        .on('click', _.bind(trackController.onShowKeyboardHelpClicked, trackController))
+    button('#otherButtons', '#keyboard',
+        'images/buttons/keyboard.png',
+        'images/buttons/keyboardHover.png'
+    ).attr('id', 'hideKeyboardHelp')
+        .on('click', _.bind(trackController.onHideKeyboardHelpClicked, trackController))
 
-  if (config.submitButton) {
-    button('#recMenu', '#submit',
-      'images/buttons/submit0.png',
-      'images/buttons/submit1.png'
-    ).attr('id', 'submitMashup')
-      .on('click', _.bind(recController.onSubmitClicked, recController))
-  }
+    if (config.submitButton) {
+        button('#recMenu', '#submit',
+            'images/buttons/submit0.png',
+            'images/buttons/submit1.png'
+        ).attr('id', 'submitMashup')
+            .on('click', _.bind(recController.onSubmitClicked, recController))
+    }
 
-  if (config.tutorial) {
-    button('#otherButtons', '#info',
-      'images/buttons/info.png',
-      'images/buttons/infoHover.png'
-    ).attr('id', 'showInfos')
-      .on('click', function() { $('#tutorialModal').fadeIn() })
-  }
+    if (config.tutorial) {
+        button('#otherButtons', '#info',
+            'images/buttons/info.png',
+            'images/buttons/infoHover.png'
+        ).attr('id', 'showInfos')
+            .on('click', function() { $('#tutorialModal').fadeIn() })
+    }
 
-  $('#soundbankButtons').attr('class', 'selected1')
-  
-  button('#soundbankButtons', '#soundbank1',
-    'images/buttons/sound1-0.png',
-    'images/buttons/sound1-1.png'
-  ).attr('id', 'selectSoundbank1')
-    .on('click', function() {
-      trackController.setSoundbank(soundbank1)
-      $('#soundbankButtons').attr('class', 'selected1')
-    })
-  button('#soundbankButtons', '#soundbank1', 'images/buttons/sound1-1.png').attr('id', 'soundbank1Selected')
-
-  button('#soundbankButtons', '#soundbank2', 'images/buttons/sound2-1.png').attr('id', 'soundbank2Disabled')
-  var selectSoundbank2 = button('#soundbankButtons', '#soundbank2',
-    'images/buttons/sound2-0.png',
-    'images/buttons/sound2-1.png'
-  ).attr('id', 'selectSoundbank2')
-    .on('click', function() {
-      trackController.setSoundbank(soundbank2)
-      $('#soundbankButtons').attr('class', 'selected2')
-      if (soundbank2.loaded === false) {
-        $('#soundbank2Loader').show()
-        $('#soundbank1Loader').hide()
-        $('#tutorialModal').fadeIn()
-      }
-    })
-  button('#soundbankButtons', '#soundbank2', 'images/buttons/sound2-1.png').attr('id', 'soundbank2Selected')
-
-  // Unlock the second soundbank if the user has liked the page
-  if (window.parent && window.parent.userHasLiked) {
-    window.parent.userHasLiked(function(answer) {
-      if (answer === true) {
-        $('#selectSoundbank2').show()
-        $('#soundbank2Disabled').hide()
-        soundbank2.load(function() {
-          $('#soundbank2Loader .loading').fadeOut(function() {
-            $('#soundbank2Loader .play').fadeIn().click(function(event) {
-              event.preventDefault()
-              $('#tutorialModal').fadeOut()
-            })
-          })
-        }, function(step, cumul) {
-          $('#soundbank2Loader .full').css({ height: loadingBarHeight * cumul })
+    $('#soundbankButtons').attr('class', 'selected1')
+    button('#soundbankButtons', '#soundbank1',
+        'images/buttons/sound1-0.png',
+        'images/buttons/sound1-1.png'
+    ).attr('id', 'selectSoundbank1')
+        .on('click', function() {
+            trackController.setSoundbank(soundbank1)
+            $('#soundbankButtons').attr('class', 'selected1')
         })
-      }
+    button('#soundbankButtons', '#soundbank1', 'images/buttons/sound1-1.png').attr('id', 'soundbank1Selected')
+
+    /*button('#soundbankButtons', '#soundbank2', 'images/buttons/sound2-1.png').attr('id', 'soundbank2Disabled')
+    var selectSoundbank2 = button('#soundbankButtons', '#soundbank2',
+        'images/buttons/sound2-0.png',
+        'images/buttons/sound2-1.png'
+    ).attr('id', 'selectSoundbank2')
+        .on('click', function() {
+            trackController.setSoundbank(soundbank2)
+            $('#soundbankButtons').attr('class', 'selected2')
+            if (soundbank2.loaded === false) {
+                $('#soundbank2Loader').show()
+                $('#soundbank1Loader').hide()
+                $('#tutorialModal').fadeIn()
+            }
+        })
+    button('#soundbankButtons', '#soundbank2', 'images/buttons/sound2-1.png').attr('id', 'soundbank2Selected')
+
+    // Unlock the second soundbank if the user has liked the page
+    if (window.parent && window.parent.userHasLiked) {
+        window.parent.userHasLiked(function(answer) {
+            if (answer === true) {
+                $('#selectSoundbank2').show()
+                $('#soundbank2Disabled').hide()
+                soundbank2.load(function() {
+                    $('#soundbank2Loader .loading').fadeOut(function() {
+                        $('#soundbank2Loader .play').fadeIn().click(function(event) {
+                            event.preventDefault()
+                            $('#tutorialModal').fadeOut()
+                        })
+                    })
+                }, function(step, cumul) {
+                    $('#soundbank2Loader .full').css({ height: loadingBarHeight * cumul })
+                })
+            }
+        })
+    }*/
+
+    context.svg.select('#recDelete').remove()
+    context.svg.select('#recStart').remove()
+    context.svg.select('#recPlay').remove()
+    context.svg.select('#submit').remove()
+
+    $('#confirmDeleteRecordingModal button.yes').click(function(event) {
+        event.preventDefault()
+        recController._deleteRecording()
+        $('#confirmDeleteRecordingModal').fadeOut()
     })
-  }
 
-  context.svg.select('#recDelete').remove()
-  context.svg.select('#recStart').remove()
-  context.svg.select('#recPlay').remove()
-  context.svg.select('#submit').remove()
-
-  $('#confirmDeleteRecordingModal button.yes').click(function(event) {
-    event.preventDefault()
-    recController._deleteRecording()
-    $('#confirmDeleteRecordingModal').fadeOut()
-  })
-
-  $('#confirmDeleteRecordingModal button.no').click(function(event) {
-    event.preventDefault()
-    $('#confirmDeleteRecordingModal').fadeOut()
-  })
-
-  $('#confirmSubmitMashupModal button.yes').click(function(event) {
-    event.preventDefault()
-    if (window.parent && window.parent.mashupReady)
-      window.parent.mashupReady(recController.lastRecordingWav)    
-    else Recorder.forceDownload(recController.lastRecordingWav)
-    $('#confirmSubmitMashupModal').fadeOut()
-  })
-
-  $('#confirmSubmitMashupModal button.no').click(function(event) {
-    event.preventDefault()
-    $('#confirmSubmitMashupModal').fadeOut()
-  })
-
-  $('#tutorialModal #soundbank1Loader .loading').fadeOut(function() {
-    $('#tutorialModal #soundbank1Loader .play').fadeIn().click(function(event) {
-      event.preventDefault()
-      $('#tutorialModal').fadeOut()
+    $('#confirmDeleteRecordingModal button.no').click(function(event) {
+        event.preventDefault()
+        $('#confirmDeleteRecordingModal').fadeOut()
     })
-  })
+
+    $('#confirmSubmitMashupModal button.yes').click(function(event) {
+        event.preventDefault()
+        if (window.parent && window.parent.mashupReady)
+            window.parent.mashupReady(recController.lastRecordingWav)    
+        else Recorder.forceDownload(recController.lastRecordingWav)
+        $('#confirmSubmitMashupModal').fadeOut()
+    })
+
+    $('#confirmSubmitMashupModal button.no').click(function(event) {
+        event.preventDefault()
+        $('#confirmSubmitMashupModal').fadeOut()
+    })
+
+    $('#tutorialModal #soundbank1Loader .loading').fadeOut(function() {
+        /*$('#tutorialModal #soundbank1Loader .play').fadeIn().click(function(event) {
+            event.preventDefault()*/
+            $('#tutorialModal').fadeOut()
+        /*})*/
+    })
 
 
-  d3.select('body').on('keypress', function(event) {
-    trackController.onKeyPressed(String.fromCharCode(d3.event.which))
-  })
+    d3.select('body').on('keypress', function(event) {
+        trackController.onKeyPressed(String.fromCharCode(d3.event.which))
+    })
 })
 },{"./Soundbank":2,"./TrackModel":3,"./TrackView":4,"./config":5,"./context":6,"./recController":8,"./trackController":9,"./utils/button":10,"./utils/svg":11,"./utils/waa":12}],8:[function(require,module,exports){
 var context = require('./context')

@@ -10,8 +10,21 @@ angular.module('appDirectives').directive('mainNav', ['$rootScope', function( $r
 
     function Link( $scope, $element, attributes ) {
 
-        $element.on('mouseenter', function(){ if ( !$rootScope.mainIsOverlayed ) $rootScope.$apply( $rootScope.mainIsOverlayed = true );  });
-        $element.on('mouseleave', function(){ if (  $rootScope.mainIsOverlayed ) $rootScope.$apply( $rootScope.mainIsOverlayed = false ); });
+        $element.on('mouseenter', function(){
+
+            clearTimeout( $rootScope.mainNavAutocloseTimer );
+
+            $rootScope.$apply( $rootScope.mainNavOpen = true );
+            $rootScope.$apply( $rootScope.mainIsOverlayed = true );
+
+        });
+
+        $element.on('mouseleave', function(){
+
+            $rootScope.$apply( $rootScope.mainNavOpen = false );
+            $rootScope.$apply( $rootScope.mainIsOverlayed = false );
+
+        });
 
         $scope.navPaths = [
             { slug: 'home',            label: 'Home' },
@@ -22,7 +35,7 @@ angular.module('appDirectives').directive('mainNav', ['$rootScope', function( $r
             { slug: 'planting-party',  label: 'Planting\nParty' }
         ];
 
-        $scope.collapseMenu = false;
+        $scope.collapseMenu = true;
 
         $scope.$watch( 'navState', function( newValue, oldValue ) {
 
@@ -38,7 +51,7 @@ angular.module('appDirectives').directive('mainNav', ['$rootScope', function( $r
 
             }
 
-            $scope.collapseMenu = newValue == 'home' ? false : true;
+            // $scope.collapseMenu = newValue == 'home' ? false : true;
 
         });
 

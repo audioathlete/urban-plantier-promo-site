@@ -17,7 +17,7 @@ html {
   height: 100%;
 }
 body {
-  font: 300 16px/1.5 'museo-sans' sans-serif;
+  font: 400 16px/1.5 'museo-sans' sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #3b362b;
@@ -246,29 +246,34 @@ a:active {
   font-size: 26px;
 }
 #main-nav,
-#main-nav.collapsible:hover,
-#main-nav.open {
+#main-nav.collapsible.open {
   top: auto;
   bottom: 0;
   width: 400px;
   margin-left: -200px;
   padding-top: 290px;
+  overflow: hidden;
   -webkit-transition: none;
   -moz-transition: none;
   -o-transition: none;
   transition: none;
 }
+#main-nav.collapsible.open {
+  -webkit-border-radius: 50%;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 50%;
+  -moz-background-clip: padding;
+  border-radius: 50%;
+  background-clip: padding-box;
+}
 #main-nav.collapsible,
 body.home #main-nav,
-#main-nav li.home,
-#main-nav.closed,
-#main-nav.closed:hover {
+#main-nav li.home {
   left: 50%;
   bottom: 10px;
   margin-left: -40px;
   padding-top: 150px;
   width: 80px;
-  overflow: hidden;
   -webkit-transition: all 0 ease-in-out 0.15s;
   -moz-transition: all 0 ease-in-out 0.15s;
   -o-transition: all 0 ease-in-out 0.15s;
@@ -279,12 +284,10 @@ body.slideshow-open #main-nav {
   pointer-events: none;
 }
 #main-nav li.home,
-#main-nav.collapsible:hover li.home,
 #main-nav.open li.home {
   visibility: visible;
 }
 #main-nav li.smart-pot,
-#main-nav.collapsible:hover li.smart-pot,
 #main-nav.open li.smart-pot {
   -webkit-transform: rotate(30deg);
   -moz-transform: rotate(30deg);
@@ -293,7 +296,6 @@ body.slideshow-open #main-nav {
   transform: rotate(30deg);
 }
 #main-nav li.smart-pot span,
-#main-nav.collapsible:hover li.smart-pot span,
 #main-nav.open li.smart-pot span {
   -webkit-transform: scale(1) rotate(-30deg);
   -moz-transform: scale(1) rotate(-30deg);
@@ -302,7 +304,6 @@ body.slideshow-open #main-nav {
   transform: scale(1) rotate(-30deg);
 }
 #main-nav li.plant-mash,
-#main-nav.collapsible:hover li.plant-mash,
 #main-nav.open li.plant-mash {
   -webkit-transform: rotate(30deg);
   -moz-transform: rotate(30deg);
@@ -311,7 +312,6 @@ body.slideshow-open #main-nav {
   transform: rotate(30deg);
 }
 #main-nav li.plant-mash span,
-#main-nav.collapsible:hover li.plant-mash span,
 #main-nav.open li.plant-mash span {
   -webkit-transform: scale(1) rotate(-30deg);
   -moz-transform: scale(1) rotate(-30deg);
@@ -320,7 +320,6 @@ body.slideshow-open #main-nav {
   transform: scale(1) rotate(-30deg);
 }
 #main-nav li.urban-chef,
-#main-nav.collapsible:hover li.urban-chef,
 #main-nav.open li.urban-chef {
   -webkit-transform: rotate(70deg);
   -moz-transform: rotate(70deg);
@@ -329,7 +328,6 @@ body.slideshow-open #main-nav {
   transform: rotate(70deg);
 }
 #main-nav li.urban-chef span,
-#main-nav.collapsible:hover li.urban-chef span,
 #main-nav.open li.urban-chef span {
   -webkit-transform: scale(1) rotate(-70deg);
   -moz-transform: scale(1) rotate(-70deg);
@@ -338,7 +336,6 @@ body.slideshow-open #main-nav {
   transform: scale(1) rotate(-70deg);
 }
 #main-nav li.nature-prevails,
-#main-nav.collapsible:hover li.nature-prevails,
 #main-nav.open li.nature-prevails {
   -webkit-transform: rotate(110deg);
   -moz-transform: rotate(110deg);
@@ -347,7 +344,6 @@ body.slideshow-open #main-nav {
   transform: rotate(110deg);
 }
 #main-nav li.nature-prevails span,
-#main-nav.collapsible:hover li.nature-prevails span,
 #main-nav.open li.nature-prevails span {
   -webkit-transform: scale(1) rotate(-110deg);
   -moz-transform: scale(1) rotate(-110deg);
@@ -356,7 +352,6 @@ body.slideshow-open #main-nav {
   transform: scale(1) rotate(-110deg);
 }
 #main-nav li.planting-party,
-#main-nav.collapsible:hover li.planting-party,
 #main-nav.open li.planting-party {
   -webkit-transform: rotate(150deg);
   -moz-transform: rotate(150deg);
@@ -365,7 +360,6 @@ body.slideshow-open #main-nav {
   transform: rotate(150deg);
 }
 #main-nav li.planting-party span,
-#main-nav.collapsible:hover li.planting-party span,
 #main-nav.open li.planting-party span {
   -webkit-transform: scale(1) rotate(-150deg);
   -moz-transform: scale(1) rotate(-150deg);
@@ -374,7 +368,6 @@ body.slideshow-open #main-nav {
   transform: scale(1) rotate(-150deg);
 }
 #main-nav li.active,
-#main-nav.collapsible:hover li.active,
 #main-nav.open li.active {
   z-index: 0;
 }
@@ -540,7 +533,6 @@ body.home #main-nav li span {
   transform: scale(0) rotate(0deg);
 }
 body.smart-pot #main-nav li.smart-pot,
-body.smart-pot #main-nav.collapsible:hover li.smart-pot,
 body.smart-pot #main-nav.open li.smart-pot {
   -webkit-transform: rotate(30deg);
   -moz-transform: rotate(30deg);
@@ -549,7 +541,6 @@ body.smart-pot #main-nav.open li.smart-pot {
   transform: rotate(30deg);
 }
 body.smart-pot #main-nav li.smart-pot span,
-body.smart-pot #main-nav.collapsible:hover li.smart-pot span,
 body.smart-pot #main-nav.open li.smart-pot span {
   -webkit-transform: scale(0) rotate(-30deg);
   -moz-transform: scale(0) rotate(-30deg);
@@ -558,7 +549,6 @@ body.smart-pot #main-nav.open li.smart-pot span {
   transform: scale(0) rotate(-30deg);
 }
 body.smart-pot #main-nav li.plant-mash,
-body.smart-pot #main-nav.collapsible:hover li.plant-mash,
 body.smart-pot #main-nav.open li.plant-mash {
   -webkit-transform: rotate(30deg);
   -moz-transform: rotate(30deg);
@@ -567,7 +557,6 @@ body.smart-pot #main-nav.open li.plant-mash {
   transform: rotate(30deg);
 }
 body.smart-pot #main-nav li.plant-mash span,
-body.smart-pot #main-nav.collapsible:hover li.plant-mash span,
 body.smart-pot #main-nav.open li.plant-mash span {
   -webkit-transform: scale(1) rotate(-30deg);
   -moz-transform: scale(1) rotate(-30deg);
@@ -576,7 +565,6 @@ body.smart-pot #main-nav.open li.plant-mash span {
   transform: scale(1) rotate(-30deg);
 }
 body.smart-pot #main-nav li.urban-chef,
-body.smart-pot #main-nav.collapsible:hover li.urban-chef,
 body.smart-pot #main-nav.open li.urban-chef {
   -webkit-transform: rotate(70deg);
   -moz-transform: rotate(70deg);
@@ -585,7 +573,6 @@ body.smart-pot #main-nav.open li.urban-chef {
   transform: rotate(70deg);
 }
 body.smart-pot #main-nav li.urban-chef span,
-body.smart-pot #main-nav.collapsible:hover li.urban-chef span,
 body.smart-pot #main-nav.open li.urban-chef span {
   -webkit-transform: scale(1) rotate(-70deg);
   -moz-transform: scale(1) rotate(-70deg);
@@ -594,7 +581,6 @@ body.smart-pot #main-nav.open li.urban-chef span {
   transform: scale(1) rotate(-70deg);
 }
 body.smart-pot #main-nav li.nature-prevails,
-body.smart-pot #main-nav.collapsible:hover li.nature-prevails,
 body.smart-pot #main-nav.open li.nature-prevails {
   -webkit-transform: rotate(110deg);
   -moz-transform: rotate(110deg);
@@ -603,7 +589,6 @@ body.smart-pot #main-nav.open li.nature-prevails {
   transform: rotate(110deg);
 }
 body.smart-pot #main-nav li.nature-prevails span,
-body.smart-pot #main-nav.collapsible:hover li.nature-prevails span,
 body.smart-pot #main-nav.open li.nature-prevails span {
   -webkit-transform: scale(1) rotate(-110deg);
   -moz-transform: scale(1) rotate(-110deg);
@@ -612,7 +597,6 @@ body.smart-pot #main-nav.open li.nature-prevails span {
   transform: scale(1) rotate(-110deg);
 }
 body.smart-pot #main-nav li.planting-party,
-body.smart-pot #main-nav.collapsible:hover li.planting-party,
 body.smart-pot #main-nav.open li.planting-party {
   -webkit-transform: rotate(150deg);
   -moz-transform: rotate(150deg);
@@ -621,7 +605,6 @@ body.smart-pot #main-nav.open li.planting-party {
   transform: rotate(150deg);
 }
 body.smart-pot #main-nav li.planting-party span,
-body.smart-pot #main-nav.collapsible:hover li.planting-party span,
 body.smart-pot #main-nav.open li.planting-party span {
   -webkit-transform: scale(1) rotate(-150deg);
   -moz-transform: scale(1) rotate(-150deg);
@@ -630,7 +613,6 @@ body.smart-pot #main-nav.open li.planting-party span {
   transform: scale(1) rotate(-150deg);
 }
 body.plant-mash #main-nav li.smart-pot,
-body.plant-mash #main-nav.collapsible:hover li.smart-pot,
 body.plant-mash #main-nav.open li.smart-pot {
   -webkit-transform: rotate(30deg);
   -moz-transform: rotate(30deg);
@@ -639,7 +621,6 @@ body.plant-mash #main-nav.open li.smart-pot {
   transform: rotate(30deg);
 }
 body.plant-mash #main-nav li.smart-pot span,
-body.plant-mash #main-nav.collapsible:hover li.smart-pot span,
 body.plant-mash #main-nav.open li.smart-pot span {
   -webkit-transform: scale(1) rotate(-30deg);
   -moz-transform: scale(1) rotate(-30deg);
@@ -648,7 +629,6 @@ body.plant-mash #main-nav.open li.smart-pot span {
   transform: scale(1) rotate(-30deg);
 }
 body.plant-mash #main-nav li.plant-mash,
-body.plant-mash #main-nav.collapsible:hover li.plant-mash,
 body.plant-mash #main-nav.open li.plant-mash {
   -webkit-transform: rotate(30deg);
   -moz-transform: rotate(30deg);
@@ -657,7 +637,6 @@ body.plant-mash #main-nav.open li.plant-mash {
   transform: rotate(30deg);
 }
 body.plant-mash #main-nav li.plant-mash span,
-body.plant-mash #main-nav.collapsible:hover li.plant-mash span,
 body.plant-mash #main-nav.open li.plant-mash span {
   -webkit-transform: scale(0) rotate(-30deg);
   -moz-transform: scale(0) rotate(-30deg);
@@ -666,7 +645,6 @@ body.plant-mash #main-nav.open li.plant-mash span {
   transform: scale(0) rotate(-30deg);
 }
 body.plant-mash #main-nav li.urban-chef,
-body.plant-mash #main-nav.collapsible:hover li.urban-chef,
 body.plant-mash #main-nav.open li.urban-chef {
   -webkit-transform: rotate(70deg);
   -moz-transform: rotate(70deg);
@@ -675,7 +653,6 @@ body.plant-mash #main-nav.open li.urban-chef {
   transform: rotate(70deg);
 }
 body.plant-mash #main-nav li.urban-chef span,
-body.plant-mash #main-nav.collapsible:hover li.urban-chef span,
 body.plant-mash #main-nav.open li.urban-chef span {
   -webkit-transform: scale(1) rotate(-70deg);
   -moz-transform: scale(1) rotate(-70deg);
@@ -684,7 +661,6 @@ body.plant-mash #main-nav.open li.urban-chef span {
   transform: scale(1) rotate(-70deg);
 }
 body.plant-mash #main-nav li.nature-prevails,
-body.plant-mash #main-nav.collapsible:hover li.nature-prevails,
 body.plant-mash #main-nav.open li.nature-prevails {
   -webkit-transform: rotate(110deg);
   -moz-transform: rotate(110deg);
@@ -693,7 +669,6 @@ body.plant-mash #main-nav.open li.nature-prevails {
   transform: rotate(110deg);
 }
 body.plant-mash #main-nav li.nature-prevails span,
-body.plant-mash #main-nav.collapsible:hover li.nature-prevails span,
 body.plant-mash #main-nav.open li.nature-prevails span {
   -webkit-transform: scale(1) rotate(-110deg);
   -moz-transform: scale(1) rotate(-110deg);
@@ -702,7 +677,6 @@ body.plant-mash #main-nav.open li.nature-prevails span {
   transform: scale(1) rotate(-110deg);
 }
 body.plant-mash #main-nav li.planting-party,
-body.plant-mash #main-nav.collapsible:hover li.planting-party,
 body.plant-mash #main-nav.open li.planting-party {
   -webkit-transform: rotate(150deg);
   -moz-transform: rotate(150deg);
@@ -711,7 +685,6 @@ body.plant-mash #main-nav.open li.planting-party {
   transform: rotate(150deg);
 }
 body.plant-mash #main-nav li.planting-party span,
-body.plant-mash #main-nav.collapsible:hover li.planting-party span,
 body.plant-mash #main-nav.open li.planting-party span {
   -webkit-transform: scale(1) rotate(-150deg);
   -moz-transform: scale(1) rotate(-150deg);
@@ -720,7 +693,6 @@ body.plant-mash #main-nav.open li.planting-party span {
   transform: scale(1) rotate(-150deg);
 }
 body.urban-chef #main-nav li.smart-pot,
-body.urban-chef #main-nav.collapsible:hover li.smart-pot,
 body.urban-chef #main-nav.open li.smart-pot {
   -webkit-transform: rotate(30deg);
   -moz-transform: rotate(30deg);
@@ -729,7 +701,6 @@ body.urban-chef #main-nav.open li.smart-pot {
   transform: rotate(30deg);
 }
 body.urban-chef #main-nav li.smart-pot span,
-body.urban-chef #main-nav.collapsible:hover li.smart-pot span,
 body.urban-chef #main-nav.open li.smart-pot span {
   -webkit-transform: scale(1) rotate(-30deg);
   -moz-transform: scale(1) rotate(-30deg);
@@ -738,7 +709,6 @@ body.urban-chef #main-nav.open li.smart-pot span {
   transform: scale(1) rotate(-30deg);
 }
 body.urban-chef #main-nav li.plant-mash,
-body.urban-chef #main-nav.collapsible:hover li.plant-mash,
 body.urban-chef #main-nav.open li.plant-mash {
   -webkit-transform: rotate(70deg);
   -moz-transform: rotate(70deg);
@@ -747,7 +717,6 @@ body.urban-chef #main-nav.open li.plant-mash {
   transform: rotate(70deg);
 }
 body.urban-chef #main-nav li.plant-mash span,
-body.urban-chef #main-nav.collapsible:hover li.plant-mash span,
 body.urban-chef #main-nav.open li.plant-mash span {
   -webkit-transform: scale(1) rotate(-70deg);
   -moz-transform: scale(1) rotate(-70deg);
@@ -756,7 +725,6 @@ body.urban-chef #main-nav.open li.plant-mash span {
   transform: scale(1) rotate(-70deg);
 }
 body.urban-chef #main-nav li.urban-chef,
-body.urban-chef #main-nav.collapsible:hover li.urban-chef,
 body.urban-chef #main-nav.open li.urban-chef {
   -webkit-transform: rotate(70deg);
   -moz-transform: rotate(70deg);
@@ -765,7 +733,6 @@ body.urban-chef #main-nav.open li.urban-chef {
   transform: rotate(70deg);
 }
 body.urban-chef #main-nav li.urban-chef span,
-body.urban-chef #main-nav.collapsible:hover li.urban-chef span,
 body.urban-chef #main-nav.open li.urban-chef span {
   -webkit-transform: scale(0) rotate(-70deg);
   -moz-transform: scale(0) rotate(-70deg);
@@ -774,7 +741,6 @@ body.urban-chef #main-nav.open li.urban-chef span {
   transform: scale(0) rotate(-70deg);
 }
 body.urban-chef #main-nav li.nature-prevails,
-body.urban-chef #main-nav.collapsible:hover li.nature-prevails,
 body.urban-chef #main-nav.open li.nature-prevails {
   -webkit-transform: rotate(110deg);
   -moz-transform: rotate(110deg);
@@ -783,7 +749,6 @@ body.urban-chef #main-nav.open li.nature-prevails {
   transform: rotate(110deg);
 }
 body.urban-chef #main-nav li.nature-prevails span,
-body.urban-chef #main-nav.collapsible:hover li.nature-prevails span,
 body.urban-chef #main-nav.open li.nature-prevails span {
   -webkit-transform: scale(1) rotate(-110deg);
   -moz-transform: scale(1) rotate(-110deg);
@@ -792,7 +757,6 @@ body.urban-chef #main-nav.open li.nature-prevails span {
   transform: scale(1) rotate(-110deg);
 }
 body.urban-chef #main-nav li.planting-party,
-body.urban-chef #main-nav.collapsible:hover li.planting-party,
 body.urban-chef #main-nav.open li.planting-party {
   -webkit-transform: rotate(150deg);
   -moz-transform: rotate(150deg);
@@ -801,7 +765,6 @@ body.urban-chef #main-nav.open li.planting-party {
   transform: rotate(150deg);
 }
 body.urban-chef #main-nav li.planting-party span,
-body.urban-chef #main-nav.collapsible:hover li.planting-party span,
 body.urban-chef #main-nav.open li.planting-party span {
   -webkit-transform: scale(1) rotate(-150deg);
   -moz-transform: scale(1) rotate(-150deg);
@@ -810,7 +773,6 @@ body.urban-chef #main-nav.open li.planting-party span {
   transform: scale(1) rotate(-150deg);
 }
 body.nature-prevails #main-nav li.smart-pot,
-body.nature-prevails #main-nav.collapsible:hover li.smart-pot,
 body.nature-prevails #main-nav.open li.smart-pot {
   -webkit-transform: rotate(30deg);
   -moz-transform: rotate(30deg);
@@ -819,7 +781,6 @@ body.nature-prevails #main-nav.open li.smart-pot {
   transform: rotate(30deg);
 }
 body.nature-prevails #main-nav li.smart-pot span,
-body.nature-prevails #main-nav.collapsible:hover li.smart-pot span,
 body.nature-prevails #main-nav.open li.smart-pot span {
   -webkit-transform: scale(1) rotate(-30deg);
   -moz-transform: scale(1) rotate(-30deg);
@@ -828,7 +789,6 @@ body.nature-prevails #main-nav.open li.smart-pot span {
   transform: scale(1) rotate(-30deg);
 }
 body.nature-prevails #main-nav li.plant-mash,
-body.nature-prevails #main-nav.collapsible:hover li.plant-mash,
 body.nature-prevails #main-nav.open li.plant-mash {
   -webkit-transform: rotate(70deg);
   -moz-transform: rotate(70deg);
@@ -837,7 +797,6 @@ body.nature-prevails #main-nav.open li.plant-mash {
   transform: rotate(70deg);
 }
 body.nature-prevails #main-nav li.plant-mash span,
-body.nature-prevails #main-nav.collapsible:hover li.plant-mash span,
 body.nature-prevails #main-nav.open li.plant-mash span {
   -webkit-transform: scale(1) rotate(-70deg);
   -moz-transform: scale(1) rotate(-70deg);
@@ -846,7 +805,6 @@ body.nature-prevails #main-nav.open li.plant-mash span {
   transform: scale(1) rotate(-70deg);
 }
 body.nature-prevails #main-nav li.urban-chef,
-body.nature-prevails #main-nav.collapsible:hover li.urban-chef,
 body.nature-prevails #main-nav.open li.urban-chef {
   -webkit-transform: rotate(110deg);
   -moz-transform: rotate(110deg);
@@ -855,7 +813,6 @@ body.nature-prevails #main-nav.open li.urban-chef {
   transform: rotate(110deg);
 }
 body.nature-prevails #main-nav li.urban-chef span,
-body.nature-prevails #main-nav.collapsible:hover li.urban-chef span,
 body.nature-prevails #main-nav.open li.urban-chef span {
   -webkit-transform: scale(1) rotate(-110deg);
   -moz-transform: scale(1) rotate(-110deg);
@@ -864,7 +821,6 @@ body.nature-prevails #main-nav.open li.urban-chef span {
   transform: scale(1) rotate(-110deg);
 }
 body.nature-prevails #main-nav li.nature-prevails,
-body.nature-prevails #main-nav.collapsible:hover li.nature-prevails,
 body.nature-prevails #main-nav.open li.nature-prevails {
   -webkit-transform: rotate(110deg);
   -moz-transform: rotate(110deg);
@@ -873,7 +829,6 @@ body.nature-prevails #main-nav.open li.nature-prevails {
   transform: rotate(110deg);
 }
 body.nature-prevails #main-nav li.nature-prevails span,
-body.nature-prevails #main-nav.collapsible:hover li.nature-prevails span,
 body.nature-prevails #main-nav.open li.nature-prevails span {
   -webkit-transform: scale(0) rotate(-110deg);
   -moz-transform: scale(0) rotate(-110deg);
@@ -882,7 +837,6 @@ body.nature-prevails #main-nav.open li.nature-prevails span {
   transform: scale(0) rotate(-110deg);
 }
 body.nature-prevails #main-nav li.planting-party,
-body.nature-prevails #main-nav.collapsible:hover li.planting-party,
 body.nature-prevails #main-nav.open li.planting-party {
   -webkit-transform: rotate(150deg);
   -moz-transform: rotate(150deg);
@@ -891,7 +845,6 @@ body.nature-prevails #main-nav.open li.planting-party {
   transform: rotate(150deg);
 }
 body.nature-prevails #main-nav li.planting-party span,
-body.nature-prevails #main-nav.collapsible:hover li.planting-party span,
 body.nature-prevails #main-nav.open li.planting-party span {
   -webkit-transform: scale(1) rotate(-150deg);
   -moz-transform: scale(1) rotate(-150deg);
@@ -900,7 +853,6 @@ body.nature-prevails #main-nav.open li.planting-party span {
   transform: scale(1) rotate(-150deg);
 }
 body.planting-party #main-nav li.smart-pot,
-body.planting-party #main-nav.collapsible:hover li.smart-pot,
 body.planting-party #main-nav.open li.smart-pot {
   -webkit-transform: rotate(30deg);
   -moz-transform: rotate(30deg);
@@ -909,7 +861,6 @@ body.planting-party #main-nav.open li.smart-pot {
   transform: rotate(30deg);
 }
 body.planting-party #main-nav li.smart-pot span,
-body.planting-party #main-nav.collapsible:hover li.smart-pot span,
 body.planting-party #main-nav.open li.smart-pot span {
   -webkit-transform: scale(1) rotate(-30deg);
   -moz-transform: scale(1) rotate(-30deg);
@@ -918,7 +869,6 @@ body.planting-party #main-nav.open li.smart-pot span {
   transform: scale(1) rotate(-30deg);
 }
 body.planting-party #main-nav li.plant-mash,
-body.planting-party #main-nav.collapsible:hover li.plant-mash,
 body.planting-party #main-nav.open li.plant-mash {
   -webkit-transform: rotate(70deg);
   -moz-transform: rotate(70deg);
@@ -927,7 +877,6 @@ body.planting-party #main-nav.open li.plant-mash {
   transform: rotate(70deg);
 }
 body.planting-party #main-nav li.plant-mash span,
-body.planting-party #main-nav.collapsible:hover li.plant-mash span,
 body.planting-party #main-nav.open li.plant-mash span {
   -webkit-transform: scale(1) rotate(-70deg);
   -moz-transform: scale(1) rotate(-70deg);
@@ -936,7 +885,6 @@ body.planting-party #main-nav.open li.plant-mash span {
   transform: scale(1) rotate(-70deg);
 }
 body.planting-party #main-nav li.urban-chef,
-body.planting-party #main-nav.collapsible:hover li.urban-chef,
 body.planting-party #main-nav.open li.urban-chef {
   -webkit-transform: rotate(110deg);
   -moz-transform: rotate(110deg);
@@ -945,7 +893,6 @@ body.planting-party #main-nav.open li.urban-chef {
   transform: rotate(110deg);
 }
 body.planting-party #main-nav li.urban-chef span,
-body.planting-party #main-nav.collapsible:hover li.urban-chef span,
 body.planting-party #main-nav.open li.urban-chef span {
   -webkit-transform: scale(1) rotate(-110deg);
   -moz-transform: scale(1) rotate(-110deg);
@@ -954,7 +901,6 @@ body.planting-party #main-nav.open li.urban-chef span {
   transform: scale(1) rotate(-110deg);
 }
 body.planting-party #main-nav li.nature-prevails,
-body.planting-party #main-nav.collapsible:hover li.nature-prevails,
 body.planting-party #main-nav.open li.nature-prevails {
   -webkit-transform: rotate(150deg);
   -moz-transform: rotate(150deg);
@@ -963,7 +909,6 @@ body.planting-party #main-nav.open li.nature-prevails {
   transform: rotate(150deg);
 }
 body.planting-party #main-nav li.nature-prevails span,
-body.planting-party #main-nav.collapsible:hover li.nature-prevails span,
 body.planting-party #main-nav.open li.nature-prevails span {
   -webkit-transform: scale(1) rotate(-150deg);
   -moz-transform: scale(1) rotate(-150deg);
@@ -972,7 +917,6 @@ body.planting-party #main-nav.open li.nature-prevails span {
   transform: scale(1) rotate(-150deg);
 }
 body.planting-party #main-nav li.planting-party,
-body.planting-party #main-nav.collapsible:hover li.planting-party,
 body.planting-party #main-nav.open li.planting-party {
   -webkit-transform: rotate(150deg);
   -moz-transform: rotate(150deg);
@@ -981,7 +925,6 @@ body.planting-party #main-nav.open li.planting-party {
   transform: rotate(150deg);
 }
 body.planting-party #main-nav li.planting-party span,
-body.planting-party #main-nav.collapsible:hover li.planting-party span,
 body.planting-party #main-nav.open li.planting-party span {
   -webkit-transform: scale(0) rotate(-150deg);
   -moz-transform: scale(0) rotate(-150deg);
@@ -1469,11 +1412,15 @@ body.slideshow-open #window-sil {
   top: 50%;
   margin: -3em -1em;
   font-size: 5px;
+}
+#main .spinner span {
   text-indent: -9999em;
 }
-#main .spinner,
+#main .spinner span,
 #main .spinner:before,
 #main .spinner:after {
+  display: block;
+  background-color: #c4e87d;
   width: 2em;
   height: 2em;
   -webkit-border-radius: 50%;
@@ -1535,6 +1482,26 @@ body.pan-left .view.ng-leave {
   -o-animation: leaveToRight 0.75s cubic-bezier(0.6, 0, 0.4, 1) both;
   animation: leaveToRight 0.75s cubic-bezier(0.6, 0, 0.4, 1) both;
 }
+body.plant-mash #main .spinner span,
+body.plant-mash #main .spinner:before,
+body.plant-mash #main .spinner:after {
+  background-color: #66bbcc;
+}
+body.urban-chef #main .spinner span,
+body.urban-chef #main .spinner:before,
+body.urban-chef #main .spinner:after {
+  background-color: #ff8080;
+}
+body.nature-prevails #main .spinner span,
+body.nature-prevails #main .spinner:before,
+body.nature-prevails #main .spinner:after {
+  background-color: #70db82;
+}
+body.planting-party #main .spinner span,
+body.planting-party #main .spinner:before,
+body.planting-party #main .spinner:after {
+  background-color: #aa66cc;
+}
 lesshat-selector {
   -lh-property: 0; } 
 @-webkit-keyframes enterFromRight{ 0%{ -webkit-transform: translateX( 100% ); opacity: 0; } 100%{ -webkit-transform: translateX(   0% ); opacity: 1; }}
@@ -1565,10 +1532,10 @@ lesshat-selector {
 }
 lesshat-selector {
   -lh-property: 0; } 
-@-webkit-keyframes threeDotSpinner{ 0%{ box-shadow: 0 2.5em 0 -1.3em #C4E87D; } 60%{ box-shadow: 0 2.5em 0 -1.3em #C4E87D; } 100%{ box-shadow: 0 2.5em 0 -1.3em #C4E87D; } 30%{ box-shadow: 0 2.5em 0 0 #C4E87D; }}
-@-moz-keyframes threeDotSpinner{ 0%{ box-shadow: 0 2.5em 0 -1.3em #C4E87D; } 60%{ box-shadow: 0 2.5em 0 -1.3em #C4E87D; } 100%{ box-shadow: 0 2.5em 0 -1.3em #C4E87D; } 30%{ box-shadow: 0 2.5em 0 0 #C4E87D; }}
-@-o-keyframes threeDotSpinner{ 0%{ box-shadow: 0 2.5em 0 -1.3em #C4E87D; } 60%{ box-shadow: 0 2.5em 0 -1.3em #C4E87D; } 100%{ box-shadow: 0 2.5em 0 -1.3em #C4E87D; } 30%{ box-shadow: 0 2.5em 0 0 #C4E87D; }}
-@keyframes threeDotSpinner{ 0%{ box-shadow: 0 2.5em 0 -1.3em #C4E87D; } 60%{ box-shadow: 0 2.5em 0 -1.3em #C4E87D; } 100%{ box-shadow: 0 2.5em 0 -1.3em #C4E87D; } 30%{ box-shadow: 0 2.5em 0 0 #C4E87D; };
+@-webkit-keyframes threeDotSpinner{ 0%{ -webkit-transform: scale(0); } 30%{ -webkit-transform: scale(1); } 60%{ -webkit-transform: scale(0); } 100%{ -webkit-transform: scale(0); }}
+@-moz-keyframes threeDotSpinner{ 0%{ -moz-transform: scale(0); } 30%{ -moz-transform: scale(1); } 60%{ -moz-transform: scale(0); } 100%{ -moz-transform: scale(0); }}
+@-o-keyframes threeDotSpinner{ 0%{ -o-transform: scale(0); } 30%{ -o-transform: scale(1); } 60%{ -o-transform: scale(0); } 100%{ -o-transform: scale(0); }}
+@keyframes threeDotSpinner{ 0%{-webkit-transform: scale(0);-moz-transform: scale(0);-ms-transform: scale(0);transform: scale(0); } 30%{-webkit-transform: scale(1);-moz-transform: scale(1);-ms-transform: scale(1);transform: scale(1); } 60%{-webkit-transform: scale(0);-moz-transform: scale(0);-ms-transform: scale(0);transform: scale(0); } 100%{-webkit-transform: scale(0);-moz-transform: scale(0);-ms-transform: scale(0);transform: scale(0); };
 }
 .view.home {
   height: 100%;
@@ -1613,6 +1580,7 @@ body.home #home #home-blurb p {
   text-align: center;
 }
 #home #home-blurb p {
+  font-weight: 300;
   font-size: 13px;
   line-height: 1.3;
   margin: .75em 0 0;
@@ -1705,15 +1673,46 @@ body.smart-pot #smart-pot {
 #plant-mash iframe {
   border: none;
   background: none;
-  width: 700px;
-  height: 700px;
+  width: 616px;
+  height: 616px;
+  margin-top: 20px;
+}
+.view.smart-pot,
+.view.urban-chef,
+.view.planting-party {
+  display: table;
+  height: 100%;
+}
+#smart-pot h1,
+#smart-pot h2 {
+  color: #c4e87d;
 }
 #urban-chef {
-  text-align: center;
-}
-#nature-prevails {
-  text-align: center;
+  color: #ff8080;
 }
 #planting-party {
+  color: #aa66cc;
+}
+#smart-pot,
+#urban-chef,
+#planting-party {
+  display: table-cell;
   text-align: center;
+  vertical-align: middle;
+  padding-bottom: 60px;
+}
+#smart-pot h1,
+#urban-chef h1,
+#planting-party h1 {
+  font-size: 96px;
+  line-height: 1;
+  margin: 0;
+}
+#smart-pot label,
+#urban-chef label,
+#planting-party label {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }

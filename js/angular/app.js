@@ -63,10 +63,15 @@ angular.module('app').run(['$rootScope', '$route', '$location', '$window', '$tim
 	};
 
 
-	// $rootScope.$on('$routeChangeStart', function( evt, curr, prev ) { $timeout(function(){ $rootScope.forceCloseMainNav =  true; }, 150); });
-	// $rootScope.$on('$routeChangeError', function( evt, curr, prev ) { $timeout(function(){ $rootScope.forceCloseMainNav = false; }, 500); });
-	// $rootScope.$on('$routeChangeStart', function( evt, curr, prev ) { $rootScope.mainIsLoading = true;  });
-	$rootScope.$on('$routeChangeError', function( evt, curr, prev ) { $rootScope.mainIsLoading = false; });
+	$rootScope
+		.$on('$routeChangeStart', function( evt, curr, prev ) {
+
+			$rootScope.mainNavAutocloseTimer = $timeout(function(){
+				$rootScope.mainNavOpen = false;
+				$rootScope.mainIsOverlayed = false;
+			}, 500 );
+
+		});
 
 	$rootScope
 		.$on('$routeChangeSuccess', function( evt, curr, prev ) {
@@ -86,7 +91,11 @@ angular.module('app').run(['$rootScope', '$route', '$location', '$window', '$tim
 
 			$rootScope.viewClass = viewClass;
 			$rootScope.navState = viewClass;
-			// $timeout(function(){ $rootScope.forceCloseMainNav = false; }, 500);
+
+			if ( viewClass == 'home' ) {
+				$rootScope.mainNavOpen = false;
+				$rootScope.mainIsOverlayed = false;
+			}
 		
 			//``````````````````````````````
 			//	Trigger ‘routeChangeSuccess’

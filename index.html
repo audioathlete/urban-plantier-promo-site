@@ -48,11 +48,11 @@
         <div id="main" ng-class="{ 'faded': ( mainIsOverlayed || mainIsLoading ) && viewClass != 'home' }">
             <div ng-view class="view {{viewClass}}"></div>
             <!-- <div id="main-overlay" ng-show="mainIsOverlayed"></div> -->
-            <div class="spinner" ng-show="mainIsLoading">Loading...</div>
+            <div class="spinner" ng-show="mainIsLoading"><span>Loading...</span></div>
         </div>
 
 
-        <nav id="main-nav" class="main-nav" ng-class="{ 'collapsible': collapseMenu, 'closed': forceCloseMainNav }"></nav>
+        <nav id="main-nav" class="main-nav" ng-class="{ 'collapsible': collapseMenu, 'open': mainNavOpen }"></nav>
 
 
         <div id="bg-city-panorama"></div>
